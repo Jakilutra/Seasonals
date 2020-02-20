@@ -6,15 +6,16 @@
                     background-color: powderblue;
                     text-align: center;
                 }
-                h1   {
+                h1 {
                       color: blue;
                 }
-                h4    {
+                h4 {
                   color: blue; 
                   line-height: 0;
                 }
-                .drow1 {display:inline-block;}
-                .drow2 {display:inline-block;}
+                .div-inline {
+                    display:inline-block;
+                }
                 .tarea {
                     resize: none;
                     border : 2px solid black;
@@ -25,24 +26,25 @@
         </head>
         <body>
             <h1> Double Elimination Pairings Positioner </h1>
-            <div class="drow1">
+            <div class="div-inline">
                 <h4 align="center"><b><small>Left/Top</small> Winner Bracket Pairings</b></h4>
                 <textarea class="tarea" rows="2" cols="50"></textarea>
             </div>
-            <div class="drow1">
+            <div class="div-inline">
                 <h4 align="center"><b><small>Right/Bottom</small> Winner Bracket Pairings</b></h4>
                 <textarea class="tarea" cols="50"></textarea>
             </div>
             <br/>
-            <div class="drow2">
+            <div class="div-inline">
                 <h4 align="center"><b><small>Left/Top</small> Loser Bracket Pairings</b></h4>
                 <textarea class="tarea" cols="50"></textarea>
              </div>
-            <div class="drow2">
+            <div class="div-inline">
                 <h4 align="center"><b><small>Right/Bottom</small> Loser Bracket Pairings</b></h4>
                 <textarea class="tarea" cols="50">
                 </textarea>
             </div>
+            <br/>
             <div>
                  <button type="button">Position Pairings</button>
             </div>
