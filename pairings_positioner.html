@@ -4,29 +4,43 @@
 <style>
 body {background-color: powderblue;}
 h1   {color: blue;}
-label    {color: blue;}
+p    {color: blue;}
+.inline-div1 {display:inline-block;}
+.inline-div2 {display:inline-block;}
+.inline-textarea1 {
+    resize: none;
+    border : 2px solid black;
+    height:125px;
+}
+.inline-textarea2 {
+    resize: none;
+    border : 2px solid black;
+    height:125px;
+}
 </style>
 </head>
 <body>
   <h1> Double Elimination Pairings Positioner </h1>
-<label for="lpairings1"><b><small>Left/Top</small> Winner Bracket Losers Pairings:</b></label>
-<br />
-<textarea id="tpairings1" rows="4" cols="50">
+<div class="inline-div1">
+    <p align="center"><b><small>Left/Top</small> Winner Bracket Pairings</b></p>
+<textarea class="inline-textarea1" rows="4" cols="50">
 </textarea>
-<br /><br />
-<label for="lpairings2"><b><small>Right/Bottom</small> Winner Bracket Losers Pairings:</b></label>
+</div>
+<div class="inline-div1">
+<p align="center"><b><small>Right/Bottom</small> Winner Bracket Pairings</b></p>
+<textarea class="inline-textarea1" rows="4" cols="50">
+</textarea>
+</div>
 <br/>
-<textarea id="tpairings2" rows="4" cols="50">
+<div class="inline-div2">
+<p align="center"><b><small>Left/Top</small> Loser Bracket Pairings</b></p>
+<textarea class="inline-textarea2" rows="4" cols="50">
 </textarea>
-<br/><br/>
-<label for="lpairings3"><b><small>Left/Top</small> Loser Bracket Winners Pairings:</b></label>
-<br/>
-<textarea id="tpairings3" rows="4" cols="50">
+</div>
+<div class="inline-div2">
+<p align="center"><b><small>Right/Bottom</small> Loser Bracket Pairings</b></p>
+<textarea class="inline-textarea2" rows="4" cols="50">
 </textarea>
-<br/><br/>
-<label for="lpairings4"><b><small>Right/Bottom</small> Loser Bracket Winners Pairings:</b></label>
-<br/>
-<textarea id="tpairings4" rows="4" cols="50">
-</textarea>
+</div>
 </body>
 </html>
