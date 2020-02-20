@@ -21,6 +21,9 @@
                   margin-bottom: 10px;
                   text-align: center;
                 }
+                label {
+                  font-weight: bold;
+                }
                 button {
                     margin-top: 10px;
                 }
@@ -38,7 +41,7 @@
                 #output {
                   border: 3px solid black;
                   font-size: 10px;
-                    height: 100px;
+                  height: 100px;
                 }
             </style>
         </head>
@@ -62,9 +65,66 @@
                 <textarea class="tarea" cols="50"></textarea>
             </div>
             <br/>
-            <div>
-                 <button type="button">Position Pairings</button>
+            <div class='div-inline'>
+            <label>Theme</label>
+                 <select>
+                   <option>Deep Dark</option>
+                   <option>Ice Blue</option>
+                   <option>Malachtite Green</option>
+                   <option>Phlox Purple</option>
+                   <option>Scarlet Red</option>
+                   <option>Standard Silver</option>
+                   <option>Sunny Orange</option>
+                 </select>
+                 <label><b>Round</b></label>
+                 <select>
+                   <option>1</option>
+                   <option>2</option>
+                   <option>3</option>
+                   <option>4</option>
+                   <option>5</option>
+                   <option>6</option>
+                   <option>7</option>
+                   <option>8</option>
+                   <option>9</option>
+                   <option>10</option>
+                   <option>11</option>
+                   <option>12</option>
+                   <option>13</option>
+                   <option>14</option>
+                   <option>15</option>
+                   <option>16</option>
+                   <option>17</option>
+                   <option>18</option>
+                   <option>19</option>
+                   <option>20</option>
+                 </select>
+                 <label><b>Size</b></label>
+                <select>
+                   <option>1</option>
+                   <option>2</option>
+                   <option>3</option>
+                   <option>4</option>
+                   <option>6</option>
+                   <option>8</option>
+                   <option>12</option>
+                   <option>16</option>
+                   <option>24</option>
+                   <option>32</option>
+                   <option>48</option>
+                   <option>64</option>
+                   <option>96</option>
+                   <option>128</option>
+                   <option>192</option>
+                   <option>256</option>
+                   <option>384</option>
+                   <option>512</option>
+                   <option>768</option>
+                   <option>1024</option>
+                 </select>
             </div>
+            <br/>
+             <button type="button">Position Pairings</button>
             <div>
                 <h4><b>Output</b></h4>
                 <textarea class="tarea" id="output" cols="100"></textarea>
