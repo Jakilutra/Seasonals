@@ -1,3 +1,3 @@
-### Planned Pages
+### Tools
 
-* [Pairings Layerer](https://jakilutra.github.io/Seasonals/pairings_positioner.html)
+* [Pairings Positioner](https://jakilutra.github.io/Seasonals/pairings_positioner.html)
