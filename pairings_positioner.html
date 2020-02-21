@@ -1,167 +1,166 @@
-
 <!DOCTYPE html>
-    <html lang="en">
-        <head>
-            <title>
-                Double Elimination Pairings Positioner
-            </title>
-            <script>
-                function changeTheme(){
-                    var gradients = {
-                        DeepDark: "radial-gradient(circle, rgba(56,56,56,1) 33%, rgba(33,33,33,1) 66%, rgba(0,0,0,0.9971698151917017) 100%)",
-                        IceBlue: "radial-gradient(circle, rgba(204,247,247,1) 33%, rgba(111,215,219,1) 66%, rgba(107,180,184,0.9971698151917017) 100%)",
-                        MalachtiteGreen: "radial-gradient(circle, rgba(95,251,103,1) 33%, rgba(31,247,118,1) 66%, rgba(126,214,173,0.9971698151917017) 100%)",
-                        PhloxPurple: "radial-gradient(circle, rgba(95,251,103,1) 33%, rgba(31,247,118,1) 66%, rgba(126,214,173,0.9971698151917017) 100%)",
-                        ScarletRed: "radial-gradient(circle, rgba(95,251,103,1) 33%, rgba(31,247,118,1) 66%, rgba(126,214,173,0.9971698151917017) 100%)",
-                        StandardSilver: "radial-gradient(circle, rgba(95,251,103,1) 33%, rgba(31,247,118,1) 66%, rgba(126,214,173,0.9971698151917017) 100%)",
-                        SunnyOrange: "radial-gradient(circle, rgba(254,185,62,1) 33%, rgba(255,225,134,1) 66%, rgba(245,233,137,0.9971698151917017) 100%)"
-                    };
-        		    		document.body.style.background = gradients["DeepDark"];
-                    document.body.style.color = "white";
-                    var x = document.getElementsByClassName("tarea");
-                    for (var i in x){
-                        x[i].style.background = "black";
-                        x[i].style.color = "white";
-                        x[i].style.border = "2px solid white";
-                    }
-                    var y = document.getElementsByTagName("select");
-                    for (var j in y){
-                        y[j].style.background = "black";
-                        y[j].style.color = "white";
-                    }
-                    document.getElementByTagName("button").style.background = "black";
-                    document.getElementById("output").style.border = "3px solid white";
-    		    }
-            </script>
-            <style>
-                body {
-                    background: radial-gradient(circle, rgba(254,185,62,1) 33%, rgba(255,225,134,1) 66%, rgba(245,233,137,0.9971698151917017) 100%);
-                    text-align: center;
-                    font-family: georgia;
-                }
-                h1 {
-                      text-decoration: underline;
-                }
-                h4 {
-                  line-height: 0;
-                  margin-top: 10px;
-                  margin-bottom: 10px;
-                  text-align: center;
-                }
-                label {
-                  font-weight: bold;
-                }
-                button {
-                    margin-top: 10px;
-                    font-weight: bold;
-                }
-                .div-inline {
-                    display:inline-block;
-                    margin-top: 10px;
-                }
-                .tarea {
-                    resize: none;
-                    border : 2px solid black;
-                    height: 90px;
-                    margin-right: 20px;
-                    margin-top: 2px;
-                    text-align: center;
-                }
-                #output {
-                  border: 3px solid black;
-                  font-size: 10px;
-                  height: 100px;
-                }
-            </style>
-        </head>
-        <body>
-            <h1> Double Elimination Pairings Positioner </h1>
-            <div><a href="https://jakilutra.github.io/Seasonals/">Home</a> | Progression Extractor | <b>Pairings Positioner</b></div>
-            <div class="div-inline">
-                <h4><b><small>Left/Top</small> Winner Bracket Pairings</b></h4>
-                <textarea class="tarea" cols="50"></textarea>
-            </div>
-            <div class="div-inline">
-                <h4><b><small>Right/Bottom</small> Winner Bracket Pairings</b></h4>
-                <textarea class="tarea" cols="50"></textarea>
-            </div>
-            <br/>
-            <div class="div-inline">
-                <h4><b><small>Left/Top</small> Loser Bracket Pairings</b></h4>
-                <textarea class="tarea" cols="50"></textarea>
-             </div>
-            <div class="div-inline">
-                <h4><b><small>Right/Bottom</small> Loser Bracket Pairings</b></h4>
-                <textarea class="tarea" cols="50"></textarea>
-            </div>
-            <br/>
-            <div class='div-inline'>
-            <label>Theme</label>
-                 <select onchange="changeTheme();">
-                   <option>Deep Dark</option>
-                   <option>Ice Blue</option>
-                   <option>Malachtite Green</option>
-                   <option>Phlox Purple</option>
-                   <option>Scarlet Red</option>
-                   <option>Standard Silver</option>
-                   <option>Sunny Orange</option>
-                 </select>
-                 <label><b>Round</b></label>
-                 <select>
-                   <option>1</option>
-                   <option>2</option>
-                   <option>3</option>
-                   <option>4</option>
-                   <option>5</option>
-                   <option>6</option>
-                   <option>7</option>
-                   <option>8</option>
-                   <option>9</option>
-                   <option>10</option>
-                   <option>11</option>
-                   <option>12</option>
-                   <option>13</option>
-                   <option>14</option>
-                   <option>15</option>
-                   <option>16</option>
-                   <option>17</option>
-                   <option>18</option>
-                   <option>19</option>
-                   <option>20</option>
-                 </select>
-                 <label><b>Size</b></label>
-                <select>
-                   <option>1</option>
-                   <option>2</option>
-                   <option>3</option>
-                   <option>4</option>
-                   <option>6</option>
-                   <option>8</option>
-                   <option>12</option>
-                   <option>16</option>
-                   <option>24</option>
-                   <option>32</option>
-                   <option>48</option>
-                   <option>64</option>
-                   <option>96</option>
-                   <option>128</option>
-                   <option>192</option>
-                   <option>256</option>
-                   <option>384</option>
-                   <option>512</option>
-                   <option>768</option>
-                   <option>1024</option>
-                 </select>
-                 <label><b>Layering</b></label>
-                 <select>
-                       <option>Vertical (suboptimal)</option>
-                       <option>Horizontal (optimal)</option>
-                 </select>                
-            </div>
-            <br/>
-            <button type="button">Position Pairings</button>
-            <div>
-                <textarea class="tarea" id="output" cols="100"></textarea>
-            </div>
-        </body>
-    </html>
+	<html lang="en">
+		<head>
+			<title>
+				Double Elimination Pairings Positioner
+			</title>
+			<script>
+				function changeTheme() {
+					var gradients = {
+						DeepDark: "radial-gradient(circle, rgba(56,56,56,1) 33%, rgba(33,33,33,1) 66%, rgba(0,0,0,0.9971698151917017) 100%)",
+						IceBlue: "radial-gradient(circle, rgba(204,247,247,1) 33%, rgba(111,215,219,1) 66%, rgba(107,180,184,0.9971698151917017) 100%)",
+						MalachtiteGreen: "radial-gradient(circle, rgba(95,251,103,1) 33%, rgba(31,247,118,1) 66%, rgba(126,214,173,0.9971698151917017) 100%)",
+						PhloxPurple: "radial-gradient(circle, rgba(95,251,103,1) 33%, rgba(31,247,118,1) 66%, rgba(126,214,173,0.9971698151917017) 100%)",
+						ScarletRed: "radial-gradient(circle, rgba(95,251,103,1) 33%, rgba(31,247,118,1) 66%, rgba(126,214,173,0.9971698151917017) 100%)",
+						StandardSilver: "radial-gradient(circle, rgba(95,251,103,1) 33%, rgba(31,247,118,1) 66%, rgba(126,214,173,0.9971698151917017) 100%)",
+						SunnyOrange: "radial-gradient(circle, rgba(254,185,62,1) 33%, rgba(255,225,134,1) 66%, rgba(245,233,137,0.9971698151917017) 100%)"
+					};
+					document.body.style.background = gradients["DeepDark"];
+					document.body.style.color = "white";
+					var x = document.getElementsByClassName("tarea");
+					for (var i in x){
+						x[i].style.background = "black";
+						x[i].style.color = "white";
+						x[i].style.border = "2px solid white";
+					}
+					var y = document.getElementsByTagName("select");
+					for (var j in y){
+						y[j].style.background = "black";
+						y[j].style.color = "white";
+					}
+					document.getElementByTagName("button").style.background = "black";
+					document.getElementById("output").style.border = "3px solid white";
+				}
+			</script>
+			<style>
+				body {
+					background: radial-gradient(circle, rgba(254,185,62,1) 33%, rgba(255,225,134,1) 66%, rgba(245,233,137,0.9971698151917017) 100%);
+					text-align: center;
+					font-family: georgia;
+				}
+				h1 {
+					text-decoration: underline;
+				}
+				h4 {
+					line-height: 0;
+					margin-top: 10px;
+					margin-bottom: 10px;
+					text-align: center;
+				}
+				label {
+					font-weight: bold;
+				}
+				button {
+					margin-top: 10px;
+					font-weight: bold;
+				}
+				.div-inline {
+					display:inline-block;
+					margin-top: 10px;
+				}
+				.tarea {
+					resize: none;
+					border : 2px solid black;
+					height: 90px;
+					margin-right: 20px;
+					margin-top: 2px;
+					text-align: center;
+				}
+				#output {
+					border: 3px solid black;
+					font-size: 10px;
+					height: 100px;
+				}
+			</style>
+		</head>
+		<body>
+			<h1> Double Elimination Pairings Positioner </h1>
+			<div><a href="https://jakilutra.github.io/Seasonals/">Home</a> | Progression Extractor | <b>Pairings Positioner</b></div>
+			<div class="div-inline">
+				<h4><b><small>Left/Top</small> Winner Bracket Pairings</b></h4>
+				<textarea class="tarea" cols="50"></textarea>
+			</div>
+			<div class="div-inline">
+				<h4><b><small>Right/Bottom</small> Winner Bracket Pairings</b></h4>
+				<textarea class="tarea" cols="50"></textarea>
+			</div>
+			<br/>
+			<div class="div-inline">
+				<h4><b><small>Left/Top</small> Loser Bracket Pairings</b></h4>
+				<textarea class="tarea" cols="50"></textarea>
+			</div>
+			<div class="div-inline">
+				<h4><b><small>Right/Bottom</small> Loser Bracket Pairings</b></h4>
+				<textarea class="tarea" cols="50"></textarea>
+			</div>
+			<br/>
+			<div class='div-inline'>
+				<label>Theme</label>
+				<select onchange="changeTheme();">
+					<option>Deep Dark</option>
+					<option>Ice Blue</option>
+					<option>Malachtite Green</option>
+					<option>Phlox Purple</option>
+					<option>Scarlet Red</option>
+					<option>Standard Silver</option>
+					<option>Sunny Orange</option>
+				</select>
+				<label><b>Round</b></label>
+				<select>
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+					<option>6</option>
+					<option>7</option>
+					<option>8</option>
+					<option>9</option>
+					<option>10</option>
+					<option>11</option>
+					<option>12</option>
+					<option>13</option>
+					<option>14</option>
+					<option>15</option>
+					<option>16</option>
+					<option>17</option>
+					<option>18</option>
+					<option>19</option>
+					<option>20</option>
+				</select>
+				<label><b>Size</b></label>
+				<select>
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>6</option>
+					<option>8</option>
+					<option>12</option>
+					<option>16</option>
+					<option>24</option>
+					<option>32</option>
+					<option>48</option>
+					<option>64</option>
+					<option>96</option>
+					<option>128</option>
+					<option>192</option>
+					<option>256</option>
+					<option>384</option>
+					<option>512</option>
+					<option>768</option>
+					<option>1024</option>
+				</select>
+				<label><b>Layering</b></label>
+				<select>
+					<option>Vertical (suboptimal)</option>
+					<option>Horizontal (optimal)</option>
+				</select>
+			</div>
+			<br/>
+			<button type="button">Position Pairings</button>
+			<div>
+				<textarea class="tarea" id="output" cols="100"></textarea>
+			</div>
+		</body>
+	</html>
