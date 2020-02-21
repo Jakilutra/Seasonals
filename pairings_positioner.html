@@ -16,7 +16,7 @@
                         StandardSilver: "radial-gradient(circle, rgba(95,251,103,1) 33%, rgba(31,247,118,1) 66%, rgba(126,214,173,0.9971698151917017) 100%)",
                         SunnyOrange: "radial-gradient(circle, rgba(254,185,62,1) 33%, rgba(255,225,134,1) 66%, rgba(245,233,137,0.9971698151917017) 100%)"
                     };
-        		    document.body.style.background = gradients["DeepDark"];
+        		    		document.body.style.background = gradients["DeepDark"];
                     document.body.style.color = "white";
                     var x = document.getElementsByClassName("tarea");
                     for (var i in x){
@@ -24,6 +24,12 @@
                         x[i].style.color = "white";
                         x[i].style.border = "2px solid white";
                     }
+                    var y = document.getElementsByTagName("select");
+                    for (var j in y){
+                        y[j].style.background = "black";
+                        y[j].style.color = "white";
+                    }
+                    document.getElementByTagName("button").style.background = "black";
                     document.getElementById("output").style.border = "3px solid white";
     		    }
             </script>
