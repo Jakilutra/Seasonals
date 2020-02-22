@@ -24,8 +24,6 @@
 					document.body.style.background = gradients[selected];
 						if (selected === "DeepDark"){
 							document.body.style.color = "white";
-							document.getElementById("button").style.background = "black";
-							document.getElementById("button").style.color = "white";
 							for (element of tarea) {
 								element.style.background = "black";
 								element.style.color = "white";
@@ -34,8 +32,6 @@
 						}
 						else {
 							document.body.style.color = "black";
-							document.getElementById("button").style.background = "white";
-							document.getElementById("button").style.color = "black";
 							for (element of tarea) {
 								element.style.background = "white";
 								element.style.color = "black";
@@ -65,8 +61,7 @@
 				button {
 					margin-top: 10px;
 					font-weight: bold;
-                    width: 500px;
-                    background: white;
+					width: 500px;
 				}
 				.div-inline {
 					display:inline-block;
