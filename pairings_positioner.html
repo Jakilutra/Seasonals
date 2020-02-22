@@ -5,7 +5,11 @@
 				Double Elimination Pairings Positioner
 			</title>
 			<script>
-				function changeTheme() {
+				function changeTheme(theme) {
+               		// Declaring variables.
+                    var gradients = {}, tarea = {}, selected = "";
+                    
+                    // Assigning variables.
 					var gradients = {
 						DeepDark: "radial-gradient(circle, rgba(56,56,56,1) 33%, rgba(33,33,33,1) 66%, rgba(0,0,0,0.9971698151917017) 100%)",
 						IceBlue: "radial-gradient(circle, rgba(204,247,247,1) 33%, rgba(111,215,219,1) 66%, rgba(107,180,184,0.9971698151917017) 100%)",
@@ -15,21 +19,29 @@
 						StandardSilver: "radial-gradient(circle, rgba(95,251,103,1) 33%, rgba(31,247,118,1) 66%, rgba(126,214,173,0.9971698151917017) 100%)",
 						SunnyOrange: "radial-gradient(circle, rgba(254,185,62,1) 33%, rgba(255,225,134,1) 66%, rgba(245,233,137,0.9971698151917017) 100%)"
 					};
-					document.body.style.background = gradients["DeepDark"];
-					document.body.style.color = "white";
-					var x = document.getElementsByClassName("tarea");
-					for (var i in x){
-						x[i].style.background = "black";
-						x[i].style.color = "white";
-						x[i].style.border = "2px solid white";
-					}
-					var y = document.getElementsByTagName("select");
-					for (var j in y){
-						y[j].style.background = "black";
-						y[j].style.color = "white";
-					}
-					document.body.getElementByTagName("button").style.background = "black";
-					document.body.getElementById("output").innerHTML = "3px solid white";
+                    tarea = document.getElementsByClassName("tarea");
+                    selected = theme.value;
+					document.body.style.background = gradients[selected];
+                    if (selected === "DeepDark"){
+                        document.body.style.color = "white";
+						for (var i in tarea){
+                            tarea[i].style.background = "black";
+							tarea[i].style.color = "white";
+							tarea[i].style.border = (tarea [i].id === "output") ? "3px solid white" : "2px solid white";
+                        }
+                        document.body.getElementById("button").style.background = "black";
+                        document.body.getElementById("output").style.background = "3px solid white";
+                    }
+                    else {
+                        document.body.style.color = "black";
+                    	for (var i in tarea){
+                            tarea[i].style.background = "white";
+							tarea[i].style.color = "black";
+							tarea[i].style.border = (tarea [i].id === "output") ? "3px solid black" : "2px solid black";
+                        }
+                        document.body.getElementById("button").style.background = "white";
+                        document.body.getElementById("output").style.background = "3px solid black";
+                    }
 				}
 			</script>
 			<style>
@@ -96,14 +108,14 @@
 			<br/>
 			<div class='div-inline'>
 				<label>Theme</label>
-				<select onchange="changeTheme();">
-					<option>Deep Dark</option>
-					<option>Ice Blue</option>
-					<option>Malachtite Green</option>
-					<option>Phlox Purple</option>
-					<option>Scarlet Red</option>
-					<option>Standard Silver</option>
-					<option>Sunny Orange</option>
+				<select onchange="changeTheme(this);">
+					<option value="DeepDark">Deep Dark</option>
+					<option value="IceBlue">Ice Blue</option>
+					<option value="MalachtiteGreen">Malachtite Green</option>
+					<option value="PhloxPurple">Phlox Purple</option>
+					<option value="ScarletRed">Scarlet Red</option>
+					<option value="StandardSilver">Standard Silver</option>
+					<option value="SunnyOrange">Sunny Orange</option>
 				</select>
 				<label><b>Round</b></label>
 				<select>
@@ -158,7 +170,7 @@
 				</select>
 			</div>
 			<br/>
-			<button type="button">Position Pairings</button>
+			<button id="button" type="button">Position Pairings</button>
 			<div>
 				<textarea class="tarea" id="output" cols="100"></textarea>
 			</div>
