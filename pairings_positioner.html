@@ -6,10 +6,10 @@
 			</title>
 			<script>
 				function changeTheme(theme) {
-               				// Declaring variables.
-                    			var gradients = {}, tarea = {}, selected = "";
-                    
-                   			 // Assigning variables.
+					// Declaring variables.
+					var gradients = {}, tarea = {}, selected = "";
+
+					// Assigning variables.
 					var gradients = {
 						DeepDark: "radial-gradient(circle, rgba(56,56,56,1) 33%, rgba(33,33,33,1) 66%, rgba(0,0,0,0.9971698151917017) 100%)",
 						IceBlue: "radial-gradient(circle, rgba(204,247,247,1) 33%, rgba(111,215,219,1) 66%, rgba(107,180,184,0.9971698151917017) 100%)",
@@ -19,29 +19,29 @@
 						StandardSilver: "radial-gradient(circle, rgba(95,251,103,1) 33%, rgba(31,247,118,1) 66%, rgba(126,214,173,0.9971698151917017) 100%)",
 						SunnyOrange: "radial-gradient(circle, rgba(254,185,62,1) 33%, rgba(255,225,134,1) 66%, rgba(245,233,137,0.9971698151917017) 100%)"
 					};
-                    			tarea = document.getElementsByClassName("tarea");
-                    			selected = theme.value;
+					tarea = document.getElementsByClassName("tarea");
+					selected = theme.value;
 					document.body.style.background = gradients[selected];
-                   			if (selected === "DeepDark"){
-                        			document.body.style.color = "white";
-						for (var i in tarea){
-                           				tarea[i].style.background = "black";
-							tarea[i].style.color = "white";
-							tarea[i].style.border = (tarea [i].id === "output") ? "3px solid white" : "2px solid white";
-                        			}
-                       				document.getElementById("button").style.background = "black";
-                        			document.getElementById("output").style.border = "3px solid white";
-                    			}
-                    			else {
-                        			document.body.style.color = "black";
-                    				for (var i in tarea){
-                           				tarea[i].style.background = "white";
-							tarea[i].style.color = "black";
-							tarea[i].style.border = (tarea [i].id === "output") ? "3px solid black" : "2px solid black";
-                       				}
-                       				document.getElementById("button").style.background = "white";
-                        			document.getElementById("output").style.border = "3px solid black";
-                    			}
+						if (selected === "DeepDark"){
+							document.body.style.color = "white";
+							for (var i in tarea) {
+								tarea[i].style.background = "black";
+								tarea[i].style.color = "white";
+								tarea[i].style.border = (tarea [i].id === "output") ? "3px solid white" : "2px solid white";
+							}
+							document.getElementById("button").style.background = "black";
+							document.getElementById("output").style.border = "3px solid white";
+						}
+						else {
+							document.body.style.color = "black";
+							for (var i in tarea) {
+								tarea[i].style.background = "white";
+								tarea[i].style.color = "black";
+								tarea[i].style.border = (tarea [i].id === "output") ? "3px solid black" : "2px solid black";
+							}
+							document.getElementById("button").style.background = "white";
+							document.getElementById("output").style.border = "3px solid black";
+						}
 				}
 			</script>
 			<style>
