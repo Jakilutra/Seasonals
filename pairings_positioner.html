@@ -7,7 +7,7 @@
 			<script>
 				function changeTheme(theme) {
 					// Declaring variables.
-					var gradients = {}, tarea = {}, selected = "";
+					var gradients = {}, tarea = {}, element = {}, selected = "";
 
 					// Assigning variables.
 					var gradients = {
@@ -24,23 +24,23 @@
 					document.body.style.background = gradients[selected];
 						if (selected === "DeepDark"){
 							document.body.style.color = "white";
-							for (var i in tarea) {
-								tarea[i].style.background = "black";
-								tarea[i].style.color = "white";
-								tarea[i].style.border = (tarea[i].id === "output") ? "3px solid white" : "2px solid white";
-							}
 							document.getElementById("button").style.background = "black";
 							document.getElementById("button").style.color = "white";
+							for (element of tarea) {
+								element.style.background = "black";
+								element.style.color = "white";
+								element.style.border = (element.id === "output") ? "3px solid white" : "2px solid white";
+							}
 						}
 						else {
 							document.body.style.color = "black";
-							for (var i in tarea) {
-								tarea[i].style.background = "white";
-								tarea[i].style.color = "black";
-								tarea[i].style.border = (tarea[i].id === "output") ? "3px solid black" : "2px solid black";
-							}
 							document.getElementById("button").style.background = "white";
 							document.getElementById("button").style.color = "black";
+							for (element of tarea) {
+								element.style.background = "white";
+								element.style.color = "black";
+								element.style.border = (element.id === "output") ? "3px solid black" : "2px solid black";
+							}
 						}
 				}
 			</script>
@@ -65,8 +65,8 @@
 				button {
 					margin-top: 10px;
 					font-weight: bold;
-					background: white;
-					width: 500px;
+                    width: 500px;
+                    background: white;
 				}
 				.div-inline {
 					display:inline-block;
