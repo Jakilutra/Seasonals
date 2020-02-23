@@ -5,6 +5,9 @@
 				Double Elimination Pairings Positioner
 			</title>
 			<script>
+				(function(H){
+					H.className=H.className.replace(/\bno-js\b/,'js')
+				})(document.documentElement);
 				function setTheme(){
 					var theme = getCookieValueByRegEx("theme")
 					if (theme === "DeepDark" || theme === "IceBlue" | theme === "MalachtiteGreen" | theme === "PhloxPurple" || theme === "ScarletRed" || theme === "StandardSilver") {
@@ -107,6 +110,14 @@
 					border: 3px solid black;
 					font-size: 10px;
 					height: 100px;
+				}
+				.no-js {
+ 					visibility: hidden;
+ 					opacity: 0;
+				}
+				.js {
+ 					visibility: visible;
+ 					opacity: 1;
 				}
 			</style>
 		</head>
