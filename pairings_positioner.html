@@ -12,6 +12,9 @@
     			    </style>
                         </noscript>
 			<script>
+					$(window).load(function() {
+					    $("body").addClass('all-loaded');
+					});
 				function setTheme(){
 					var theme = getCookieValueByRegEx("theme")
 					if (theme === "DeepDark" || theme === "IceBlue" | theme === "MalachtiteGreen" | theme === "PhloxPurple" || theme === "ScarletRed" || theme === "StandardSilver") {
@@ -73,6 +76,10 @@
 					background: radial-gradient(circle, rgba(244,202,46,1) 33%, rgba(240,168,31,1) 66%, rgba(252,131,7,0.9971698151917017) 100%);
 					text-align: center;
 					font-family: georgia;
+					opacity: 0;
+				}
+				body.all-loaded {
+    					opacity: 1;
 				}
 				a:link {
 					color: #0000EE;
