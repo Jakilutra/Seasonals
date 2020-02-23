@@ -8,7 +8,7 @@
 				function setTheme(){
 					var theme = getCookieValueByRegEx("theme");
 					if (theme === "DeepDark" || theme === "IceBlue" | theme === "MalachtiteGreen" | theme === "PhloxPurple" || theme === "ScarletRed" || theme === "StandardSilver") {
-						setTimeout(transitionTheme(theme),5000);
+						setTimeout(transitionTheme(theme),50);
 					}
 				}
 				function transitionTheme(theme){
