@@ -8,9 +8,12 @@
 				function setTheme(){
 					var theme = getCookieValueByRegEx("theme");
 					if (theme === "DeepDark" || theme === "IceBlue" | theme === "MalachtiteGreen" | theme === "PhloxPurple" || theme === "ScarletRed" || theme === "StandardSilver") {
-						document.getElementById("themechange").value = theme;
-						changeTheme(theme);
+						setTimeout(transitionTheme(theme),5000);
 					}
+				}
+				function transitionTheme(theme){
+					document.getElementById("themechange").value = theme;
+					setchangeTheme(theme);
 				}
 				function getCookieValueByRegEx(a, b) {
       					b = document.cookie.match('(^|;)\\s*' + a + '\\s*=\\s*([^;]+)');
