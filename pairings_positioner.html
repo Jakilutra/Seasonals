@@ -6,11 +6,10 @@
 			</title>
 			<script>
 				function setTheme(){
-					var cookie = getCookieValueByRegEx("theme")
-					if (cookie === null){
-						changeTheme(cookie);
+					var themecookie = getCookieValueByRegEx("theme")
+					if (themecookie === null){
+						document.getElementById("themechange").value = themecookie;
 					}
-					console.log(cookie);
 				}
 				function getCookieValueByRegEx(a, b) {
       					b = document.cookie.match('(^|;)\\s*' + a + '\\s*=\\s*([^;]+)');
@@ -129,7 +128,7 @@
 			<br/>
 			<div class='div-inline'>
 				<label>Theme</label>
-				<select onchange="changeTheme(this);">
+				<select id="themechange" onchange="changeTheme(this);">
 					<option value="DeepDark">Deep Dark</option>
 					<option value="IceBlue">Ice Blue</option>
 					<option value="MalachtiteGreen">Malachtite Green</option>
