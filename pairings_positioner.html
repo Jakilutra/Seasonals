@@ -18,9 +18,9 @@
       					b = document.cookie.match('(^|;)\\s*' + a + '\\s*=\\s*([^;]+)');
       					return b ? b.pop() : '';
  				}
-				function changeTheme(theme) {
+				function changeTheme(selected) {
 					// Declaring variables.
-					var gradients = {}, tarea = {}, element = {}, selected = "";
+					var gradients = {}, tarea = {}, element = {};
 
 					// Assigning variables.
 					gradients = {
@@ -33,7 +33,6 @@
 						SunnyOrange: "radial-gradient(circle, rgba(244,202,46,1) 33%, rgba(240,168,31,1) 66%, rgba(252,131,7,0.9971698151917017) 100%)"
 					};
 					tarea = document.getElementsByClassName("tarea");
-					selected = theme;
 					document.body.style.background = gradients[selected];
 						if (selected === "DeepDark"){
 							document.body.style.color = "white";
