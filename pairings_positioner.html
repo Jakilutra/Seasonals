@@ -6,8 +6,7 @@
 			</title>
 			<script>
 				function setTheme(){
-					if (getCookie("theme") == undefined){
-						console.log(getCookie("theme"));
+					if (getCookie("theme") === ""){
 						return;
 					}
 					changeTheme(getCookie("theme"));
