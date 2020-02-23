@@ -6,26 +6,15 @@
 			</title>
 			<script>
 				function setTheme(){
-					if (getCookie("theme") === ""){
-						return;
+					var cookie = getCookieValueByRegEx("theme")
+					if (cookie !== ""){
+						changeTheme(cookie);
 					}
-					changeTheme(getCookie("theme"));
 				}
-				function getCookie(cname) {
-  					var name = cname + "=";
- 					var decodedCookie = decodeURIComponent(document.cookie);
- 					var ca = decodedCookie.split(';');
-  					for(var i = 0; i <ca.length; i++) {
-						var c = ca[i];
-    						while (c.charAt(0) == ' ') {
-      							c = c.substring(1);
-  						}
-   						if (c.indexOf(name) == 0) {
-      							return c.substring(name.length, c.length);
-    						}
-  					}
-  					return "";
-				}
+				function getCookieValueByRegEx(a, b) {
+      					b = document.cookie.match('(^|;)\\s*' + a + '\\s*=\\s*([^;]+)');
+      					return b ? b.pop() : '';
+ 				}
 				function changeTheme(theme) {
 					// Declaring variables.
 					var gradients = {}, tarea = {}, element = {}, selected = "";
