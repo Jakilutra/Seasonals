@@ -6,6 +6,9 @@
 			</title>
 			<script>
 				function setTheme(){
+					if (getCookie("theme") == undefined){
+						return;
+					}
 					changeTheme(getCookie("theme"));
 				}
 				function getCookie(cname) {
