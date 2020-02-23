@@ -5,7 +5,6 @@
 				Double Elimination Pairings Positioner
 			</title>
 			<script>
-				document.body.style.display = "";
 				function setTheme(){
 					var theme = getCookieValueByRegEx("theme")
 					if (theme === "DeepDark" || theme === "IceBlue" | theme === "MalachtiteGreen" | theme === "PhloxPurple" || theme === "ScarletRed" || theme === "StandardSilver") {
@@ -61,6 +60,7 @@
 						expires = "expires="+ d.toUTCString();
 						document.cookie = "theme=" + selected + ";" + expires;
 				}
+				document.body.style.display = "block";
 			</script>
 			<style>
 				body {
