@@ -7,7 +7,7 @@
 			<script>
 				function setTheme(){
 					var theme = getCookieValueByRegEx("theme")
-					if (theme !== null){
+					if (theme === "DeepDark" || theme === "IceBlue" | theme === "MalachtiteGreen" | theme === "PhloxPurple" || theme === "ScarletRed" || theme === "StandardSilver" ||  theme === "SunnyOrange") {
 						document.getElementById("themechange").value = theme;
 					}
 					console.log(theme);
