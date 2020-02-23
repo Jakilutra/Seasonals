@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-	<html lang="en">
+	<html lang="en" class="no-js">
 		<head>
 			<title>
 				Double Elimination Pairings Positioner
@@ -60,6 +60,19 @@
 						document.cookie = "theme=" + selected + ";" + expires;
 				}
 			</script>
+				<script src="//ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+	
+	
+	<script src="https://github.com/Modernizr/Modernizr/raw/master/modernizr.js"></script>
+	<script>
+		// Wait for window load
+		$(window).load(function() {
+			// Animate loader off screen
+			$("#loader").animate({
+				top: -200
+			}, 1500);
+		});
+	</script>	
 			<style>
 				body {
 					background: radial-gradient(circle, rgba(244,202,46,1) 33%, rgba(240,168,31,1) 66%, rgba(252,131,7,0.9971698151917017) 100%);
@@ -106,9 +119,17 @@
 					font-size: 10px;
 					height: 100px;
 				}
+						/* This only works with JavaScript, 
+		   if it's not present, don't show loader */
+		.no-js #loader { display: none;  }
+		.js #loader { display: block; position: absolute; left: 100px; top: 0; 
 			</style>
 		</head>
 		<body onload="setTheme();">
+				<img src="download.png" id="loader">
+	
+	
+	<img src="//farm6.static.flickr.com/5299/5400751421_55d49b2786_o.jpg">
 			<h1> Double Elimination Pairings Positioner </h1>
 			<div><a href="https://jakilutra.github.io/Seasonals/" id="home">Home</a> | Progression Extractor | <b>Pairings Positioner</b></div>
 			<div class="div-inline">
