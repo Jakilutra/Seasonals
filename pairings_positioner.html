@@ -63,6 +63,7 @@
 						d.setTime(d.getTime() + (36500*24*60*60*1000));
 						expires = "expires="+ d.toUTCString();
 						document.cookie = "theme=" + selected + ";" + expires + ";path=/";
+						console.log(document.cookie);
 				}
 			</script>
 			<style>
