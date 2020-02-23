@@ -5,12 +5,30 @@
 				Double Elimination Pairings Positioner
 			</title>
 			<script>
+				function setTheme(){
+					changeTheme(getGookie("theme"));
+				}
+				function getCookie(cname) {
+  					var name = cname + "=";
+ 					var decodedCookie = decodeURIComponent(document.cookie);
+ 					var ca = decodedCookie.split(';');
+  					for(var i = 0; i <ca.length; i++) {
+						var c = ca[i];
+    						while (c.charAt(0) == ' ') {
+      							c = c.substring(1);
+  						}
+   						if (c.indexOf(name) == 0) {
+      							return c.substring(name.length, c.length);
+    						}
+  					}
+  					return "";
+				}
 				function changeTheme(theme) {
 					// Declaring variables.
 					var gradients = {}, tarea = {}, element = {}, selected = "";
 
 					// Assigning variables.
-					var gradients = {
+					gradients = {
 						DeepDark: "radial-gradient(circle, rgba(56,56,56,1) 33%, rgba(33,33,33,1) 66%, rgba(0,0,0,0.9971698151917017) 100%)",
 						IceBlue: "radial-gradient(circle, rgba(204,247,247,1) 33%, rgba(111,215,219,1) 66%, rgba(107,180,184,0.9971698151917017) 100%)",
 						MalachtiteGreen: "radial-gradient(circle, rgba(183,240,166,1) 33%, rgba(128,255,100,1) 66%, rgba(15,194,2,0.9971698151917017) 100%)",
@@ -40,6 +58,11 @@
 								element.style.border = (element.id === "output") ? "3px solid black" : "2px solid black";
 							}
 						}
+						// cookie
+						var d = new Date(), expires = "";
+						d.setTime(d.getTime() + (36500*24*60*60*1000));
+						expires = "expires="+ d.toUTCString();
+						document.cookie = "theme=" + selected + ";" + expires;
 				}
 			</script>
 			<style>
@@ -90,7 +113,7 @@
 				}
 			</style>
 		</head>
-		<body>
+		<body onload="setTheme()">
 			<h1> Double Elimination Pairings Positioner </h1>
 			<div><a href="https://jakilutra.github.io/Seasonals/" id="home">Home</a> | Progression Extractor | <b>Pairings Positioner</b></div>
 			<div class="div-inline">
