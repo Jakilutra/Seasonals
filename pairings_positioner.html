@@ -7,10 +7,12 @@
 			<script>
 				function setTheme(){
 					var theme = getCookieValueByRegEx("theme")
-					if (theme === "DeepDark" || theme === "IceBlue" | theme === "MalachtiteGreen" | theme === "PhloxPurple" || theme === "ScarletRed" || theme === "StandardSilver" ||  theme === "SunnyOrange") {
+					if (theme === "DeepDark" || theme === "IceBlue" | theme === "MalachtiteGreen" | theme === "PhloxPurple" || theme === "ScarletRed" || theme === "StandardSilver") {
 						document.getElementById("themechange").value = theme;
+						changeTheme(theme);
+						return;
 					}
-					console.log(theme);
+					document.getElementById("themechange").value = "SunnyOrange";
 				}
 				function getCookieValueByRegEx(a, b) {
       					b = document.cookie.match('(^|;)\\s*' + a + '\\s*=\\s*([^;]+)');
