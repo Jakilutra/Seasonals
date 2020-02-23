@@ -7,6 +7,7 @@
 			<script>
 				function setTheme(){
 					if (getCookie("theme") == undefined){
+						console.log(getCookie("theme"));
 						return;
 					}
 					changeTheme(getCookie("theme"));
@@ -66,7 +67,6 @@
 						d.setTime(d.getTime() + (36500*24*60*60*1000));
 						expires = "expires="+ d.toUTCString();
 						document.cookie = "theme=" + selected + ";" + expires;
-						console.log(expires);
 				}
 			</script>
 			<style>
