@@ -6,9 +6,9 @@
 			</title>
 			<script>
 				function setTheme(){
-					var themecookie = getCookieValueByRegEx("theme")
-					if (themecookie === null){
-						document.getElementById("themechange").value = themecookie;
+					var theme = getCookieValueByRegEx("theme")
+					if (theme !== null){
+						document.getElementById("themechange").value = theme;
 					}
 				}
 				function getCookieValueByRegEx(a, b) {
