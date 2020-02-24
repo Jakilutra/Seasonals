@@ -5,6 +5,11 @@
 				Double Elimination Pairings Positioner
 			</title>
 			<script>
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+				$('html').addClass('hidden');
+				$(document).ready(function() {
+     			 		$('html').show();
+     				});  
 				function setTheme(){
 					var theme = getCookieValueByRegEx("theme");
 					if (theme === "DeepDark" || theme === "IceBlue" | theme === "MalachtiteGreen" | theme === "PhloxPurple" || theme === "ScarletRed" || theme === "StandardSilver") {
@@ -86,6 +91,9 @@
 					font-weight: bold;
 					width: 500px;
 				}
+				.hidden {
+                			display: none;
+                		}
 				.div-inline {
 					display:inline-block;
 					margin-top: 10px;
