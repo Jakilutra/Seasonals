@@ -6,10 +6,10 @@
 			</title>
 			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 			<script>
-            			document.documentElement.className = 'hidden';
+            			document.documentElement.className = 'no-fouc';
 				$(document).ready(function() {
 					setTheme();
-					$('.hidden').removeClass('hidden');
+					$('.no-fouc').removeClass('no-fouc');
 				});
 				function setTheme(){
 					var theme = getCookieValueByRegEx("theme");
@@ -92,7 +92,7 @@
 					font-weight: bold;
 					width: 500px;
 				}
-				.hidden {
+				.no-fouc {
                 			display: none;
                 		}
 				.div-inline {
