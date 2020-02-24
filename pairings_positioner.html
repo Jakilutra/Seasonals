@@ -10,6 +10,7 @@
 					text-align: center;
 					font-family: georgia;
 				}
+				body:not(.loaded) #slider img {display:none;}
 				a:link {
 					color: #0000EE;
 				}
@@ -114,7 +115,7 @@
 				}
 			</script>
 		</head>
-		<body>
+		<body onload="document.body.classList.add('loaded')>
 			<h1> Double Elimination Pairings Positioner </h1>
 			<div><a href="https://jakilutra.github.io/Seasonals/" id="home">Home</a> | Progression Extractor | <b>Pairings Positioner</b></div>
 			<div class="div-inline">
