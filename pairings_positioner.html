@@ -62,16 +62,12 @@
 					$('.no-fouc').removeClass('no-fouc');
 				});
 				function setTheme(){
-					var theme = getCookieValueByRegEx("theme");
+					var theme = localStorage.getItem("theme");
 					if (theme === "DeepDark" || theme === "IceBlue" | theme === "MalachtiteGreen" | theme === "PhloxPurple" || theme === "ScarletRed" || theme === "StandardSilver") {
 						document.getElementById("themechange").value = theme;
 						changeTheme(theme);
 					}
 				}
-				function getCookieValueByRegEx(a, b) {
-      					b = document.cookie.match('(^|;)\\s*' + a + '\\s*=\\s*([^;]+)');
-      					return b ? b.pop() : '';
- 				}
 				function changeTheme(selected) {
 					// Declaring variables.
 					var gradients = {}, tarea = {}, element = {};
@@ -106,11 +102,9 @@
 								element.style.border = (element.id === "output") ? "3px solid black" : "2px solid black";
 							}
 						}
-						// cookie
-						var d = new Date(), expires = "";
-						d.setTime(d.getTime() + (36500*24*60*60*1000));
-						expires = "expires="+ d.toUTCString();
-						document.cookie = "theme=" + selected + ";" + expires;
+					
+						// saving theme for retrieval
+						localStorage.setItem("theme", selected);
 				}
 			</script>
 		</head>
