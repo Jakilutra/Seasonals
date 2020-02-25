@@ -148,6 +148,27 @@
 					document.getElementById("512").innerHTML = "512";
 					document.getElementById("1024").innerHTML = "1024";
 				}
+				function changeParity (parity){
+					if (parity === "odd"){
+						document.getElementById("2").innerHTML = "3";
+						document.getElementById("4").innerHTML = "5";
+						document.getElementById("6").innerHTML = "7";
+						document.getElementById("1000").innerHTML = "9";
+						document.getElementById("10").innerHTML = "11";
+						document.getElementById("12").innerHTML = "13";
+						document.getElementById("14").innerHTML = "15";
+						document.getElementById("10000").innerHTML = "17";
+						return;
+					}
+					document.getElementById("2").innerHTML = "2";
+					document.getElementById("4").innerHTML = "4";
+					document.getElementById("6").innerHTML = "6";
+					document.getElementById("1000").innerHTML = "8";
+					document.getElementById("10").innerHTML = "10";
+					document.getElementById("12").innerHTML = "12";
+					document.getElementById("14").innerHTML = "14";
+					document.getElementById("10000").innerHTML = "16";
+				}
 			</script>
 		</head>
 		<body>
@@ -198,19 +219,19 @@
 					<option id="1024">1024</option>
 				</select>
 				<label class="small"><b>Round</b></label>
-				<select class="small">
-					<option selected>Even</option>
-					<option>Odd</option>
+				<select class="small" onchange="changeParity(this.value)">
+					<option value="even" selected>Even</option>
+					<option value="odd">Odd</option>
 				</select>
 				<select class="small">
-					<option selected>2</option>
-					<option>4</option>
-					<option>6</option>
-					<option>8</option>
-					<option>10</option>
-					<option>12</option>
-					<option>14</option>
-					<option>16</option>
+					<option id="2" selected>2</option>
+					<option id="4">4</option>
+					<option id="6">6</option>
+					<option id="1000">8</option>
+					<option id="10">10</option>
+					<option id="12">12</option>
+					<option id="14">14</option>
+					<option id="10000">16</option>
 				</select>
 				<label class="small"><b>Method</b></label>
 				<select class="small">
