@@ -160,6 +160,9 @@
 						document.getElementById("10000").innerHTML = "17";
 						return;
 					}
+					if (document.getElementById("round").options.selectedIndex !== 7){
+						document.getElementById("round").options.selectedIndex++;
+					}
 					document.getElementById("2").innerHTML = "2";
 					document.getElementById("4").innerHTML = "4";
 					document.getElementById("6").innerHTML = "6";
@@ -223,7 +226,7 @@
 					<option value="even" selected>Even</option>
 					<option value="odd">Odd</option>
 				</select>
-				<select class="small">
+				<select id="round" class="small">
 					<option id="2" selected>2</option>
 					<option id="4">4</option>
 					<option id="6">6</option>
