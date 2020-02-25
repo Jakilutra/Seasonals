@@ -109,6 +109,14 @@
 						// saving theme for retrieval
 						localStorage.setItem("theme", selected);
 				}
+				function reversal () {
+					var isReverse = document.getElementById("reverse").checked
+					if (isReverse){
+						document.getElementById("button").innerHTML = "De-Construct Pairings";
+						return;
+					}
+					document.getElementById("button").innerHTML = "Construct Pairings";
+				}
 			</script>
 		</head>
 		<body>
@@ -181,7 +189,7 @@
 			</div>
 			<br/>
 			<button id="button" type="button">Construct Pairings</button>
-			<input type="checkbox" id="reverse" value="reverse">
+			<input type="checkbox" id="reverse" value="reverse" onchange="reversal(this.value)">
 			<label for="reverse" class="small">Reverse</label>
 			<div>
 				<textarea class="tarea" id="output" cols="100" readonly></textarea>
