@@ -61,15 +61,26 @@
 			<script>
 				document.documentElement.className = 'no-fouc';
 				$(document).ready(function() {
-					setTheme();
+					startUp();
 					$('.no-fouc').removeClass('no-fouc');
 				});
-				function setTheme() {
-					var theme = localStorage.getItem("theme");
+				function startUp () {
+					
+					// Declaring variables.
+					var theme = "", reverse = false;
+					
+					// Assigning stored variables
+					theme = localStorage.getItem("theme");
+					reverse = localStorage.getItem("reverse");
+					
+					// Setting stored defaults.
+					
 					if (theme === "DeepDark" || theme === "IceBlue" | theme === "MalachtiteGreen" | theme === "PhloxPurple" || theme === "ScarletRed" || theme === "StandardSilver") {
 						document.getElementById("themechange").value = theme;
 						changeTheme(theme);
 					}
+					document.getElementById("reverse").checked = reverse;
+					reversal();
 				}
 				function changeTheme(selected) {
 					// Declaring variables.
@@ -111,6 +122,10 @@
 				}
 				function reversal () {
 					var isReverse = document.getElementById("reverse").checked;
+					
+					// saving checkbox boolean for retrieval
+					localStorage.setItem("reverse", isReverse);
+					
 					if (isReverse){
 						document.getElementById("button").innerHTML = "De-Construct Pairings";
 						document.getElementById("top-left").readOnly = true;
