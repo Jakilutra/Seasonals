@@ -113,9 +113,19 @@
 					var isReverse = document.getElementById("reverse").checked;
 					if (isReverse){
 						document.getElementById("button").innerHTML = "De-Construct Pairings";
+						document.getElementById("top-left").readOnly = true;
+						document.getElementById("top-right").readOnly = true;
+						document.getElementById("bottom-left").readOnly = true;
+						document.getElementById("bottom-right").readOnly = true;
+						document.getElementById("output").readOnly = false;
 						return;
 					}
 					document.getElementById("button").innerHTML = "Construct Pairings";
+					document.getElementById("top-left").readOnly = false;
+					document.getElementById("top-right").readOnly = false;
+					document.getElementById("bottom-left").readOnly = false;
+					document.getElementById("bottom-right").readOnly = false;
+					document.getElementById("output").readOnly = true;
 				}
 			</script>
 		</head>
@@ -124,20 +134,20 @@
 			<div><a href="https://jakilutra.github.io/Seasonals/" id="home">Home</a> | Progression Extractor | <b>Pairings Positioner</b></div>
 			<div class="div-inline">
 				<h4><b><small>Left/Top</small> Winner Bracket Pairings</b></h4>
-				<textarea class="tarea" cols="50"></textarea>
+				<textarea id="top-left" class="tarea" cols="50"></textarea>
 			</div>
 			<div class="div-inline">
 				<h4><b><small>Right/Bottom</small> Winner Bracket Pairings</b></h4>
-				<textarea class="tarea" cols="50"></textarea>
+				<textarea id="top-right" class="tarea" cols="50"></textarea>
 			</div>
 			<br/>
 			<div class="div-inline">
 				<h4><b><small>Left/Top</small> Loser Bracket Pairings</b></h4>
-				<textarea class="tarea" cols="50"></textarea>
+				<textarea id="bottom-left" class="tarea" cols="50"></textarea>
 			</div>
 			<div class="div-inline">
 				<h4><b><small>Right/Bottom</small> Loser Bracket Pairings</b></h4>
-				<textarea class="tarea" cols="50"></textarea>
+				<textarea id="bottom-right" class="tarea" cols="50"></textarea>
 			</div>
 			<br/>
 			<div class='div-inline'>
