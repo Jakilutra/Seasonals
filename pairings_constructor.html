@@ -67,11 +67,11 @@
 				function startUp () {
 					
 					// Declaring variables.
-					var theme = "", isReverse = false;
+					var theme = "", reverse = false;
 					
 					// Assigning stored variables
 					theme = localStorage.getItem("theme");
-					isReverse = localStorage.getItem("reverse");
+					reverse = localStorage.getItem("reverse");
 					
 					// Setting stored defaults.
 					
@@ -79,7 +79,7 @@
 						document.getElementById("themechange").value = theme;
 						changeTheme(theme);
 					}
-					if (isReverse){
+					if (reverse === "true"){
 						document.getElementById("reverse").checked = true;
 						reversal();
 					}
