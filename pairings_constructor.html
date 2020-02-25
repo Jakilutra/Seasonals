@@ -127,6 +127,27 @@
 					document.getElementById("bottom-right").readOnly = false;
 					document.getElementById("output").readOnly = true;
 				}
+				function scale (multiplier) {
+					if (multiplier === "1.5"){
+						document.getElementById("8").innerHTML = "12";
+						document.getElementById("16").innerHTML = "24";
+						document.getElementById("32").innerHTML = "48";
+						document.getElementById("64").innerHTML = "96";
+						document.getElementById("128").innerHTML = "192";
+						document.getElementById("256").innerHTML = "384";
+						document.getElementById("512").innerHTML = "768";
+						document.getElementById("1024").innerHTML = "1536";
+						return;
+					}
+					document.getElementById("8").innerHTML = "8";
+					document.getElementById("16").innerHTML = "16";
+					document.getElementById("32").innerHTML = "32";
+					document.getElementById("64").innerHTML = "64";
+					document.getElementById("128").innerHTML = "128";
+					document.getElementById("256").innerHTML = "256";
+					document.getElementById("512").innerHTML = "512";
+					document.getElementById("1024").innerHTML = "1024";
+				}
 			</script>
 		</head>
 		<body>
@@ -162,19 +183,19 @@
 					<option value="SunnyOrange" selected>Sunny Orange</option>
 				</select>
 				<label class="small"><b>Size</b></label>
-				<select class="small">
-					<option selected>1.0 ×</option>
-					<option>1.5 ×</option>
+				<select class="small" onchange="scale(this.value)">
+					<option value="1"selected>1.0 ×</option>
+					<option value="1.5">1.5 ×</option>
 				</select>
 				<select class="small">
-					<option>8</option>
-					<option>16</option>
-					<option>32</option>
-					<option selected>64</option>
-					<option>128</option>
-					<option>256</option>
-					<option>512</option>
-					<option>1024</option>
+					<option id="8">8</option>
+					<option id="16">16</option>
+					<option id="32">32</option>
+					<option id="64"selected>64</option>
+					<option id="128">128</option>
+					<option id="256">256</option>
+					<option id="512">512</option>
+					<option id="1024">1024</option>
 				</select>
 				<label class="small"><b>Round</b></label>
 				<select class="small">
@@ -199,7 +220,7 @@
 			</div>
 			<br/>
 			<button id="button" type="button">Construct Pairings</button>
-			<input type="checkbox" id="reverse" value="reverse" onchange="reversal(this.value)">
+			<input type="checkbox" id="reverse" value="reverse" onchange="reversal()">
 			<label for="reverse" class="small">Reverse</label>
 			<div>
 				<textarea class="tarea" id="output" cols="100" readonly></textarea>
