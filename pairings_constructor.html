@@ -79,8 +79,10 @@
 						document.getElementById("themechange").value = theme;
 						changeTheme(theme);
 					}
-					document.getElementById("reverse").checked = reverse;
-					reversal();
+					if (reverse === true | reverse === false){
+						document.getElementById("reverse").checked = reverse;
+						reversal();
+					}
 				}
 				function changeTheme(selected) {
 					// Declaring variables.
