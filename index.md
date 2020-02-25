@@ -1,3 +1,3 @@
 ### Tools
 
-* [Pairings Positioner](https://jakilutra.github.io/Seasonals/pairings_positioner.html)
+* [Pairings Constructor](https://jakilutra.github.io/Seasonals/pairings_constructor.html)
