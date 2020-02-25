@@ -79,7 +79,7 @@
 						document.getElementById("themechange").value = theme;
 						changeTheme(theme);
 					}
-					if (reverse === "true" | reverse === "false"){
+					if (typeof reverse === boolean){
 						document.getElementById("reverse").checked = reverse;
 						reversal();
 					}
