@@ -67,11 +67,12 @@
 				function startUp () {
 					
 					// Declaring variables.
-					var theme = "", reverse = false;
+					var theme = "", reverse = "", multiplier;
 					
 					// Assigning stored variables
 					theme = localStorage.getItem("theme");
 					reverse = localStorage.getItem("reverse");
+					multiplier = localStorage.getItem("multiplier");
 					
 					// Setting stored defaults.
 					
@@ -82,6 +83,10 @@
 					if (reverse === "true"){
 						document.getElementById("reverse").checked = true;
 						reversal();
+					}
+					if (multiplier === "1.5"){
+						document.getElementById("scaler").options.selectedIndex = 1;
+						scale(multiplier);
 					}
 				}
 				function changeTheme(selected) {
@@ -145,6 +150,10 @@
 					document.getElementById("output").readOnly = true;
 				}
 				function scale (multiplier) {
+					
+					// saving multiplier for retrieval
+					localStorage.setItem("multiplier", multiplier);
+					
 					if (multiplier === "1.5"){
 						document.getElementById("8").innerHTML = "12";
 						document.getElementById("16").innerHTML = "24";
@@ -224,7 +233,7 @@
 					<option value="SunnyOrange" selected>Sunny Orange</option>
 				</select>
 				<label class="small"><b>Size</b></label>
-				<select class="small" onchange="scale(this.value)">
+				<select id="scaler" class="small" onchange="scale(this.value)">
 					<option value="1"selected>1.0 ×</option>
 					<option value="1.5">1.5 ×</option>
 				</select>
