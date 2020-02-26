@@ -24,6 +24,7 @@
 					margin-top: 10px;
 					margin-bottom: 10px;
 					text-align: center;
+					font-size: 13px;
 				}
 				label {
 					font-weight: bold;
@@ -192,6 +193,8 @@
 						document.getElementById("10").innerHTML = "11";
 						document.getElementById("12").innerHTML = "13";
 						document.getElementById("14").innerHTML = "15";
+						document.getElementById("W1").innerHTML = "<b><small>Left/Top</small> Winner Bracket <small>Losers</small> Pairings</b>";
+						document.getElementById("W2").innerHTML = "<b><small>Right/Bottom</small> Winner Bracket <small>Losers</small> Pairings</b>";
 						return;
 					}
 					if (document.getElementById("round").options.selectedIndex !== 6){
@@ -204,6 +207,8 @@
 					document.getElementById("10").innerHTML = "10";
 					document.getElementById("12").innerHTML = "12";
 					document.getElementById("14").innerHTML = "14";
+					document.getElementById("W1").innerHTML = "<b><small>Left/Top</small> Winner Bracket <small>Winners</small> Pairings</b>";
+					document.getElementById("W2").innerHTML = "<b><small>Right/Bottom</small> Winner Bracket <small>Winners</small> Pairings</b>";
 				}
 				function tidy (name, text) {
 					var newtext = "";
@@ -216,20 +221,20 @@
 			<h1> Double Elimination Pairings Constructor </h1>
 			<div><a href="https://jakilutra.github.io/Seasonals/" id="home">Home</a> | Progression Extractor | <b>Pairings Constructor</b></div>
 			<div class="div-inline">
-				<h4><b><small>Left/Top</small> Winner Bracket Pairings</b></h4>
+				<h4 id="W1"><b><small>Left/Top</small> Winner Bracket <small>Winners</small> Pairings</b></h4>
 				<textarea onkeyup="tidy(this.name, this.value);" name= "top-left" id="top-left" class="tarea" cols="50" placeholder="Copy and paste text from the bracketmaker directly."></textarea>
 			</div>
 			<div class="div-inline">
-				<h4><b><small>Right/Bottom</small> Winner Bracket Pairings</b></h4>
+				<h4 id="W2"><b><small>Right/Bottom</small> Winner Bracket <small>Winners</small> Pairings</b></h4>
 				<textarea onkeyup="tidy(this.name, this.value);" name= "top-right" id="top-right" class="tarea" cols="50" placeholder="Copy and paste text from the bracketmaker directly."></textarea>
 			</div>
 			<br/>
 			<div class="div-inline">
-				<h4><b><small>Left/Top</small> Loser Bracket Pairings</b></h4>
+				<h4 id="L1"><b><small>Left/Top</small> Loser Bracket <small>Winners</small> Pairings</b></h4>
 				<textarea onkeyup="tidy(this.name, this.value);" name= "bottom-left" id="bottom-left" class="tarea" cols="50" placeholder="Copy and paste text from the bracketmaker directly."></textarea>
 			</div>
 			<div class="div-inline">
-				<h4><b><small>Right/Bottom</small> Loser Bracket Pairings</b></h4>
+				<h4 id="L2"><b><small>Right/Bottom</small> Loser Bracket <small>Winners</small> Pairings</b></h4>
 				<textarea onkeyup="tidy(this.name, this.value);" name= "bottom-right" id="bottom-right" class="tarea" cols="50" placeholder="Copy and paste text from the bracketmaker directly."></textarea>
 			</div>
 			<br/>
