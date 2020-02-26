@@ -173,7 +173,6 @@
 						document.getElementById("128").innerHTML = "192";
 						document.getElementById("256").innerHTML = "384";
 						document.getElementById("512").innerHTML = "768";
-						document.getElementById("1024").innerHTML = "1536";
 						return;
 					}
 					document.getElementById("8").innerHTML = "8";
@@ -183,7 +182,6 @@
 					document.getElementById("128").innerHTML = "128";
 					document.getElementById("256").innerHTML = "256";
 					document.getElementById("512").innerHTML = "512";
-					document.getElementById("1024").innerHTML = "1024";
 				}
 				function changeParity (parity){
 					if (parity === "odd"){
@@ -194,10 +192,9 @@
 						document.getElementById("10").innerHTML = "11";
 						document.getElementById("12").innerHTML = "13";
 						document.getElementById("14").innerHTML = "15";
-						document.getElementById("10000").innerHTML = "17";
 						return;
 					}
-					if (document.getElementById("round").options.selectedIndex !== 7){
+					if (document.getElementById("round").options.selectedIndex !== 6){
 						document.getElementById("round").options.selectedIndex++;
 					}
 					document.getElementById("2").innerHTML = "2";
@@ -207,7 +204,6 @@
 					document.getElementById("10").innerHTML = "10";
 					document.getElementById("12").innerHTML = "12";
 					document.getElementById("14").innerHTML = "14";
-					document.getElementById("10000").innerHTML = "16";
 				}
 				function tidy (name, text) {
 					var newtext = "";
@@ -261,7 +257,6 @@
 					<option id="128">128</option>
 					<option id="256">256</option>
 					<option id="512">512</option>
-					<option id="1024">1024</option>
 				</select>
 				<label class="small"><b>Round</b></label>
 				<select class="small" onchange="changeParity(this.value);">
@@ -276,7 +271,6 @@
 					<option id="10">10</option>
 					<option id="12">12</option>
 					<option id="14">14</option>
-					<option id="10000">16</option>
 				</select>
 				<label class="small"><b>Method</b></label>
 				<select class="small">
