@@ -210,7 +210,9 @@
 					document.getElementById("10000").innerHTML = "16";
 				}
 				function tidy (name, text) {
-					document.getElementById(name).value = text.replace(/\n\n/g,"\n").replace(/^\n/,"");
+					var newtext = "";
+					newtext = text.replace(/\n\n/g,"\n").replace(/^\n/,"");
+					document.getElementById(name).value = newtext;				
 				}
 			</script>
 		</head>
