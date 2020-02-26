@@ -137,18 +137,28 @@
 					if (isReverse){
 						document.getElementById("button").innerHTML = "De-Construct Pairings";
 						document.getElementById("top-left").readOnly = true;
+						document.getElementById("top-left").placeholder = "De-merged output will be displayed here.";
 						document.getElementById("top-right").readOnly = true;
+						document.getElementById("top-right").placeholder = "De-merged output will be displayed here.";
 						document.getElementById("bottom-left").readOnly = true;
+						document.getElementById("bottom-left").placeholder = "De-merged output will be displayed here.";
 						document.getElementById("bottom-right").readOnly = true;
+						document.getElementById("bottom-right").placeholder = "De-merged output will be displayed here.";
 						document.getElementById("output").readOnly = false;
+						document.getElementById("output").placeholder = "Copy and paste previously merged output text here."
 						return;
 					}
 					document.getElementById("button").innerHTML = "Construct Pairings";
 					document.getElementById("top-left").readOnly = false;
+					document.getElementById("top-left").placeholder = "Copy and paste text from the bracketmaker directly.";
 					document.getElementById("top-right").readOnly = false;
+					document.getElementById("top-right").placeholder = "Copy and paste text from the bracketmaker directly.";
 					document.getElementById("bottom-left").readOnly = false;
+					document.getElementById("bottom-left").placeholder = "Copy and paste text from the bracketmaker directly.";
 					document.getElementById("bottom-right").readOnly = false;
+					document.getElementById("bottom-right").placeholder = "Copy and paste text from the bracketmaker directly.";
 					document.getElementById("output").readOnly = true;
+					document.getElementById("output").placeholder = "Merged output will be displayed here.";
 				}
 				function scale (multiplier) {
 					
@@ -274,7 +284,7 @@
 			<input type="checkbox" id="reverse" value="reverse" onchange="reversal()">
 			<label for="reverse" class="small">Reverse</label>
 			<div>
-				<textarea class="tarea" id="output" cols="100" placeholder="Final output will be displayed here." readonly></textarea>
+				<textarea class="tarea" id="output" cols="100" placeholder="Merged output will be displayed here." readonly></textarea>
 			</div>
 		</body>	
 	</html>
