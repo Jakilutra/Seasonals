@@ -69,12 +69,13 @@
 				function startUp () {
 					
 					// Declaring variables.
-					var theme = "", reverse = "", multiplier;
+					var theme = "", reverse = "", multiplier = "", size = "";
 					
 					// Assigning stored variables
 					theme = localStorage.getItem("theme");
 					reverse = localStorage.getItem("reverse");
 					multiplier = localStorage.getItem("multiplier");
+					size = localStorage.getItem("size");
 					
 					// Setting stored defaults.
 					
@@ -89,6 +90,10 @@
 					if (multiplier === "1.5"){
 						document.getElementById("scaler").options.selectedIndex = 1;
 						scale(multiplier);
+					}
+					if (size === "8" || size === "16" || size === "32" || size === "64" || size === "128" || size === "256" || size === "512"){
+						document.getElementById("size").value = size;
+						saveSize(size);
 					}
 				}
 				function changeTheme(selected) {
@@ -184,6 +189,10 @@
 					document.getElementById("256").innerHTML = "256";
 					document.getElementById("512").innerHTML = "512";
 				}
+				function saveSize (size){
+					// saving size for retrieval
+					localStorage.setItem("size", size);
+				}
 				function changeParity (parity){
 					if (parity === "odd"){
 						document.getElementById("2").innerHTML = "3";
@@ -254,14 +263,14 @@
 					<option value="1"selected>1.0 ×</option>
 					<option value="1.5">1.5 ×</option>
 				</select>
-				<select class="small">
-					<option id="8">8</option>
-					<option id="16">16</option>
-					<option id="32">32</option>
-					<option id="64"selected>64</option>
-					<option id="128">128</option>
-					<option id="256">256</option>
-					<option id="512">512</option>
+				<select id="size" class="small" onchange="saveSize(this.value);">
+					<option id="8" value="8">8</option>
+					<option id="16" value="16">16</option>
+					<option id="32" value="32">32</option>
+					<option id="64" value="64" selected>64</option>
+					<option id="128" value="128">128</option>
+					<option id="256" value="256">256</option>
+					<option id="512" value="512">512</option>
 				</select>
 				<label class="small"><b>Round</b></label>
 				<select class="small" onchange="changeParity(this.value);">
