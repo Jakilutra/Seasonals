@@ -70,13 +70,14 @@
 					
 					// Declaring variables.
 					var theme = "", multiplier = "", size = "", 
-					    parity = "", reverse = "";
+					    parity = "", method = "", reverse = "";
 					
 					// Assigning stored variables
 					theme = localStorage.getItem("theme");
 					multiplier = localStorage.getItem("multiplier");
 					size = localStorage.getItem("size");
 					parity = localStorage.getItem("parity");
+					method = localStorage.getItem("method");
 					reverse = localStorage.getItem("reverse");
 					
 					// Setting stored defaults.
@@ -96,6 +97,10 @@
 					if (parity === "odd") {
 						document.getElementById("parity").options.selectedIndex = 1;
 						changeParity(parity);
+					}
+					if (method === "Stack") {
+						document.getElementById("method").options.selectedIndex = 0;
+						saveMethod();
 					}
 					if (reverse === "true") {
 						document.getElementById("reverse").checked = true;
@@ -227,6 +232,10 @@
 					document.getElementById("W1").innerHTML = "<b><small>Left/Top</small> Winner Bracket <small>Winners</small> Pairings</b>";
 					document.getElementById("W2").innerHTML = "<b><small>Right/Bottom</small> Winner Bracket <small>Winners</small> Pairings</b>";
 				}
+				function saveMethod (method) {
+					// saving size for retrieval
+					localStorage.setItem("method", method);
+				}
 				function tidy (name, text) {
 					var newtext = "";
 					newtext = text.replace(/\n\n/g,"\n").replace(/^\n/,"");
@@ -295,9 +304,9 @@
 					<option id="14">14</option>
 				</select>
 				<label class="small"><b>Method</b></label>
-				<select class="small">
-					<option>Stack [A1 vs B1] (suboptimal)</option>
-					<option selected>Odd-even [A1 vs B2] (optimal)</option>
+				<select id="method" class="small" onchange="saveMethod(this.value);">
+					<option value="Stack">Stack [A1 vs B1] (suboptimal)</option>
+					<option value="Odd-even" selected>Odd-even [A1 vs B2] (optimal)</option>
 				</select>
 			</div>
 			<br/>
