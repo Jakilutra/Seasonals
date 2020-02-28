@@ -58,6 +58,12 @@
 					border: 3px solid black;
 					height: 130px;
 				}
+				#empty {
+					width: 100px;
+					padding: 0px;
+					margin-left: 20px;
+					font-size: 12px;
+				}
 			</style>
 			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 			<script>
@@ -276,6 +282,18 @@
 					// saving size for inputs and outputs
 					localStorage.setItem(name, newtext);
 				}
+				function empty (){
+					document.getElementById("top-left").value = "";
+					document.getElementById("top-right").value = "";
+					document.getElementById("bottom-left").value = "";
+					document.getElementById("bottom-right").value = "";
+					document.getElementById("output").value = "";
+					localStorage.removeItem("top-left");
+					localStorage.removeItem("top-right");
+					localStorage.removeItem("bottom-left");
+					localStorage.removeItem("bottom-right");
+					localStorage.removeItem("output");
+				}
 			</script>
 		</head>
 		<body>
@@ -348,6 +366,7 @@
 			<button id="button" type="button">Construct Pairings</button>
 			<input type="checkbox" id="reverse" value="reverse" onchange="reversal()">
 			<label for="reverse" class="small">Reverse</label>
+			<button id="empty" type="button" onclick="empty();">🗑 Empty</button>
 			<div>
 				<textarea onkeyup="tidy(this.name, this.value);" name= "output" class="tarea" id="output" cols="100" placeholder="Merged output will be displayed here." readonly></textarea>
 			</div>
