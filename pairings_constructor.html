@@ -69,7 +69,7 @@
 				function startUp () {
 					
 					// Declaring variables.
-					var theme = "", multiplier = "", size = "", 
+					var theme = "", multiplier = "", size = "", round = "", 
 					    parity = "", method = "", reverse = "";
 					
 					// Assigning stored variables
@@ -77,6 +77,7 @@
 					multiplier = localStorage.getItem("multiplier");
 					size = localStorage.getItem("size");
 					parity = localStorage.getItem("parity");
+					round = localStorage.getItem("round");
 					method = localStorage.getItem("method");
 					reverse = localStorage.getItem("reverse");
 					
@@ -97,6 +98,10 @@
 					if (parity === "odd") {
 						document.getElementById("parity").options.selectedIndex = 1;
 						changeParity(parity);
+					}
+					if (round === "4" || round === "6" || round === "8" || round === "10" || round === "12" || round === "14") {
+						document.getElementById("round").value = round;
+						saveRound(round);
 					}
 					if (method === "Stack") {
 						document.getElementById("method").options.selectedIndex = 0;
@@ -232,6 +237,10 @@
 					document.getElementById("W1").innerHTML = "<b><small>Left/Top</small> Winner Bracket <small>Winners</small> Pairings</b>";
 					document.getElementById("W2").innerHTML = "<b><small>Right/Bottom</small> Winner Bracket <small>Winners</small> Pairings</b>";
 				}
+				function saveRound (round) {
+					// saving round number for retrieval
+					localStorage.setItem("round", round);
+				}
 				function saveMethod (method) {
 					// saving size for retrieval
 					localStorage.setItem("method", method);
@@ -294,14 +303,14 @@
 					<option value="even" selected>Even</option>
 					<option value="odd">Odd</option>
 				</select>
-				<select id="round" class="small">
-					<option id="2" selected>2</option>
-					<option id="4">4</option>
-					<option id="6">6</option>
-					<option id="1000">8</option>
-					<option id="10">10</option>
-					<option id="12">12</option>
-					<option id="14">14</option>
+				<select id="round" class="small" onchange="saveRound(this.value);">
+					<option id="2" value="2" selected>2</option>
+					<option id="4" value="4">4</option>
+					<option id="6" value="6">6</option>
+					<option id="1000" value="8">8</option>
+					<option id="10" value="10">10</option>
+					<option id="12" value="12">12</option>
+					<option id="14" value="14">14</option>
 				</select>
 				<label class="small"><b>Method</b></label>
 				<select id="method" class="small" onchange="saveMethod(this.value);">
