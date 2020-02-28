@@ -69,8 +69,11 @@
 				function startUp () {
 					
 					// Declaring variables.
-					var theme = "", multiplier = "", size = "", round = "", 
-					    parity = "", method = "", reverse = "";
+					var theme = "", multiplier = "", size = "", 
+					    round = "", parity = "", method = "", 
+					    topleft = "", topright = "", 
+					    botleft = "", botright = "",
+					    output = "", reverse = "";
 					
 					// Assigning stored variables
 					theme = localStorage.getItem("theme");
@@ -79,6 +82,11 @@
 					parity = localStorage.getItem("parity");
 					round = localStorage.getItem("round");
 					method = localStorage.getItem("method");
+					topleft = localStorage.getItem("top-left");
+					topright = localStorage.getItem("top-right");
+					botleft = localStorage.getItem("bottom-left");
+					botright = localStorage.getItem("bottom-right");
+					output = localStorage.getItem("output");
 					reverse = localStorage.getItem("reverse");
 					
 					// Setting stored defaults.
@@ -106,6 +114,21 @@
 					if (method === "Stack") {
 						document.getElementById("method").options.selectedIndex = 0;
 						saveMethod(method);
+					}
+					if (topleft !== null){
+						tidy("top-left", topleft);
+					}
+					if (topright !== null){
+						tidy("top-right", topright);
+					}
+					if (botleft !== null){
+						tidy("bottom-left", botleft);
+					}
+					if (botright !== null){
+						tidy("bottom-right", botright);
+					}
+					if (output !== null){
+						tidy("output", output);
 					}
 					if (reverse === "true") {
 						document.getElementById("reverse").checked = true;
@@ -248,7 +271,10 @@
 				function tidy (name, text) {
 					var newtext = "";
 					newtext = text.replace(/\n\n/g,"\n").replace(/^\n/,"");
-					document.getElementById(name).value = newtext;				
+					document.getElementById(name).value = newtext;
+					
+					// saving size for inputs and outputs
+					localStorage.setItem(name, newtext);
 				}
 			</script>
 		</head>
