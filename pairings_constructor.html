@@ -233,34 +233,58 @@
 					document.getElementById("512").innerHTML = "512";
 				}
 				function modifySize (size) {
-					var round = 0, currentIndex = 0, maxRoundIndex = 0;
-					currentIndex = document.getElementById("round").options.selectedIndex;
+					var round = 0, currentRoundIndex = 0, maxRoundIndex = 0, parityIndex = 0;
+					currentRoundIndex = document.getElementById("round").options.selectedIndex;
 					maxRoundIndex = (Math.log2(parseInt(size)) - 3);
-					if (currentIndex > maxRoundIndex){
-						currentIndex = maxRoundIndex;
+					parityIndex = document.getElementById("parity").options.selectedIndex;
+					if (currentRoundIndex > maxRoundIndex){
+						currentRoundIndex = maxRoundIndex;
 						round = (maxRoundIndex+1)*2;
 						saveRound(round);
 					}
-					document.getElementById("round").innerHTML = '<option id="2" value="2">2</option>';
-					if (size > parseInt("12")) {
-						document.getElementById("round").innerHTML += '<option id="4" value="4">4</option>';
+					if (parityIndex === 0){
+						document.getElementById("round").innerHTML = '<option id="2" value="2">2</option>';
+						if (size > parseInt("12")) {
+							document.getElementById("round").innerHTML += '<option id="4" value="4">4</option>';
+						}
+						if (size > parseInt("24")) {
+							document.getElementById("round").innerHTML += '<option id="6" value="6">6</option>';
+						}
+						if (size > parseInt("48")) {
+							document.getElementById("round").innerHTML += '<option id="1000" value="8">8</option>';
+						}
+						if (size > parseInt("96")) {
+							document.getElementById("round").innerHTML += '<option id="10" value="10">10</option>';
+						}
+						if (size > parseInt("192")) {
+							document.getElementById("round").innerHTML += '<option id="12" value="12">12</option>';
+						}
+						if (size > parseInt("384")) {
+							document.getElementById("round").innerHTML += '<option id="14" value="14">14</option>';
+						}
 					}
-					if (size > parseInt("24")) {
-						document.getElementById("round").innerHTML += '<option id="6" value="6">6</option>';
+					if (parityIndex === 1){
+						document.getElementById("round").innerHTML = '<option id="2" value="2">3</option>';
+						if (size > parseInt("12")) {
+							document.getElementById("round").innerHTML += '<option id="4" value="4">5</option>';
+						}
+						if (size > parseInt("24")) {
+							document.getElementById("round").innerHTML += '<option id="6" value="6">7</option>';
+						}
+						if (size > parseInt("48")) {
+							document.getElementById("round").innerHTML += '<option id="1000" value="8">9</option>';
+						}
+						if (size > parseInt("96")) {
+							document.getElementById("round").innerHTML += '<option id="10" value="10">11</option>';
+						}
+						if (size > parseInt("192")) {
+							document.getElementById("round").innerHTML += '<option id="12" value="12">13</option>';
+						}
+						if (size > parseInt("384")) {
+							document.getElementById("round").innerHTML += '<option id="14" value="14">15</option>';
+						}
 					}
-					if (size > parseInt("48")) {
-						document.getElementById("round").innerHTML += '<option id="1000" value="8">8</option>';
-					}
-					if (size > parseInt("96")) {
-						document.getElementById("round").innerHTML += '<option id="10" value="10">10</option>';
-					}
-					if (size > parseInt("192")) {
-						document.getElementById("round").innerHTML += '<option id="12" value="12">12</option>';
-					}
-					if (size > parseInt("384")) {
-						document.getElementById("round").innerHTML += '<option id="14" value="14">14</option>';
-					}
-					document.getElementById("round").options.selectedIndex = currentIndex;
+					document.getElementById("round").options.selectedIndex = currentRoundIndex;
 					// saving size for retrieval
 					localStorage.setItem("size", size);
 				}
