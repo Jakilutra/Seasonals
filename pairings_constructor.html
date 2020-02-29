@@ -107,7 +107,7 @@
 					}
 					if (size === "8" || size === "16" || size === "32" || size === "128" || size === "256" || size === "512"){
 						document.getElementById("size").value = size;
-						saveSize(size);
+						modifySize(size);
 					}
 					if (parity === "odd") {
 						document.getElementById("parity").options.selectedIndex = 1;
@@ -115,11 +115,9 @@
 					}
 					if (round === "4" || round === "6" || round === "8" || round === "10" || round === "12" || round === "14") {
 						document.getElementById("round").value = round;
-						saveRound(round);
 					}
 					if (method === "Stack") {
 						document.getElementById("method").options.selectedIndex = 0;
-						saveMethod(method);
 					}
 					if (topleft !== null){
 						tidy("top-left", topleft);
@@ -234,8 +232,13 @@
 					document.getElementById("256").innerHTML = "256";
 					document.getElementById("512").innerHTML = "512";
 				}
-				function saveSize (size) {
-					document.getElementById("round").innerHTML = '<option id="2" value="2" selected>2</option>';
+				function modifySize (size) {
+					var round = 0;
+					if (document.getElementById("round").options.selectedIndex > (Math.log2(parseInt(size)) - 3)){
+						round = (Math.log2(parseInt(size)) - 2)*2;
+						document.getElementById("round").options.value = round;
+						saveRound(round);
+					}
 					if (size > parseInt("12")) {
 						document.getElementById("round").innerHTML += '<option id="4" value="4">4</option>';
 					}
@@ -376,7 +379,7 @@
 					<option value="1"selected>1.0 ×</option>
 					<option value="1.5">1.5 ×</option>
 				</select>
-				<select id="size" class="small" onchange="saveSize(this.value);">
+				<select id="size" class="small" onchange="modifySize(this.value);">
 					<option id="8" value="8">8</option>
 					<option id="16" value="16">16</option>
 					<option id="32" value="32">32</option>
