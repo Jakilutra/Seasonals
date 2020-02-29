@@ -32,7 +32,7 @@
 				button {
 					margin-top: 10px;
 					font-weight: bold;
-					width: 500px;
+					width: 450px;
 				}
 				.no-fouc {
 					display: none;
@@ -82,7 +82,7 @@
 					    round = "", parity = "", method = "", 
 					    topleft = "", topright = "", 
 					    botleft = "", botright = "",
-					    output = "", reverse = "";
+					    output = "", reverse = "", atOn = "";
 					
 					// Assigning stored variables
 					theme = localStorage.getItem("theme");
@@ -96,6 +96,7 @@
 					botleft = localStorage.getItem("bottom-left");
 					botright = localStorage.getItem("bottom-right");
 					output = localStorage.getItem("output");
+					atOn = localStorage.getItem("@on");
 					reverse = localStorage.getItem("reverse");
 					
 					// Setting stored defaults.
@@ -122,20 +123,24 @@
 					if (method === "Stack") {
 						document.getElementById("method").options.selectedIndex = 0;
 					}
-					if (topleft !== null){
+					if (topleft !== null) {
 						tidy("top-left", topleft);
 					}
-					if (topright !== null){
+					if (topright !== null) {
 						tidy("top-right", topright);
 					}
-					if (botleft !== null){
+					if (botleft !== null) {
 						tidy("bottom-left", botleft);
 					}
-					if (botright !== null){
+					if (botright !== null) {
 						tidy("bottom-right", botright);
 					}
-					if (output !== null){
+					if (output !== null) {
 						tidy("output", output);
+					}
+					if (atOn === "false") {
+						document.getElementById("@on").checked = false;
+						atSave();	
 					}
 					if (reverse === "true") {
 						document.getElementById("reverse").checked = true;
@@ -179,6 +184,12 @@
 					
 						// saving theme for retrieval
 						localStorage.setItem("theme", selected);
+				}
+				function atSave () {
+					var atOn = document.getElementById("@on").checked;
+					
+					// saving @ on/off boolean for retrieval
+					localStorage.setItem("@on", atOn);
 				}
 				function reversal () {
 					var isReverse = document.getElementById("reverse").checked;
@@ -462,6 +473,8 @@
 				</select>
 			</div>
 			<br/>
+			<input type="checkbox" id="@on" value="@on" onchange="atSave();" checked>
+			<label for="reverse" class="small">@ On/Off</label>
 			<button id="button" type="button">Construct Pairings</button>
 			<input type="checkbox" id="reverse" value="reverse" onchange="reversal()">
 			<label for="reverse" class="small">Reverse</label>
