@@ -268,25 +268,37 @@
 					var lastIndex = document.getElementById("round").options.length-1;
 					// saving parity for retrieval
 					localStorage.setItem("parity", parity);
-					if (parity === "odd"){
+					if (parity === "odd") {
 						document.getElementById("2").innerHTML = "3";
-						if (document.getElementById("4").innerHTML === "4"){
-							document.getElementById("4").innerHTML = "5";
+						if (document.getElementById("4") !== null) {
+							if (document.getElementById("4").innerHTML === "4") {
+								document.getElementById("4").innerHTML = "5";
+							}
 						}
-						if (document.getElementById("6").innerHTML  === "6"){
-							document.getElementById("6").innerHTML = "7";
+						if (document.getElementById("6") !== null) {
+							if (document.getElementById("6").innerHTML  === "6") {
+								document.getElementById("6").innerHTML = "7";
+							}
 						}
-						if (document.getElementById("1000").innerHTML  === "8"){
-							document.getElementById("1000").innerHTML = "9";
+						if (document.getElementById("1000") !== null) {
+							if (document.getElementById("1000").innerHTML  === "8") {
+								document.getElementById("1000").innerHTML = "9";
+							}
 						}
-						if (document.getElementById("10").innerHTML  === "10"){
-							document.getElementById("10").innerHTML = "11";
+						if (document.getElementById("10") !== null) {
+							if (document.getElementById("10").innerHTML  === "10") {
+								document.getElementById("10").innerHTML = "11";
+							}
 						}
-						if (document.getElementById("12").innerHTML  === "12"){
-							document.getElementById("12").innerHTML = "13";
+						if (document.getElementById("12") !== null) {
+							if (document.getElementById("12").innerHTML  === "12") {
+								document.getElementById("12").innerHTML = "13";
+							}
 						}
-						if (document.getElementById("14").innerHTML  === "14"){
-							document.getElementById("14").innerHTML = "15";
+						if (document.getElementById("14") !== null) {
+							if (document.getElementById("14").innerHTML  === "14") {
+								document.getElementById("14").innerHTML = "15";
+							}
 						}
 						document.getElementById("W1").innerHTML = "<b><small>Left/Top</small> Winner Bracket <small>Losers</small> Pairings</b>";
 						document.getElementById("W2").innerHTML = "<b><small>Right/Bottom</small> Winner Bracket <small>Losers</small> Pairings</b>";
@@ -296,23 +308,35 @@
 						document.getElementById("round").options.selectedIndex++;
 					}
 					document.getElementById("2").innerHTML = "2";
-					if (document.getElementById("4") === "3"){
-						document.getElementById("4").innerHTML = "4";
+					if (document.getElementById("4") !== null) {
+						if (document.getElementById("4") === "3") {
+							document.getElementById("4").innerHTML = "4";
+						}
 					}
-					if (document.getElementById("6").innerHTML  === "7"){
-						document.getElementById("6").innerHTML = "6";
+					if (document.getElementById("6") !== null) {
+						if (document.getElementById("6").innerHTML  === "7") {
+							document.getElementById("6").innerHTML = "6";
+						}
 					}
-					if (document.getElementById("1000").innerHTML  === "9"){
-						document.getElementById("1000").innerHTML = "8";
+					if (document.getElementById("1000") !== null) {
+						if (document.getElementById("1000").innerHTML  === "9") {
+							document.getElementById("1000").innerHTML = "8";
+						}
 					}
-					if (document.getElementById("10").innerHTML  === "11"){
-						document.getElementById("10").innerHTML = "10";
+					if (document.getElementById("10") !== null) {
+						if (document.getElementById("10").innerHTML  === "11") {
+							document.getElementById("10").innerHTML = "10";
+						}
 					}
-					if (document.getElementById("12").innerHTML  === "13"){
-						document.getElementById("12").innerHTML = "12";
+					if (document.getElementById("12") !== null) {
+						if (document.getElementById("12").innerHTML  === "13") {
+							document.getElementById("12").innerHTML = "12";
+						}
 					}
-					if (document.getElementById("14").innerHTML  === "15"){
-						document.getElementById("14").innerHTML = "14";
+					if (document.getElementById("14") !== null) {
+						if (document.getElementById("14").innerHTML  === "15") {
+							document.getElementById("14").innerHTML = "14";
+						}
 					}
 					document.getElementById("W1").innerHTML = "<b><small>Left/Top</small> Winner Bracket <small>Winners</small> Pairings</b>";
 					document.getElementById("W2").innerHTML = "<b><small>Right/Bottom</small> Winner Bracket <small>Winners</small> Pairings</b>";
