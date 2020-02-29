@@ -265,6 +265,7 @@
 					localStorage.setItem("size", size);
 				}
 				function changeParity (parity) {
+					var lastIndex = document.getElementById("round").options.length-1;
 					// saving parity for retrieval
 					localStorage.setItem("parity", parity);
 					if (parity === "odd"){
@@ -291,7 +292,7 @@
 						document.getElementById("W2").innerHTML = "<b><small>Right/Bottom</small> Winner Bracket <small>Losers</small> Pairings</b>";
 						return;
 					}
-					if (document.getElementById("round").options.selectedIndex !== 6){
+					if (document.getElementById("round").options.selectedIndex !== lastIndex){
 						document.getElementById("round").options.selectedIndex++;
 					}
 					document.getElementById("2").innerHTML = "2";
