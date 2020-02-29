@@ -235,26 +235,24 @@
 					document.getElementById("512").innerHTML = "512";
 				}
 				function saveSize (size) {
-					if (size === "8" || size === "12") {
-						document.getElementById("round").innerHTML = '<option id="2" value="2" selected>2</option>';
+					document.getElementById("round").innerHTML = '<option id="2" value="2" selected>2</option>';
+					if (size > parseInt("12")) {
+						document.getElementById("round").innerHTML += '<option id="4" value="4">4</option>';
 					}
-					if (size === "16" || size === "24") {
-						document.getElementById("round").innerHTML = '<option id="2" value="2" selected>2</option><option id="4" value="4">4</option>';
+					if (size > parseInt("24")) {
+						document.getElementById("round").innerHTML += '<option id="6" value="6">6</option>';
 					}
-					if (size === "32" || size === "48") {
-						document.getElementById("round").innerHTML = '<option id="2" value="2" selected>2</option><option id="4" value="4">4</option><option id="6" value="6">6</option>';
+					if (size > parseInt("48")) {
+						document.getElementById("round").innerHTML += '<option id="1000" value="8">8</option>';
 					}
-					if (size === "64" || size === "96") {
-						document.getElementById("round").innerHTML = '<option id="2" value="2" selected>2</option><option id="4" value="4">4</option><option id="6" value="6">6</option><option id="1000" value="8">8</option>';
+					if (size > parseInt("96")) {
+						document.getElementById("round").innerHTML += '<option id="10" value="10">10</option>';
 					}
-					if (size === "128" || size === "192") {
-						document.getElementById("round").innerHTML = '<option id="2" value="2" selected>2</option><option id="4" value="4">4</option><option id="6" value="6">6</option><option id="1000" value="8">8</option><option id="10" value="10">10</option>';
+					if (size > parseInt("192")) {
+						document.getElementById("round").innerHTML += '<option id="12" value="12">12</option>';
 					}
-					if (size === "256" || size === "384") {
-						document.getElementById("round").innerHTML = '<option id="2" value="2" selected>2</option><option id="4" value="4">4</option><option id="6" value="6">6</option><option id="1000" value="8">8</option><option id="10" value="10">10</option><option id="12" value="12">12</option>';
-					}
-					if (size === "512" || size === "768") {
-						document.getElementById("round").innerHTML = '<option id="2" value="2" selected>2</option><option id="4" value="4">4</option><option id="6" value="6">6</option><option id="1000" value="8">8</option><option id="10" value="10">10</option><option id="12" value="12">12</option><option id="14" value="14">14</option>';
+					if (size > parseInt("384")) {
+						document.getElementById("round").innerHTML += '<option id="14" value="14">14</option>';
 					}
 					// saving size for retrieval
 					localStorage.setItem("size", size);
