@@ -389,10 +389,25 @@
 					localStorage.setItem("method", method);
 				}
 				function tidy (name, text) {
-					var newtext = "";
+					var newtext = "", linecount = 0, charcount = 0;
 					newtext = text.replace(/\n\n/g,"\n").replace(/^\n/,"");
 					document.getElementById(name).value = newtext;
-					
+					charcount = newtext.length;
+					linecount = newtext.split("\n").length;
+					linecount -= newtext.slice("-1") === "\n";
+					linecount -= charcount === 0;
+					if (name === "top-left") {
+						document.getElementById("W1").innerHTML = document.getElementById("W1").innerHTML.replace(/\[\d+\//,"["+linecount+"/");	
+					}
+					if (name === "top-right") {
+						document.getElementById("W2").innerHTML = document.getElementById("W2").innerHTML.replace(/\[\d+\//,"["+linecount+"/");	
+					}
+					if (name === "bottom-left") {
+						document.getElementById("W3").innerHTML = document.getElementById("W3").innerHTML.replace(/\[\d+\//,"["+linecount+"/");	
+					}
+					if (name === "bottom-right") {
+						document.getElementById("W4").innerHTML = document.getElementById("W4").innerHTML.replace(/\[\d+\//,"["+linecount+"/");	
+					}
 					// saving size for inputs and outputs
 					localStorage.setItem(name, newtext);
 				}
