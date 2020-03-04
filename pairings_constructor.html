@@ -259,6 +259,12 @@
 					}
 					if (parityIndex === 0){
 						document.getElementById("round").innerHTML = '<option id="2" value="2">2</option>';
+						if (currentRoundIndex === 0) {
+							document.getElementById("W1").innerHTML = document.getElementById("W1").innerHTML.replace(/\/\d+\]/, "/2]");
+							document.getElementById("W2").innerHTML = document.getElementById("W2").innerHTML.replace(/\/\d+\]/, "/2]");
+							document.getElementById("L1").innerHTML = document.getElementById("L1").innerHTML.replace(/\/\d+\]/, "/2]");
+							document.getElementById("L2").innerHTML = document.getElementById("L2").innerHTML.replace(/\/\d+\]/, "/2]");
+						}
 						if (size > parseInt("12")) {
 							document.getElementById("round").innerHTML += '<option id="4" value="4">4</option>';
 						}
@@ -280,6 +286,12 @@
 					}
 					if (parityIndex === 1){
 						document.getElementById("round").innerHTML = '<option id="2" value="2">3</option>';
+						if (currentRoundIndex === 0) {
+							document.getElementById("W1").innerHTML = document.getElementById("W1").innerHTML.replace(/\/\d+\]/, "/1]");
+							document.getElementById("W2").innerHTML = document.getElementById("W2").innerHTML.replace(/\/\d+\]/, "/1]");
+							document.getElementById("L1").innerHTML = document.getElementById("L1").innerHTML.replace(/\/\d+\]/, "/1]");
+							document.getElementById("L2").innerHTML = document.getElementById("L2").innerHTML.replace(/\/\d+\]/, "/1]");
+						}
 						if (size > parseInt("12")) {
 							document.getElementById("round").innerHTML += '<option id="4" value="4">5</option>';
 						}
