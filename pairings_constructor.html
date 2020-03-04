@@ -339,8 +339,8 @@
 								document.getElementById("14").innerHTML = "15";
 							}
 						}
-						document.getElementById("W1").innerHTML = "<b><small>Left/Top</small> Winner Bracket <small>Losers</small> Pairings</b>";
-						document.getElementById("W2").innerHTML = "<b><small>Right/Bottom</small> Winner Bracket <small>Losers</small> Pairings</b>";
+						document.getElementById("W1").innerHTML = document.getElementById("W1").innerHTML.replace("<small>Winners</small>","<small>Losers</small>");
+						document.getElementById("W2").innerHTML = document.getElementById("W2").innerHTML.replace("<small>Winners</small>","<small>Losers</small>");
 						return;
 					}
 					if (document.getElementById("round").options.selectedIndex !== lastIndex){
@@ -377,8 +377,8 @@
 							document.getElementById("14").innerHTML = "14";
 						}
 					}
-					document.getElementById("W1").innerHTML = "<b><small>Left/Top</small> Winner Bracket <small>Winners</small> Pairings</b>";
-					document.getElementById("W2").innerHTML = "<b><small>Right/Bottom</small> Winner Bracket <small>Winners</small> Pairings</b>";
+					document.getElementById("W1").innerHTML = document.getElementById("W1").innerHTML.replace("<small>Losers</small>","<small>Winners</small>");
+					document.getElementById("W2").innerHTML = document.getElementById("W2").innerHTML.replace("<small>Losers</small>","<small>Winners</small>");
 				}
 				function saveRound (round) {
 					// saving round number for retrieval
