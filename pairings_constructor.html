@@ -421,7 +421,7 @@
 					roundIndex = document.getElementById("round").options.selectedIndex;
 					sizeIndex = document.getElementById("size").options.selectedIndex;
 					parityIndex = document.getElementById("parity").options.selectedIndex;
-					scaleIndex = document.getElementById("parity").options.selectedIndex;
+					scaleIndex = document.getElementById("scaler").options.selectedIndex;
 					roundSize = Math.pow(2, sizeIndex+3-roundIndex-1);
 					pairingSize = roundSize/((parityIndex+1)*4);
 					pairingSize = scaleIndex === 1 ? (3/2)*pairingSize : pairingSize;
