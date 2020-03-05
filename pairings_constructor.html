@@ -234,9 +234,9 @@
 					pairingSize = pairingSize === "0.5" ? ".5" : pairingSize;
 					pairingSize = String(multiplier === "1.5" ? (3/2)*pairingSize : pairingSize);
 					if (pairingSize === "0.75") {
-						document.getElementById("W1").innerHTML = document.getElementById("W1").innerHTML.replace(/\/[\.\d]+\]/, "/1]");
-						document.getElementById("W2").innerHTML = document.getElementById("W2").innerHTML.replace(/\/[\.\d]+\]/, "/1]");
-						document.getElementById("L1").innerHTML = document.getElementById("L1").innerHTML.replace(/\/[\.\d]+\]/, "/1]");
+						document.getElementById("W1").innerHTML = document.getElementById("W1").innerHTML.replace(/\/[\.\d]+\]/, "/1.5]");
+						document.getElementById("W2").innerHTML = document.getElementById("W2").innerHTML.replace(/\/[\.\d]+\]/, "/0]");
+						document.getElementById("L1").innerHTML = document.getElementById("L1").innerHTML.replace(/\/[\.\d]+\]/, "/1.5]");
 						document.getElementById("L2").innerHTML = document.getElementById("L2").innerHTML.replace(/\/[\.\d]+\]/, "/0]");
 					}
 					else {
