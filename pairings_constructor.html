@@ -258,7 +258,6 @@
 						round = (maxRoundIndex+1)*2;
 						saveRound(round);
 					}
-					updateMaximums();
 					if (parityIndex === 0){
 						document.getElementById("round").innerHTML = '<option id="2" value="2">2</option>';
 						if (size > parseInt("12")) {
@@ -302,6 +301,7 @@
 						}
 					}
 					document.getElementById("round").options.selectedIndex = currentRoundIndex;
+					updateMaximums();
 					// saving size for retrieval
 					localStorage.setItem("size", size);
 				}
@@ -386,11 +386,11 @@
 				function saveRound (round) {
 					// saving round number for retrieval
 					localStorage.setItem("round", round);
+					updateMaximums();
 				}
 				function saveMethod (method) {
 					// saving size for retrieval
 					localStorage.setItem("method", method);
-					updateMaximums();
 				}
 				function tidy (name, text) {
 					var newtext = "", linecount = 0, charcount = 0;
