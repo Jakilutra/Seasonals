@@ -227,7 +227,7 @@
 				function scale (multiplier) {
 					var currentRoundIndex = 0, currentSizeIndex = 0, parityIndex = 0, roundSize = 0, pairingSize = "";
 					currentRoundIndex = document.getElementById("round").options.selectedIndex;
-					currentSizeIndex = document.getElementById("round").options.selectedIndex;
+					currentSizeIndex = document.getElementById("size").options.selectedIndex;
 					parityIndex = document.getElementById("parity").options.selectedIndex;
 					roundSize = Math.pow(2, currentSizeIndex+3-currentRoundIndex-1);
 					pairingSize = String(roundSize/((parityIndex+1)*4));
