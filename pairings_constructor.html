@@ -225,6 +225,19 @@
 					document.getElementById("output").placeholder = "Merged output will be displayed here.";
 				}
 				function scale (multiplier) {
+					var currentRoundIndex = 0, currentSizeIndex = 0, parityIndex = 0, roundSize = 0, pairingSize = "";
+					currentRoundIndex = document.getElementById("round").options.selectedIndex;
+					currentSizeIndex = document.getElementById("round").options.selectedIndex;
+					parityIndex = document.getElementById("parity").options.selectedIndex;
+					roundSize = Math.pow(2, currentSizeIndex+3-currentRoundIndex-1);
+					pairingSize = String(roundSize/((parityIndex+1)*4));
+					pairingSize = pairingSize === "0.5" ? ".5" : pairingSize;
+					pairingSize = String(multiplier === "1.5" ? (3/2)*pairingSize : pairingSize);
+					pairingSize = pairingSize === "0.75" ? ".75" : pairingSize;
+					document.getElementById("W1").innerHTML = document.getElementById("W1").innerHTML.replace(/\/[\.\d]+\]/, "/"+pairingSize+"]");
+					document.getElementById("W2").innerHTML = document.getElementById("W2").innerHTML.replace(/\/[\.\d]+\]/, "/"+pairingSize+"]");
+					document.getElementById("L1").innerHTML = document.getElementById("L1").innerHTML.replace(/\/[\.\d]+\]/, "/"+pairingSize+"]");
+					document.getElementById("L2").innerHTML = document.getElementById("L2").innerHTML.replace(/\/[\.\d]+\]/, "/"+pairingSize+"]");
 					
 					// saving multiplier for retrieval
 					localStorage.setItem("multiplier", multiplier);
@@ -248,7 +261,7 @@
 					document.getElementById("512").innerHTML = "512";
 				}
 				function modifySize (size) {
-					var round = 0, currentRoundIndex = 0, maxRoundIndex = 0, parityIndex = 0, roundSize = 0;
+					var round = 0, currentRoundIndex = 0, maxRoundIndex = 0, parityIndex = 0, roundSize = 0, pairingSize = "";
 					currentRoundIndex = document.getElementById("round").options.selectedIndex;
 					maxRoundIndex = (Math.log2(parseInt(size)) - 3);
 					parityIndex = document.getElementById("parity").options.selectedIndex;
@@ -257,13 +270,15 @@
 						round = (maxRoundIndex+1)*2;
 						saveRound(round);
 					}
-					roundSize = Math.pow(2, Math.log2(parseInt(size)) - currentRoundIndex);
+					roundSize = Math.pow(2, Math.log2(parseInt(size)) - currentRoundIndex - 1);
+					pairingSize = String(roundSize/((parityIndex+1)*4));
+					pairingSize = pairingSize === "0.5" ? ".5" : pairingSize;
+					document.getElementById("W1").innerHTML = document.getElementById("W1").innerHTML.replace(/\/[\.\d]+\]/, "/"+pairingSize+"]");
+					document.getElementById("W2").innerHTML = document.getElementById("W2").innerHTML.replace(/\/[\.\d]+\]/, "/"+pairingSize+"]");
+					document.getElementById("L1").innerHTML = document.getElementById("L1").innerHTML.replace(/\/[\.\d]+\]/, "/"+pairingSize+"]");
+					document.getElementById("L2").innerHTML = document.getElementById("L2").innerHTML.replace(/\/[\.\d]+\]/, "/"+pairingSize+"]");
 					if (parityIndex === 0){
 						document.getElementById("round").innerHTML = '<option id="2" value="2">2</option>';
-						document.getElementById("W1").innerHTML = document.getElementById("W1").innerHTML.replace(/\/\d+\]/, "/"+(roundSize/4)+"]");
-						document.getElementById("W2").innerHTML = document.getElementById("W2").innerHTML.replace(/\/\d+\]/, "/"+(roundSize/4)+"]");
-						document.getElementById("L1").innerHTML = document.getElementById("L1").innerHTML.replace(/\/\d+\]/, "/"+(roundSize/4)+"]");
-						document.getElementById("L2").innerHTML = document.getElementById("L2").innerHTML.replace(/\/\d+\]/, "/"+(roundSize/4)+"]");
 						if (size > parseInt("12")) {
 							document.getElementById("round").innerHTML += '<option id="4" value="4">4</option>';
 						}
@@ -285,10 +300,6 @@
 					}
 					if (parityIndex === 1){
 						document.getElementById("round").innerHTML = '<option id="2" value="2">3</option>';
-						document.getElementById("W1").innerHTML = document.getElementById("W1").innerHTML.replace(/\/\d+\]/, "/"+(roundSize/8)+"]");
-						document.getElementById("W2").innerHTML = document.getElementById("W2").innerHTML.replace(/\/\d+\]/, "/"+(roundSize/8)+"]");
-						document.getElementById("L1").innerHTML = document.getElementById("L1").innerHTML.replace(/\/\d+\]/, "/"+(roundSize/8)+"]");
-						document.getElementById("L2").innerHTML = document.getElementById("L2").innerHTML.replace(/\/\d+\]/, "/"+(roundSize/8)+"]");
 						if (size > parseInt("12")) {
 							document.getElementById("round").innerHTML += '<option id="4" value="4">5</option>';
 						}
