@@ -225,15 +225,14 @@
 					document.getElementById("output").placeholder = "Merged output will be displayed here.";
 				}
 				function scale (multiplier) {
-					var currentRoundIndex = 0, currentSizeIndex = 0, parityIndex = 0, roundSize = 0, pairingSize = "";
+					var currentRoundIndex = 0, currentSizeIndex = 0, parityIndex = 0, roundSize = 0, pairingSize = 0;
 					currentRoundIndex = document.getElementById("round").options.selectedIndex;
 					currentSizeIndex = document.getElementById("size").options.selectedIndex;
 					parityIndex = document.getElementById("parity").options.selectedIndex;
 					roundSize = Math.pow(2, currentSizeIndex+3-currentRoundIndex-1);
-					pairingSize = String(roundSize/((parityIndex+1)*4));
-					pairingSize = pairingSize === "0.5" ? ".5" : pairingSize;
-					pairingSize = String(multiplier === "1.5" ? (3/2)*pairingSize : pairingSize);
-					if (pairingSize === "0.75") {
+					pairingSize = roundSize/((parityIndex+1)*4);
+					pairingSize = multiplier === "1.5" ? (3/2)*pairingSize : pairingSize;
+					if (pairingSize === 0.75) {
 						document.getElementById("W1").innerHTML = document.getElementById("W1").innerHTML.replace(/\/[\.\d]+\]/, "/1.5]");
 						document.getElementById("W2").innerHTML = document.getElementById("W2").innerHTML.replace(/\/[\.\d]+\]/, "/0]");
 						document.getElementById("L1").innerHTML = document.getElementById("L1").innerHTML.replace(/\/[\.\d]+\]/, "/1.5]");
@@ -268,7 +267,7 @@
 					document.getElementById("512").innerHTML = "512";
 				}
 				function modifySize (size) {
-					var round = 0, currentRoundIndex = 0, maxRoundIndex = 0, parityIndex = 0, roundSize = 0, pairingSize = "";
+					var round = 0, currentRoundIndex = 0, maxRoundIndex = 0, parityIndex = 0, roundSize = 0, pairingSize = 0;
 					currentRoundIndex = document.getElementById("round").options.selectedIndex;
 					maxRoundIndex = (Math.log2(parseInt(size)) - 3);
 					parityIndex = document.getElementById("parity").options.selectedIndex;
@@ -278,8 +277,7 @@
 						saveRound(round);
 					}
 					roundSize = Math.pow(2, Math.log2(parseInt(size)) - currentRoundIndex - 1);
-					pairingSize = String(roundSize/((parityIndex+1)*4));
-					pairingSize = pairingSize === "0.5" ? ".5" : pairingSize;
+					pairingSize = roundSize/((parityIndex+1)*4);
 					document.getElementById("W1").innerHTML = document.getElementById("W1").innerHTML.replace(/\/[\.\d]+\]/, "/"+pairingSize+"]");
 					document.getElementById("W2").innerHTML = document.getElementById("W2").innerHTML.replace(/\/[\.\d]+\]/, "/"+pairingSize+"]");
 					document.getElementById("L1").innerHTML = document.getElementById("L1").innerHTML.replace(/\/[\.\d]+\]/, "/"+pairingSize+"]");
@@ -420,20 +418,21 @@
 					newtext = text.replace(/\n\n/g,"\n").replace(/^\n/,"");
 					document.getElementById(name).value = newtext;
 					charcount = newtext.length;
-					linecount = newtext.split("\n").length;
+					linecount = newtext.split(/\n| vs /).length;
 					linecount -= newtext.slice("-1") === "\n";
 					linecount -= charcount === 0;
+					linecount = linecount/2;
 					if (name === "top-left") {
-						document.getElementById("W1").innerHTML = document.getElementById("W1").innerHTML.replace(/\[\d+\//,"["+linecount+"/");	
+						document.getElementById("W1").innerHTML = document.getElementById("W1").innerHTML.replace(/\[[\.\d]+\//,"["+linecount+"/");	
 					}
 					if (name === "top-right") {
-						document.getElementById("W2").innerHTML = document.getElementById("W2").innerHTML.replace(/\[\d+\//,"["+linecount+"/");	
+						document.getElementById("W2").innerHTML = document.getElementById("W2").innerHTML.replace(/\[[\.\d]+\//,"["+linecount+"/");	
 					}
 					if (name === "bottom-left") {
-						document.getElementById("L1").innerHTML = document.getElementById("L1").innerHTML.replace(/\[\d+\//,"["+linecount+"/");	
+						document.getElementById("L1").innerHTML = document.getElementById("L1").innerHTML.replace(/\[[\.\d]+\//,"["+linecount+"/");	
 					}
 					if (name === "bottom-right") {
-						document.getElementById("L2").innerHTML = document.getElementById("L2").innerHTML.replace(/\[\d+\//,"["+linecount+"/");	
+						document.getElementById("L2").innerHTML = document.getElementById("L2").innerHTML.replace(/\[[\.\d]+\//,"["+linecount+"/");	
 					}
 					// saving size for inputs and outputs
 					localStorage.setItem(name, newtext);
