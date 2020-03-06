@@ -309,8 +309,8 @@
 					var lastIndex = document.getElementById("round").options.length-1;
 					// saving parity for retrieval
 					localStorage.setItem("parity", parity);
-					updateMaximums();
 					if (parity === "odd") {
+						updateMaximums();
 						document.getElementById("2").innerHTML = "3";
 						if (document.getElementById("4") !== null) {
 							if (document.getElementById("4").innerHTML === "4") {
@@ -349,6 +349,7 @@
 					if (document.getElementById("round").options.selectedIndex !== lastIndex){
 						document.getElementById("round").options.selectedIndex++;
 					}
+					updateMaximums();
 					document.getElementById("2").innerHTML = "2";
 					if (document.getElementById("4") !== null) {
 						if (document.getElementById("4").innerHTML === "5") {
@@ -431,7 +432,15 @@
 					}
 					document.getElementById("button").innerHTML = document.getElementById("button").innerHTML.replace(/\/[\.\d]+\]/, "/"+pairingSize*4+"]");
 				}
-				function empty (){
+				function output () {
+					var parityIndex = 0, methodIndex = 0;
+					parityIndex = document.getElementById("parity").options.selectedIndex;
+					methodIndex = document.getElementById("parity").options.selectedIndex;
+					if (parityIndex === 0) {
+						
+					}
+				}
+				function empty () {
 					document.getElementById("top-left").value = "";
 					document.getElementById("top-right").value = "";
 					document.getElementById("bottom-left").value = "";
@@ -511,7 +520,7 @@
 			<br/>
 			<input type="checkbox" id="@on" value="@on" onchange="atSave();" checked>
 			<label for="reverse" class="small">@ On/Off</label>
-			<button id="button" type="button">Construct Pairings [0/32]</button>
+			<button id="button" type="button" onClick="output()">Construct Pairings [0/32]</button>
 			<input type="checkbox" id="reverse" value="reverse" onchange="reversal()">
 			<label for="reverse" class="small">Reverse</label>
 			<button id="empty" type="button" onclick="empty();">🗑 Empty</button>
