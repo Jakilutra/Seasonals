@@ -403,6 +403,14 @@
 					linecount -= newtext.slice("-1") === "\n";
 					linecount -= charcount === 0;
 					linecount = linecount/2;
+					if (name === "output") {
+						linecount -= text.match(/▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂/g).length/2;
+						linecount -= text.match(/▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔/g).length/2;
+						linecount -= text.match("Left / Top Winner Bracket\n").length/2;
+						linecount -= text.match("Right / Bottom Winner Bracket\n").length/2;
+						linecount -= text.match("Left / Top Loser Bracket\n").length/2;
+						linecount -= text.match("Right / Bottom Loser Bracket\n").length/2;
+					}
 					document.getElementById(quad[name]).innerHTML = document.getElementById(quad[name]).innerHTML.replace(/\[[\.\d]+\//,"["+linecount+"/");	
 					// saving size for inputs and outputs
 					localStorage.setItem(name, newtext);
@@ -437,21 +445,21 @@
 					parityIndex = document.getElementById("parity").options.selectedIndex;
 					methodIndex = document.getElementById("parity").options.selectedIndex;
 					if (parityIndex === 0) {
-						outputText = "————————————————————————————————————————\n";
-						outputText += "Left/Top Winner Bracket\n";
-						outputText += "————————————————————————————————————————\n";
+						outputText = "▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂\n";
+						outputText += "Left / Top Winner Bracket\n";
+						outputText += "▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔\n";
 						outputText += document.getElementById("top-left").value + "\n";
-						outputText += "————————————————————————————————————————\n";
-						outputText += "Right/Bottom Winner Bracket\n";
-						outputText += "————————————————————————————————————————\n";
+						outputText += "▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂\n";
+						outputText += "Right / Bottom Winner Bracket\n";
+						outputText += "▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔\n";
 						outputText += document.getElementById("top-right").value + "\n";
-						outputText += "————————————————————————————————————————\n";
-						outputText += "Left/Top Loser Bracket\n";
-						outputText += "————————————————————————————————————————\n";
+						outputText += "▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂\n";
+						outputText += "Left / Top Loser Bracket\n";
+						outputText += "▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔\n";
 						outputText += document.getElementById("bottom-left").value + "\n";
-						outputText += "————————————————————————————————————————\n";
-						outputText += "Right/Bottom Loser Bracket\n";
-						outputText +="————————————————————————————————————————\n";
+						outputText += "▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂\n";
+						outputText += "Right / Bottom Loser Bracket\n";
+						outputText +="▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔\n";
 						outputText += document.getElementById("bottom-right").value + "\n";;
 						outputText = outputText.replace(/\n\n/g,"\n").replace(/\n$/,"");
 						document.getElementById("output").value = outputText;
