@@ -71,6 +71,11 @@
 			</style>
 			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 			<script>
+				document.documentElement.className = 'no-fouc';
+				$(document).ready(function() {
+					startUp();
+					$('.no-fouc').removeClass('no-fouc');
+				});
 				function startUp () {
 					// Declaring variables.
 					var theme = "", multiplier = "", size = "", 
@@ -475,7 +480,7 @@
 				}
 			</script>
 		</head>
-		<body onload="startUp();">
+		<body>
 			<h1> Double Elimination Pairings Constructor </h1>
 			<div><a href="https://jakilutra.github.io/Seasonals/" id="home">Home</a> | Progression Extractor | <b>Pairings Constructor</b></div>
 			<div class="div-inline">
