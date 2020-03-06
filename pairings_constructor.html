@@ -433,11 +433,30 @@
 					document.getElementById("button").innerHTML = document.getElementById("button").innerHTML.replace(/\/[\.\d]+\]/, "/"+pairingSize*4+"]");
 				}
 				function output () {
-					var parityIndex = 0, methodIndex = 0;
+					var outputText = "", parityIndex = 0, methodIndex = 0;
 					parityIndex = document.getElementById("parity").options.selectedIndex;
 					methodIndex = document.getElementById("parity").options.selectedIndex;
 					if (parityIndex === 0) {
-						
+						outputText = "————————————————————————————————————————\n";
+						outputText += "Left/Top Winner Bracket\n";
+						outputText += "————————————————————————————————————————\n";
+						outputText += document.getElementById("top-left").value + "\n";
+						outputText += "————————————————————————————————————————\n";
+						outputText += "Right/Bottom Winner Bracket\n";
+						outputText += "————————————————————————————————————————\n";
+						outputText += document.getElementById("top-right").value + "\n";
+						outputText += "————————————————————————————————————————\n";
+						outputText += "Left/Top Loser Bracket\n";
+						outputText += "————————————————————————————————————————\n";
+						outputText += document.getElementById("bottom-left").value + "\n";
+						outputText += "————————————————————————————————————————\n";
+						outputText += "Right/Bottom Loser Bracket\n";
+						outputText +="————————————————————————————————————————\n";
+						outputText += document.getElementById("bottom-right").value + "\n";;
+						outputText = outputText.replace(/\n\n/g,"\n").replace(/\n$/,"");
+						document.getElementById("output").value = outputText;
+						tidy ("output", outputText);
+						updateMaximums();
 					}
 				}
 				function empty () {
