@@ -440,30 +440,62 @@
 					document.getElementById("button").innerHTML = document.getElementById("button").innerHTML.replace(/\/[\.\d]+\]/, "/"+pairingSize*4+"]");
 				}
 				function output () {
-					var outputText = "", parityIndex = 0, methodIndex = 0;
+					var outputText = "", w1 = "", w2 = "", l1 = "", l2 = "",
+					    parityIndex = 0, roundIndex = 0, methodIndex = 0, i = 0,
+					    w1a = [], w2a = [], l1a = [], l2a = [], wa = [], la = [];
 					parityIndex = document.getElementById("parity").options.selectedIndex;
-					methodIndex = document.getElementById("parity").options.selectedIndex;
+					roundIndex = document.getElementById("round").options.selectedIndex;
+					methodIndex = document.getElementById("method").options.selectedIndex;
+					w1 = document.getElementById("top-left").value;
+					w2 = document.getElementById("top-right").value;
+					l1 = document.getElementById("bottom-left").value;
+					l2 = document.getElementById("bottom-right").value;
 					if (parityIndex === 0) {
 						outputText = "▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂\n";
 						outputText += "Left / Top Winner Bracket\n";
 						outputText += "▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔\n";
-						outputText += document.getElementById("top-left").value + "\n";
+						outputText += w1 + "\n";
 						outputText += "▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂\n";
 						outputText += "Right / Bottom Winner Bracket\n";
 						outputText += "▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔\n";
-						outputText += document.getElementById("top-right").value + "\n";
+						outputText += w2 + "\n";
 						outputText += "▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂\n";
 						outputText += "Left / Top Loser Bracket\n";
 						outputText += "▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔\n";
-						outputText += document.getElementById("bottom-left").value + "\n";
+						outputText += l1 + "\n";
 						outputText += "▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂\n";
 						outputText += "Right / Bottom Loser Bracket\n";
 						outputText +="▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔\n";
-						outputText += document.getElementById("bottom-right").value + "\n";
+						outputText += l2 + "\n";
 						outputText = outputText.replace(/\n\n/g,"\n").replace(/\n$/,"");
 						document.getElementById("output").value = outputText;
 						tidy ("output", outputText);
 						updateMaximums();
+						return;
+					}
+					w1a = w1.split(/\n| vs /);
+					w2a = w2.split(/\n| vs /);
+					l1a = l1.split(/\n| vs /);
+					l2a = l2.split(/\n| vs /);
+					if (roundIndex === 0 || roundIndex === 2 || roundIndex === 4 || roundIndex === 6) {
+						if (w1a.length === l2a.length) {
+							while (wa.length !== w1a.length) {
+								wa.push(w1a[i]);
+								i++;
+								wa.push(l2a[i]);
+								i++;
+							}
+							i = 0;
+							while (wa.length !== (w1a.length+l2a.length)) {
+							       	wa.push(l2a[i]);
+								i++;
+								wa.push(w1a[i]);
+								i++;
+							}
+						}
+						outputText = wa.join(" vs ");
+						document.getElementById("output").value = outputText;
+						
 					}
 				}
 				function empty () {
