@@ -442,7 +442,7 @@
 				function output () {
 					var outputText = "", w1 = "", w2 = "", l1 = "", l2 = "",
 					    parityIndex = 0, roundIndex = 0, methodIndex = 0, i = 0,
-					    w1a = [], w2a = [], l1a = [], l2a = [], wa = [], la = [];
+					    w1a = [], w2a = [], l1a = [], l2a = [], m1a = [], m2a = [];
 					parityIndex = document.getElementById("parity").options.selectedIndex;
 					roundIndex = document.getElementById("round").options.selectedIndex;
 					methodIndex = document.getElementById("method").options.selectedIndex;
@@ -478,24 +478,63 @@
 					l1a = l1.split(/\n| vs /);
 					l2a = l2.split(/\n| vs /);
 					if (roundIndex === 0 || roundIndex === 2 || roundIndex === 4 || roundIndex === 6) {
-						if (w1a.length === l2a.length) {
-							while (wa.length !== w1a.length) {
-								wa.push(w1a[i]);
+						if (w2a.length === l1a.length) {
+							i = 0;
+							while (m1a.length !== w2a.length) {
+								m1a.push(w2a[i]);
 								i++;
-								wa.push(l2a[i]);
+								m1a.push(l1a[i]);
 								i++;
 							}
 							i = 0;
-							while (wa.length !== (w1a.length+l2a.length)) {
-							       	wa.push(l2a[i]);
+							while (m1a.length !== (w2a.length+l1a.length)) {
+							       	m1a.push(l1a[i]);
 								i++;
-								wa.push(w1a[i]);
+								m1a.push(w2a[i]);
 								i++;
 							}
+							i = 0;
+							while (m1a.length !== w2a.length) {
+								m1a[i] = m1a[i] + " vs " + m1a[i+1];
+								i++;
+								m1a.splice(i, 1);
+							}
 						}
-						outputText = wa.join(" vs ");
+						if (w1a.length === l2a.length) {
+							i = 0;
+							while (m2a.length !== w1a.length) {
+								m2a.push(w1a[i]);
+								i++;
+								m2a.push(l2a[i]);
+								i++;
+							}
+							i = 0;
+							while (m2a.length !== (w1a.length+l2a.length)) {
+							       	m2a.push(l2a[i]);
+								i++;
+								m2a.push(w1a[i]);
+								i++;
+							}
+							i = 0;
+							while (m2a.length !== w1a.length) {
+								m2a[i] = m2a[i] + " vs " + m2a[i+1];
+								i++;
+								m2a.splice(i, 1);
+							}
+						}
+						outputText = "▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂\n";
+						outputText += "Left / Top Loser Bracket\n";
+						outputText += "▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔\n";
+						outputText += m1a.join("\n") + "\n";
+						outputText += "▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂\n";
+						outputText += "Right / Bottom Loser Bracket\n";
+						outputText +="▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔\n";
+						outputText += m2a.join("\n") + "\n";
+						outputText = outputText.replace(/\n\n/g,"\n").replace(/\n$/,"");
 						document.getElementById("output").value = outputText;
-						
+						tidy ("output", outputText);
+						updateMaximums();
+						return;				
 					}
 				}
 				function empty () {
