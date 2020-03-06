@@ -35,7 +35,7 @@
 					font-weight: bold;
 					width: 400px;
 				}
-				.no-fouc {
+				.hidden {
 					display: none;
 				}
 				.div-inline {
@@ -70,14 +70,11 @@
 				}
 			</style>
 			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-			<script type="text/javascript">
-
-			</script>
 			<script>
-				document.documentElement.className = 'no-fouc';
+				$('html').addClass('hidden');
 				$(document).ready(function() {
 					startUp();
-					$('.no-fouc').removeClass('no-fouc');
+					$('html').removeClass('hidden');
 				});
 				function startUp () {
 					// Declaring variables.
