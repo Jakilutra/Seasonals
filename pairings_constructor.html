@@ -478,7 +478,7 @@
 					l1a = l1.split(/\n| vs /);
 					l2a = l2.split(/\n| vs /);
 					if (roundIndex === 0 || roundIndex === 2 || roundIndex === 4 || roundIndex === 6) {
-						if (w2a.length === l1a.length) {
+						if (w2a.length === l1a.length && l1a.length > 1) {
 							i = 0;
 							while (m1a.length !== w2a.length) {
 								m1a.push(w2a[i]);
@@ -500,7 +500,7 @@
 								m1a.splice(i, 1);
 							}
 						}
-						if (w1a.length === l2a.length) {
+						if (w1a.length === l2a.length && l2a.length > 1) {
 							i = 0;
 							while (m2a.length !== w1a.length) {
 								m2a.push(w1a[i]);
