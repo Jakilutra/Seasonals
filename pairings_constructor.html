@@ -9,7 +9,6 @@
 					background: radial-gradient(circle, rgba(244,202,46,1) 33%, rgba(240,168,31,1) 66%, rgba(252,131,7,0.9971698151917017) 100%);
 					text-align: center;
 					font-family: georgia;
-					opacity: 0;
 				}
 				a:link {
 					color: #0000EE;
@@ -36,7 +35,7 @@
 					font-weight: bold;
 					width: 400px;
 				}
-				.hidden {
+				.no-fouc {
 					display: none;
 				}
 				.div-inline {
@@ -72,9 +71,10 @@
 			</style>
 			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 			<script>
+				document.documentElement.className = 'no-fouc';
 				$(document).ready(function() {
+					$('.no-fouc').removeClass('no-fouc');
 					startUp();
-					$("body").css('opacity', 1);
 				});
 				function startUp () {
 					// Declaring variables.
