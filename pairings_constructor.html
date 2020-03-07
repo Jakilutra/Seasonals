@@ -200,12 +200,16 @@
 					if (isReverse){
 						document.getElementById("button").innerHTML = document.getElementById("button").innerHTML.replace("Construct", "De-Construct");
 						document.getElementById("top-left").readOnly = true;
+						document.getElementById("top-left").value = "";
 						document.getElementById("top-left").placeholder = "De-merged output will be displayed here.";
 						document.getElementById("top-right").readOnly = true;
+						document.getElementById("top-right").value = "";
 						document.getElementById("top-right").placeholder = "De-merged output will be displayed here.";
 						document.getElementById("bottom-left").readOnly = true;
+						document.getElementById("bottom-left").value = "";
 						document.getElementById("bottom-left").placeholder = "De-merged output will be displayed here.";
 						document.getElementById("bottom-right").readOnly = true;
+						document.getElementById("bottom-right").value = "";
 						document.getElementById("bottom-right").placeholder = "De-merged output will be displayed here.";
 						document.getElementById("output").readOnly = false;
 						document.getElementById("output").placeholder = "Copy and paste previously merged output here.";
@@ -221,6 +225,7 @@
 					document.getElementById("bottom-right").readOnly = false;
 					document.getElementById("bottom-right").placeholder = "Copy and paste text from the bracketmaker directly.";
 					document.getElementById("output").readOnly = true;
+					document.getElementById("output").value = "";
 					document.getElementById("output").placeholder = "Merged output will be displayed here.";
 				}
 				function scale (multiplier) {
