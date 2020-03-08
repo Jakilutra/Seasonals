@@ -326,7 +326,7 @@ function saveMethod (method) {
 	localStorage.setItem("method", method);
 }
 function tidy (name, text) {
-	var newtext = "", linecount = 0, charcount = 0, quad = {};
+	var newtext = "", linecount = 0, charcount = 0, quad = {}, h1a = [], h2a = [], h3a = [], h4a = [], h5a = [], h6a = [];
 	newtext = text.replace(/\n\n/g,"\n").replace(/^\n/,"");
 	quad = {"top-left": "W1", "top-right": "W2", "bottom-left": "L1", "bottom-right": "L2", "output": "button"};
 	document.getElementById(name).value = newtext;
@@ -336,14 +336,20 @@ function tidy (name, text) {
 	linecount -= charcount === 0;
 	linecount = linecount/2;
 	if (name === "output") {
-		linecount -= (text.match(/▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂/g) !== null) ? 0.5: 0;
-		linecount -= (text.match(/▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔/g) !== null) ? 0.5: 0;
+		h1a = text.match(/▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂/g);
+		h2a = text.match(/▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔/g);
+		linecount -= (h1a !== null) ? h1a.length : 0;
+		linecount -= (h2a !== null) ? h2a.length : 0;
 		if (document.getElementById("parity").options.selectedIndex === 0) {
-			linecount -= (text.match(/Left\s\/\sTop\sWinner\sBracket\n/) !== null) ? 0.5: 0;
-			linecount -= (text.match(/Right\s\/\sBottom\sWinner\sBracket\n/) !== null) ? 0.5: 0;
+			h3a = text.match(/Left\s\/\sTop\sWinner\sBracket\n/);
+			h4a = text.match(/Left\s\/\sTop\sWinner\sBracket\n/);
+			linecount -= (h3a !== null) ? h3a.length : 0;
+			linecount -= (h4a !== null) ? h4a.length : 0;
 		}
-		linecount -= (text.match(/Left\s\/\sTop\sLoser\sBracket\n/) !== null) ? 0.5: 0;
-		linecount -= (text.match(/Right\s\/\sBottom\sLoser\sBracket\n/) !== null) ? 0.5: 0;
+		h5a = text.match(/Left\s\/\sTop\sLoser\sBracket\n/);
+		h6a = text.match(/Right\s\/\sBottom\sLoser\sBracket\n/);
+		linecount -= (h5a !== null) ? h5a.length : 0;
+		linecount -= (h5a !== null) ? h6a.length : 0;
 	}
 	document.getElementById(quad[name]).innerHTML = document.getElementById(quad[name]).innerHTML.replace(/\[[.\d]+\//,"["+linecount+"/");	
 	// saving size for inputs and outputs
