@@ -94,18 +94,18 @@ function changeTheme(selected) {
 			document.body.style.color = "white";
 			document.getElementById("home").style.color = "#35fcf2";
 			for (element of tarea) {
-element.style.background = "black";
-element.style.color = "white";
-element.style.border = (element.id === "output") ? "3px solid white" : "2px solid white";
+				element.style.background = "black";
+				element.style.color = "white";
+				element.style.border = (element.id === "output") ? "3px solid white" : "2px solid white";
 			}
 		}
 		else {
 			document.body.style.color = "black";
 			document.getElementById("home").style.color = "#0000EE";
 			for (element of tarea) {
-element.style.background = "white";
-element.style.color = "black";
-element.style.border = (element.id === "output") ? "3px solid black" : "2px solid black";
+				element.style.background = "white";
+				element.style.color = "black";
+				element.style.border = (element.id === "output") ? "3px solid black" : "2px solid black";
 			}
 		}
 	
@@ -415,45 +415,45 @@ function output () {
 		if (w2a.length === l1a.length && l1a.length > 1) {
 			i = 0;
 			while (m1a.length !== w2a.length) {
-m1a.push(w2a[i]);
-i++;
-m1a.push(l1a[i]);
-i++;
+				m1a.push(w2a[i]);
+				i++;
+				m1a.push(l1a[i]);
+				i++;
 			}
 			i = 0;
 			while (m1a.length !== (w2a.length+l1a.length)) {
-			       	m1a.push(l1a[i]);
-i++;
-m1a.push(w2a[i]);
-i++;
+				m1a.push(l1a[i]);
+				i++;
+				m1a.push(w2a[i]);
+				i++;
 			}
 			i = 0;
 			while (m1a.length !== w2a.length) {
-m1a[i] = m1a[i] + " vs " + m1a[i+1];
-i++;
-m1a.splice(i, 1);
+				m1a[i] = m1a[i] + " vs " + m1a[i+1];
+				i++;
+				m1a.splice(i, 1);
 			}
 		}
 		if (w1a.length === l2a.length && l2a.length > 1) {
 			i = 0;
 			while (m2a.length !== w1a.length) {
-m2a.push(w1a[i]);
-i++;
-m2a.push(l2a[i]);
-i++;
+				m2a.push(w1a[i]);
+				i++;
+				m2a.push(l2a[i]);
+				i++;
 			}
 			i = 0;
 			while (m2a.length !== (w1a.length+l2a.length)) {
-			       	m2a.push(l2a[i]);
-i++;
-m2a.push(w1a[i]);
-i++;
+				m2a.push(l2a[i]);
+				i++;
+				m2a.push(w1a[i]);
+				i++;
 			}
 			i = 0;
 			while (m2a.length !== w1a.length) {
-m2a[i] = m2a[i] + " vs " + m2a[i+1];
-i++;
-m2a.splice(i, 1);
+				m2a[i] = m2a[i] + " vs " + m2a[i+1];
+				i++;
+				m2a.splice(i, 1);
 			}
 		}
 		outputText = "▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂\n";
