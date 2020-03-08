@@ -338,18 +338,18 @@ function tidy (name, text) {
 	if (name === "output") {
 		h1a = text.match(/▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂/g);
 		h2a = text.match(/▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔/g);
-		linecount -= (h1a !== null) ? h1a.length : 0;
-		linecount -= (h2a !== null) ? h2a.length : 0;
+		linecount -= (h1a !== null) ? h1a.length/2 : 0;
+		linecount -= (h2a !== null) ? h2a.length/2 : 0;
 		if (document.getElementById("parity").options.selectedIndex === 0) {
 			h3a = text.match(/Left\s\/\sTop\sWinner\sBracket\n/);
 			h4a = text.match(/Left\s\/\sTop\sWinner\sBracket\n/);
-			linecount -= (h3a !== null) ? h3a.length : 0;
-			linecount -= (h4a !== null) ? h4a.length : 0;
+			linecount -= (h3a !== null) ? h3a.length/2 : 0;
+			linecount -= (h4a !== null) ? h4a.length/2 : 0;
 		}
 		h5a = text.match(/Left\s\/\sTop\sLoser\sBracket\n/);
 		h6a = text.match(/Right\s\/\sBottom\sLoser\sBracket\n/);
-		linecount -= (h5a !== null) ? h5a.length : 0;
-		linecount -= (h5a !== null) ? h6a.length : 0;
+		linecount -= (h5a !== null) ? h5a.length/2 : 0;
+		linecount -= (h5a !== null) ? h6a.length/2 : 0;
 	}
 	document.getElementById(quad[name]).innerHTML = document.getElementById(quad[name]).innerHTML.replace(/\[[.\d]+\//,"["+linecount+"/");	
 	// saving size for inputs and outputs
