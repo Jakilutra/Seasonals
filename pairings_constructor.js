@@ -336,14 +336,14 @@ function tidy (name, text) {
 	linecount -= charcount === 0;
 	linecount = linecount/2;
 	if (name === "output") {
-		linecount -= text.match(/▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂/g).length/2;
-		linecount -= text.match(/▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔/g).length/2;
+		linecount -= (text.match(/▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂/g) !== null) ? 0.5: 0;
+		linecount -= (text.match(/▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔/g) != null) ? 0.5: 0;
 		if (document.getElementById("parity").options.selectedIndex === 0) {
-			linecount -= text.match(/Left\s\/\sTop\sWinner\sBracket\n/).length/2;
-			linecount -= text.match(/Right\s\/\sBottom\sWinner\sBracket\n/).length/2;
+			linecount -= (text.match(/Left\s\/\sTop\sWinner\sBracket\n/) != null) ? 0.5: 0;
+			linecount -= (text.match(/Right\s\/\sBottom\sWinner\sBracket\n/) != null) ? 0.5: 0;
 		}
-		linecount -= text.match(/Left\s\/\sTop\sLoser\sBracket\n/).length/2;
-		linecount -= text.match(/Right\s\/\sBottom\sLoser\sBracket\n/).length/2;
+		linecount -= (text.match(/Left\s\/\sTop\sLoser\sBracket\n/) != null) ? 0.5: 0;
+		linecount -= (text.match(/Right\s\/\sBottom\sLoser\sBracket\n/) != null) ? 0.5: 0;
 	}
 	document.getElementById(quad[name]).innerHTML = document.getElementById(quad[name]).innerHTML.replace(/\[[.\d]+\//,"["+linecount+"/");	
 	// saving size for inputs and outputs
