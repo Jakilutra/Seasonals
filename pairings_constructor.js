@@ -46,6 +46,7 @@ function startUp () {
 	}
 	if (round === "4" || round === "6" || round === "8" || round === "10" || round === "12" || round === "14") {
 		document.getElementById("round").value = round;
+		updateMaximums();
 	}
 	if (method === "Stack") {
 		document.getElementById("method").options.selectedIndex = 0;
