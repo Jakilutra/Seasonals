@@ -345,7 +345,7 @@ function tidy (name, text) {
 		linecount -= text.match("Left / Top Loser Bracket\n").length/2;
 		linecount -= text.match("Right / Bottom Loser Bracket\n").length/2;
 	}
-	document.getElementById(quad[name]).innerHTML = document.getElementById(quad[name]).innerHTML.replace(/\[[\.\d]+\//,"["+linecount+"/");	
+	document.getElementById(quad[name]).innerHTML = document.getElementById(quad[name]).innerHTML.replace(/\[[.\d]+\//,"["+linecount+"/");	
 	// saving size for inputs and outputs
 	localStorage.setItem(name, newtext);
 }
@@ -361,18 +361,18 @@ function updateMaximums () {
 	pairingSize = roundSize/((parityIndex+1)*4);
 	pairingSize = scaleIndex === 1 ? (3/2)*pairingSize : pairingSize;
 	if (pairingSize === 0.75) {
-		document.getElementById("W1").innerHTML = document.getElementById("W1").innerHTML.replace(/\/[\.\d]+\]/, "/1.5]");
-		document.getElementById("W2").innerHTML = document.getElementById("W2").innerHTML.replace(/\/[\.\d]+\]/, "/0]");
-		document.getElementById("L1").innerHTML = document.getElementById("L1").innerHTML.replace(/\/[\.\d]+\]/, "/1.5]");
-		document.getElementById("L2").innerHTML = document.getElementById("L2").innerHTML.replace(/\/[\.\d]+\]/, "/0]");
+		document.getElementById("W1").innerHTML = document.getElementById("W1").innerHTML.replace(/\/[.\d]+\]/, "/1.5]");
+		document.getElementById("W2").innerHTML = document.getElementById("W2").innerHTML.replace(/\/[.\d]+\]/, "/0]");
+		document.getElementById("L1").innerHTML = document.getElementById("L1").innerHTML.replace(/\/[.\d]+\]/, "/1.5]");
+		document.getElementById("L2").innerHTML = document.getElementById("L2").innerHTML.replace(/\/[.\d]+\]/, "/0]");
 	}
 	else {
-		document.getElementById("W1").innerHTML = document.getElementById("W1").innerHTML.replace(/\/[\.\d]+\]/, "/"+pairingSize+"]");
-		document.getElementById("W2").innerHTML = document.getElementById("W2").innerHTML.replace(/\/[\.\d]+\]/, "/"+pairingSize+"]");
-		document.getElementById("L1").innerHTML = document.getElementById("L1").innerHTML.replace(/\/[\.\d]+\]/, "/"+pairingSize+"]");
-		document.getElementById("L2").innerHTML = document.getElementById("L2").innerHTML.replace(/\/[\.\d]+\]/, "/"+pairingSize+"]");
+		document.getElementById("W1").innerHTML = document.getElementById("W1").innerHTML.replace(/\/[.\d]+\]/, "/"+pairingSize+"]");
+		document.getElementById("W2").innerHTML = document.getElementById("W2").innerHTML.replace(/\/[.\d]+\]/, "/"+pairingSize+"]");
+		document.getElementById("L1").innerHTML = document.getElementById("L1").innerHTML.replace(/\/[.\d]+\]/, "/"+pairingSize+"]");
+		document.getElementById("L2").innerHTML = document.getElementById("L2").innerHTML.replace(/\/[.\d]+\]/, "/"+pairingSize+"]");
 	}
-	document.getElementById("button").innerHTML = document.getElementById("button").innerHTML.replace(/\/[\.\d]+\]/, "/"+pairingSize*4+"]");
+	document.getElementById("button").innerHTML = document.getElementById("button").innerHTML.replace(/\/[.\d]+\]/, "/"+pairingSize*4+"]");
 }
 function output () {
 	var outputText = "", w1 = "", w2 = "", l1 = "", l2 = "",
