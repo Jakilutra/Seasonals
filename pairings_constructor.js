@@ -408,10 +408,10 @@ function output () {
 		updateMaximums();
 		return;
 	}
-	w1a = w1.split(/\n|\svs\s/);
-	w2a = w2.split(/\n|\svs\s/);
-	l1a = l1.split(/\n|\svs\s/);
-	l2a = l2.split(/\n|\svs\s/);
+	w1a = w1.replace(/\n$/,"").split(/\n|\svs\s/);
+	w2a = w2.replace(/\n$/,"").split(/\n|\svs\s/);
+	l1a = l1.replace(/\n$/,"").split(/\n|\svs\s/);
+	l2a = l2.replace(/\n$/,"").split(/\n|\svs\s/);
 	if (roundIndex === 0 || roundIndex === 2 || roundIndex === 4 || roundIndex === 6) {
 		if (w2a.length === l1a.length && l1a.length > 1) {
 			i = 0;
