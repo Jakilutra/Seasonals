@@ -339,11 +339,11 @@ function tidy (name, text) {
 		linecount -= text.match(/▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂/g).length/2;
 		linecount -= text.match(/▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔/g).length/2;
 		if (document.getElementById("parity") === 0) {
-			linecount -= text.match(/Left\s\/\sTop Winner Bracket\n/).length/2;
-			linecount -= text.match(/Right\s\/\sBottom Winner Bracket\n/).length/2;
+			linecount -= text.match(/Left\s\/\sTop\sWinner\sBracket\n/).length/2;
+			linecount -= text.match(/Right\s\/\sBottom\sWinner\sBracket\n/).length/2;
 		}
-		linecount -= text.match(/Left\s\/\sTop Loser Bracket\n/).length/2;
-		linecount -= text.match(/Right\s\/\sBottom Loser Bracket\n/).length/2;
+		linecount -= text.match(/Left\s\/\sTop\sLoser\sBracket\n/).length/2;
+		linecount -= text.match(/Right\s\/\sBottom\sLoser\sBracket\n/).length/2;
 	}
 	document.getElementById(quad[name]).innerHTML = document.getElementById(quad[name]).innerHTML.replace(/\[[.\d]+\//,"["+linecount+"/");	
 	// saving size for inputs and outputs
