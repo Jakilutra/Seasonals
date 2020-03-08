@@ -1,7 +1,7 @@
 document.documentElement.className = "no-fouc";
 $(document).ready(function() {
-	startUp();
 	$(".no-fouc").removeClass("no-fouc");
+	startUp();
 });
 function startUp () {
 	// Declaring variables.
