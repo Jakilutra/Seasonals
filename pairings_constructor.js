@@ -331,7 +331,7 @@ function tidy (name, text) {
 	quad = {"top-left": "W1", "top-right": "W2", "bottom-left": "L1", "bottom-right": "L2", "output": "button"};
 	document.getElementById(name).value = newtext;
 	charcount = newtext.length;
-	linecount = newtext.split(/\n| vs /).length;
+	linecount = newtext.split(/\n|\svs\s/).length;
 	linecount -= newtext.slice("-1") === "\n";
 	linecount -= charcount === 0;
 	linecount = linecount/2;
@@ -408,10 +408,10 @@ function output () {
 		updateMaximums();
 		return;
 	}
-	w1a = w1.split(/\n| vs /);
-	w2a = w2.split(/\n| vs /);
-	l1a = l1.split(/\n| vs /);
-	l2a = l2.split(/\n| vs /);
+	w1a = w1.split(/\n|\svs\s/);
+	w2a = w2.split(/\n|\svs\s/);
+	l1a = l1.split(/\n|\svs\s/);
+	l2a = l2.split(/\n|\svs\s/);
 	if (roundIndex === 0 || roundIndex === 2 || roundIndex === 4 || roundIndex === 6) {
 		if (w2a.length === l1a.length && l1a.length > 1) {
 			i = 0;
