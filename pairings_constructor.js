@@ -338,7 +338,7 @@ function tidy (name, text) {
 	if (name === "output") {
 		linecount -= text.match(/▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂/g).length/2;
 		linecount -= text.match(/▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔/g).length/2;
-		if (document.getElementById("parity").value === "even") {
+		if (document.getElementById("parity").options.selectedIndex === 0) {
 			linecount -= text.match(/Left\s\/\sTop\sWinner\sBracket\n/).length/2;
 			linecount -= text.match(/Right\s\/\sBottom\sWinner\sBracket\n/).length/2;
 		}
