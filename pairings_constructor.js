@@ -384,7 +384,6 @@ function tidy (name, text) {
 	document.getElementById(quad[name]).innerHTML = document.getElementById(quad[name]).innerHTML.replace(/\[[.\d]+\//,"["+linecount+"/");	
 	// saving size for inputs and outputs
 	localStorage.setItem(name, newtext);
-	updateMaximums();
 }
 function updateMaximums () {
 	var roundIndex = 0, sizeIndex = 0, parityIndex = 0, scaleIndex = 0,
@@ -443,6 +442,7 @@ function output () {
 		outputText = outputText.replace(/\n\n/g,"\n").replace(/\n$/,"");
 		document.getElementById("output").value = outputText;
 		tidy ("output", outputText);
+		updateMaximums();
 		return;
 	}
 	w1a = w1.replace(/\n+$/,"").split(/\n|\svs\s/);
@@ -505,6 +505,7 @@ function output () {
 		outputText = outputText.replace(/\n\n/g,"\n").replace(/\n$/,"");
 		document.getElementById("output").value = outputText;
 		tidy ("output", outputText);
+		updateMaximums();
 		return;
 	}
 	if (w1a.length === l1a.length && l1a.length > 1) {
@@ -562,6 +563,7 @@ function output () {
 	outputText = outputText.replace(/\n\n/g,"\n").replace(/\n$/,"");
 	document.getElementById("output").value = outputText;
 	tidy ("output", outputText);
+	updateMaximums();
 	return;	
 }
 function empty () {
