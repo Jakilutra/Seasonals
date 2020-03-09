@@ -3,6 +3,7 @@ $(document).ready(function() {
 	startUp();
 	$(".no-fouc").removeClass("no-fouc");
 });
+var buttonclicked = false;
 function startUp () {
 	// Declaring variables.
 	var theme = "", multiplier = "", size = "", 
@@ -162,6 +163,11 @@ function scale (multiplier) {
 	// saving multiplier for retrieval
 	localStorage.setItem("multiplier", multiplier);
 	
+	// load output
+	if (buttonclicked) {
+		output();
+	}
+	
 	if (multiplier === "1.5") {
 		document.getElementById("8").innerHTML = "12";
 		document.getElementById("16").innerHTML = "24";
@@ -234,13 +240,26 @@ function modifySize (size) {
 	}
 	document.getElementById("round").options.selectedIndex = currentRoundIndex;
 	updateMaximums();
+	
 	// saving size for retrieval
 	localStorage.setItem("size", size);
+	
+	// load output
+	if (buttonclicked) {
+		output();
+	}
 }
 function changeParity (parity) {
 	var lastIndex = document.getElementById("round").options.length-1;
+	
 	// saving parity for retrieval
 	localStorage.setItem("parity", parity);
+	
+	// load output
+	if (buttonclicked) {
+		output();
+	}
+	
 	if (parity === "odd") {
 		updateMaximums();
 		document.getElementById("2").innerHTML = "3";
@@ -319,11 +338,22 @@ document.getElementById("14").innerHTML = "15";
 function saveRound (round) {
 	// saving round number for retrieval
 	localStorage.setItem("round", round);
+	
 	updateMaximums();
+	
+	// load output
+	if (buttonclicked) {
+		output();
+	}
 }
 function saveMethod (method) {
 	// saving size for retrieval
 	localStorage.setItem("method", method);
+	
+	// load output
+	if (buttonclicked) {
+		output();
+	}
 }
 function tidy (name, text) {
 	var newtext = "", linecount = 0, charcount = 0, quad = {}, h1a = [], h2a = [], h3a = [], h4a = [], h5a = [], h6a = [];
@@ -384,6 +414,7 @@ function output () {
 	var outputText = "", w1 = "", w2 = "", l1 = "", l2 = "",
 	    parityIndex = 0, roundIndex = 0, methodIndex = 0, i = 0,
 	    w1a = [], w2a = [], l1a = [], l2a = [], m1a = [], m2a = [];
+	buttonclicked = true;
 	parityIndex = document.getElementById("parity").options.selectedIndex;
 	roundIndex = document.getElementById("round").options.selectedIndex;
 	methodIndex = document.getElementById("method").options.selectedIndex;
