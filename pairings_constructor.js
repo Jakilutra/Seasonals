@@ -446,19 +446,19 @@ function output () {
 		outputText = "▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂\n";
 		outputText += "Left / Top Winner Bracket\n";
 		outputText += "▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔\n";
-		outputText += w1 + "\n";
+		outputText += w1.replace(/\s\svs\s\s/,"‹vs›") + "\n";
 		outputText += "▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂\n";
 		outputText += "Right / Bottom Winner Bracket\n";
 		outputText += "▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔\n";
-		outputText += w2 + "\n";
+		outputText += w2.replace(/\s\svs\s\s/,"‹vs›") + "\n";
 		outputText += "▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂\n";
 		outputText += "Left / Top Loser Bracket\n";
 		outputText += "▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔\n";
-		outputText += l1 + "\n";
+		outputText += l1.replace(/\s\svs\s\s/,"‹vs›") + "\n";
 		outputText += "▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂\n";
 		outputText += "Right / Bottom Loser Bracket\n";
 		outputText +="▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔\n";
-		outputText += l2 + "\n";
+		outputText += l2.replace(/\s\svs\s\s/,"‹vs›") + "\n";
 		outputText = outputText.replace(/\n\n/g,"\n").replace(/\n$/,"");
 		document.getElementById("output").value = outputText;
 		tidy ("output", outputText);
@@ -480,7 +480,7 @@ function output () {
 				}
 				i = 0;
 				while (m1a.length !== w2a.length) {
-					m1a[i] = m1a[i] + " vs " + m1a[i+1];
+					m1a[i] = m1a[i] + " ‹vs› " + m1a[i+1];
 					i++;
 					m1a.splice(i, 1);
 				}
@@ -494,7 +494,7 @@ function output () {
 				}
 				i = 0;
 				while (m2a.length !== w1a.length) {
-					m2a[i] = m2a[i] + " vs " + m2a[i+1];
+					m2a[i] = m2a[i] + " ‹vs› " + m2a[i+1];
 					i++;
 					m2a.splice(i, 1);
 				}
@@ -522,7 +522,7 @@ function output () {
 			}
 			i = 0;
 			while (m1a.length !== w1a.length) {
-				m1a[i] = m1a[i] + " vs " + m1a[i+1];
+				m1a[i] = m1a[i] + " ‹vs› " + m1a[i+1];
 				i++;
 				m1a.splice(i, 1);
 			}
@@ -536,7 +536,7 @@ function output () {
 			}
 			i = 0;
 			while (m2a.length !== w2a.length) {
-				m2a[i] = m2a[i] + " vs " + m2a[i+1];
+				m2a[i] = m2a[i] + " ‹vs› " + m2a[i+1];
 				i++;
 				m2a.splice(i, 1);
 			}
@@ -573,7 +573,7 @@ function output () {
 			}
 			i = 0;
 			while (m1a.length !== w2a.length) {
-				m1a[i] = m1a[i] + " vs " + m1a[i+1];
+				m1a[i] = m1a[i] + " ‹vs› " + m1a[i+1];
 				i++;
 				m1a.splice(i, 1);
 			}
@@ -595,7 +595,7 @@ function output () {
 			}
 			i = 0;
 			while (m2a.length !== w1a.length) {
-				m2a[i] = m2a[i] + " vs " + m2a[i+1];
+				m2a[i] = m2a[i] + " ‹vs› " + m2a[i+1];
 				i++;
 				m2a.splice(i, 1);
 			}
@@ -631,7 +631,7 @@ function output () {
 		}
 		i = 0;
 		while (m1a.length !== w1a.length) {
-			m1a[i] = m1a[i] + " vs " + m1a[i+1];
+			m1a[i] = m1a[i] + " ‹vs› " + m1a[i+1];
 			i++;
 			m1a.splice(i, 1);
 		}
@@ -653,7 +653,7 @@ function output () {
 		}
 		i = 0;
 		while (m2a.length !== w2a.length) {
-			m2a[i] = m2a[i] + " vs " + m2a[i+1];
+			m2a[i] = m2a[i] + " ‹vs› " + m2a[i+1];
 			i++;
 			m2a.splice(i, 1);
 		}
