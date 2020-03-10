@@ -381,7 +381,7 @@ function tidy (name, text) {
 	quad = {"top-left": "W1", "top-right": "W2", "bottom-left": "L1", "bottom-right": "L2", "output": "button"};
 	document.getElementById(name).value = newtext;
 	charcount = newtext.length;
-	linecount = (name === output) ? newtext.split(/\n|\s‹.{2,5}›\s/).length : newtext.split(/\n|\s\svs\s\s/).length;
+	linecount = (name === "output") ? newtext.split(/\n|\s‹.{2,5}›\s|\s«.{2,5}»\s/).length : newtext.split(/\n|\s\svs\s\s/).length;
 	linecount -= newtext.slice("-1") === "\n";
 	linecount -= charcount === 0;
 	linecount = linecount/2;
