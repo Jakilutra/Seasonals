@@ -342,10 +342,10 @@ function changeParity (parity) {
 	}
 	document.getElementById("W1").innerHTML = document.getElementById("W1").innerHTML.replace("<small>&nbsp;&nbsp;Losers&nbsp;&nbsp;</small>","<small>Winners</small>");
 	document.getElementById("W2").innerHTML = document.getElementById("W2").innerHTML.replace("<small>&nbsp;&nbsp;Losers&nbsp;&nbsp;</small>","<small>Winners</small>");
-	document.getElementById("W1").innerHTML = document.getElementById("W1").innerHTML.replace(/R\d\d?/,"R" + String(lastRound-1));
-	document.getElementById("W2").innerHTML = document.getElementById("W2").innerHTML.replace(/R\d\d?/,"R" + String(lastRound-1));
-	document.getElementById("W3").innerHTML = document.getElementById("W3").innerHTML.replace(/R\d\d?/,"R" + lastRound);
-	document.getElementById("W4").innerHTML = document.getElementById("W4").innerHTML.replace(/R\d\d?/,"R" + lastRound);
+	document.getElementById("W1").innerHTML = document.getElementById("W1").innerHTML.replace(/R\d\d?/,"R" + last2Round);
+	document.getElementById("W2").innerHTML = document.getElementById("W2").innerHTML.replace(/R\d\d?/,"R" + last2Round);
+	document.getElementById("L1").innerHTML = document.getElementById("L1").innerHTML.replace(/R\d\d?/,"R" + lastRound);
+	document.getElementById("L2").innerHTML = document.getElementById("L2").innerHTML.replace(/R\d\d?/,"R" + lastRound);
 }
 function updateRound (round) {
 	var lastRound = 0, last2Round = 0, parityIndex = 0;
@@ -361,8 +361,8 @@ function updateRound (round) {
 	else {
 		document.getElementById("W1").innerHTML = document.getElementById("W1").innerHTML.replace(/R\d\d?/,"R" + last2Round);
 		document.getElementById("W2").innerHTML = document.getElementById("W2").innerHTML.replace(/R\d\d?/,"R" + last2Round);
-		document.getElementById("W3").innerHTML = document.getElementById("W3").innerHTML.replace(/R\d\d?/,"R" + lastRound);
-		document.getElementById("W4").innerHTML = document.getElementById("W4").innerHTML.replace(/R\d\d?/,"R" + lastRound);
+		document.getElementById("L1").innerHTML = document.getElementById("L1").innerHTML.replace(/R\d\d?/,"R" + lastRound);
+		document.getElementById("L2").innerHTML = document.getElementById("L2").innerHTML.replace(/R\d\d?/,"R" + lastRound);
 	}
 	
 	// saving round number for retrieval
