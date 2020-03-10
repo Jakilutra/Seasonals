@@ -353,14 +353,14 @@ function updateRound (round) {
 	if (parityIndex === 1) {
 		document.getElementById("W1").innerHTML = document.getElementById("W1").innerHTML.replace(/R\d\d?/,"R" + lastRound);
 		document.getElementById("W2").innerHTML = document.getElementById("W2").innerHTML.replace(/R\d\d?/,"R" + lastRound);
-		document.getElementById("W1").innerHTML = document.getElementById("W3").innerHTML.replace(/R\d\d?/,"R" + lastRound);
-		document.getElementById("W2").innerHTML = document.getElementById("W4").innerHTML.replace(/R\d\d?/,"R" + lastRound);
+		document.getElementById("W3").innerHTML = document.getElementById("W3").innerHTML.replace(/R\d\d?/,"R" + lastRound);
+		document.getElementById("W4").innerHTML = document.getElementById("W4").innerHTML.replace(/R\d\d?/,"R" + lastRound);
 	}
 	else {
 		document.getElementById("W1").innerHTML = document.getElementById("W1").innerHTML.replace(/R\d\d?/,"R" + lastRound-1);
 		document.getElementById("W2").innerHTML = document.getElementById("W2").innerHTML.replace(/R\d\d?/,"R" + lastRound-1);
-		document.getElementById("W1").innerHTML = document.getElementById("W3").innerHTML.replace(/R\d\d?/,"R" + lastRound);
-		document.getElementById("W2").innerHTML = document.getElementById("W4").innerHTML.replace(/R\d\d?/,"R" + lastRound);
+		document.getElementById("W3").innerHTML = document.getElementById("W3").innerHTML.replace(/R\d\d?/,"R" + lastRound);
+		document.getElementById("W4").innerHTML = document.getElementById("W4").innerHTML.replace(/R\d\d?/,"R" + lastRound);
 	}
 	
 	// saving round number for retrieval
