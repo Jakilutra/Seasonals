@@ -185,7 +185,9 @@ function modifySize (size, atStartUp) {
 	var roundString = "", round = 0, currentRoundIndex = 0, maxRoundIndex = 0, parityIndex = 0;
 	roundString = localStorage.getItem("round");
 	roundString = roundString === null ? "2" : roundString;
-	currentRoundIndex = atStartUp ? Math.floor(parseInt(round)/2)-1 : document.getElementById("round").options.selectedIndex;
+	round = parseInt(roundString);
+	currentRoundIndex = document.getElementById("round").options.selectedIndex;
+	currentRoundIndex = atStartUp ? Math.floor(round/2)-1 : currentRoundIndex;
 	maxRoundIndex = (Math.log2(parseInt(size)) - 3);
 	parityIndex = document.getElementById("parity").options.selectedIndex;
 	currentRoundIndex = (currentRoundIndex > maxRoundIndex) ? maxRoundIndex: currentRoundIndex;
