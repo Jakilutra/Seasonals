@@ -123,14 +123,14 @@
 					<option value="even" selected>Even</option>
 					<option value="odd">Odd</option>
 				</select>
-				<select id="round" class="small" onchange="saveRound(this.value);">
+				<select id="round" class="small" onchange="updateRound(this.value);">
 					<option id="2" value="2" selected>2</option>
 					<option id="4" value="4">4</option>
 					<option id="6" value="6">6</option>
 					<option id="1000" value="8">8</option>
 				</select>
 				<label class="small"><b>Method</b></label>
-				<select id="method" class="small" onchange="saveMethod(this.value);">
+				<select id="method" class="small" onchange="updateMethod(this.value);">
 					<option value="Stack">Stack [A1 vs B1] (suboptimal)</option>
 					<option value="Odd-even" selected>Odd-even [A1 vs B2] (optimal)</option>
 				</select>
