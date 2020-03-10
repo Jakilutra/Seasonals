@@ -388,7 +388,7 @@ function tidy (name, text) {
 	if (name === "output") {
 		h1a = text.match(/▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂/g);
 		h2a = text.match(/▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔/g);
-		linecount = newtext.split(/\n|\s‹vs›\s/).length;
+		linecount = newtext.split(/\n|\s‹.{2,5}›\s/).length;
 		linecount -= (h1a !== null) ? h1a.length/2 : 0;
 		linecount -= (h2a !== null) ? h2a.length/2 : 0;
 		if (document.getElementById("parity").options.selectedIndex === 0) {
