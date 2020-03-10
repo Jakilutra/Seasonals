@@ -301,7 +301,7 @@ function changeParity (parity) {
 		document.getElementById("round").options.selectedIndex++;
 		round += 2;
 	}
-	updateRound();
+	updateRound(round);
 	updateMaximums();
 	document.getElementById("2").innerHTML = "2";
 	if (document.getElementById("4") !== null) {
