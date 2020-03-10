@@ -453,7 +453,7 @@ function output () {
 		if (roundIndex === 0 || roundIndex === 2 || roundIndex === 4 || roundIndex === 6) {
 			if (w2a.length === l1a.length && l1a.length > 1) {
 				i = 0;
-				while (m1a.length !== w2a.length) {
+				while (m1a.length !== (w2a.length+l1a.length)) {
 					m1a.push(w2a[i]);
 					m1a.push(l1a[i]);
 					i++;
@@ -467,7 +467,7 @@ function output () {
 			}
 			if (w1a.length === l2a.length && l2a.length > 1) {
 				i = 0;
-				while (m2a.length !== w1a.length) {
+				while (m2a.length !== (w1a.length+l2a.length)) {
 					m2a.push(w1a[i]);
 					m2a.push(l2a[i]);
 					i++;
@@ -495,7 +495,7 @@ function output () {
 		}
 		if (w1a.length === l1a.length && l1a.length > 1) {
 			i = 0;
-			while (m1a.length !== w1a.length) {
+			while (m1a.length !== (w1a.length+l1a.length)) {
 				m1a.push(w1a[i]);
 				m1a.push(l1a[i]);
 				i++;
@@ -509,7 +509,7 @@ function output () {
 		}
 		if (w2a.length === l2a.length && l2a.length > 1) {
 			i = 0;
-			while (m2a.length !== w2a.length) {
+			while (m2a.length !== (w2a.length+l2a.length)) {
 				m2a.push(w2a[i]);
 				m2a.push(l2a[i]);
 				i++;
