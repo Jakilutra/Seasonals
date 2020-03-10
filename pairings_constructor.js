@@ -194,8 +194,8 @@ function modifySize (size) {
 	if (currentRoundIndex > maxRoundIndex){
 		currentRoundIndex = maxRoundIndex;
 		round = (maxRoundIndex+1)*2;
-		updateRound(round);
 	}
+	updateRound(round);
 	if (parityIndex === 0){
 		document.getElementById("round").innerHTML = '<option id="2" value="2">2</option>';
 		if (size > parseInt("12")) {
