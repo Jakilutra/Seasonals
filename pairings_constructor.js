@@ -146,13 +146,13 @@ function reversal () {
 	}
 	document.getElementById("button").innerHTML = document.getElementById("button").innerHTML.replace("De-Construct", "Construct");
 	document.getElementById("top-left").readOnly = false;
-	document.getElementById("top-left").placeholder = "Copy and paste text from the bracketmaker directly.";
+	document.getElementById("top-left").placeholder = "Copy and paste text from the bracketmaker directly. Surround vs with 2 spaces on each side.";
 	document.getElementById("top-right").readOnly = false;
-	document.getElementById("top-right").placeholder = "Copy and paste text from the bracketmaker directly.";
+	document.getElementById("top-right").placeholder = "Copy and paste text from the bracketmaker directly. Surround vs with 2 spaces on each side.";
 	document.getElementById("bottom-left").readOnly = false;
-	document.getElementById("bottom-left").placeholder = "Copy and paste text from the bracketmaker directly.";
+	document.getElementById("bottom-left").placeholder = "Copy and paste text from the bracketmaker directly. Surround vs with 2 spaces on each side.";
 	document.getElementById("bottom-right").readOnly = false;
-	document.getElementById("bottom-right").placeholder = "Copy and paste text from the bracketmaker directly.";
+	document.getElementById("bottom-right").placeholder = "Copy and paste text from the bracketmaker directly. Surround vs with 2 spaces on each side.";
 	document.getElementById("output").readOnly = true;
 	document.getElementById("output").value = "";
 	document.getElementById("output").placeholder = "Merged output will be displayed here.";
@@ -361,7 +361,7 @@ function tidy (name, text) {
 	quad = {"top-left": "W1", "top-right": "W2", "bottom-left": "L1", "bottom-right": "L2", "output": "button"};
 	document.getElementById(name).value = newtext;
 	charcount = newtext.length;
-	linecount = newtext.split(/\n|\svs\s/).length;
+	linecount = newtext.split(/\n|\s\svs\s\s/).length;
 	linecount -= newtext.slice("-1") === "\n";
 	linecount -= charcount === 0;
 	linecount = linecount/2;
@@ -445,10 +445,10 @@ function output () {
 		updateMaximums();
 		return;
 	}
-	w1a = w1.replace(/\n+$/,"").split(/\n|\svs\s/);
-	w2a = w2.replace(/\n+$/,"").split(/\n|\svs\s/);
-	l1a = l1.replace(/\n+$/,"").split(/\n|\svs\s/);
-	l2a = l2.replace(/\n+$/,"").split(/\n|\svs\s/);
+	w1a = w1.replace(/\n+$/,"").split(/\n|\s\svs\s\s/);
+	w2a = w2.replace(/\n+$/,"").split(/\n|\s\svs\s\s/);
+	l1a = l1.replace(/\n+$/,"").split(/\n|\s\svs\s\s/);
+	l2a = l2.replace(/\n+$/,"").split(/\n|\s\svs\s\s/);
 	if (methodIndex === 0) {
 		if (roundIndex === 0 || roundIndex === 2 || roundIndex === 4 || roundIndex === 6) {
 			if (w2a.length === l1a.length && l1a.length > 1) {
