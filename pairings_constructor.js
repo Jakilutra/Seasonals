@@ -301,8 +301,8 @@ function changeParity (parity) {
 		document.getElementById("W2").innerHTML = document.getElementById("W2").innerHTML.replace("<small>Winners</small>","<small>&nbsp;&nbsp;Losers&nbsp;&nbsp;</small>");
 		document.getElementById("W1").innerHTML = document.getElementById("W1").innerHTML.replace(/R\d\d?/,"R" + lastRound);
 		document.getElementById("W2").innerHTML = document.getElementById("W2").innerHTML.replace(/R\d\d?/,"R" + lastRound);
-		document.getElementById("W3").innerHTML = document.getElementById("W3").innerHTML.replace(/R\d\d?/,"R" + lastRound);
-		document.getElementById("W4").innerHTML = document.getElementById("W4").innerHTML.replace(/R\d\d?/,"R" + lastRound);
+		document.getElementById("L1").innerHTML = document.getElementById("L1").innerHTML.replace(/R\d\d?/,"R" + lastRound);
+		document.getElementById("L2").innerHTML = document.getElementById("L2").innerHTML.replace(/R\d\d?/,"R" + lastRound);
 		return;
 	}
 	if (document.getElementById("round").options.selectedIndex !== lastIndex){
@@ -355,8 +355,8 @@ function updateRound (round) {
 	if (parityIndex === 1) {
 		document.getElementById("W1").innerHTML = document.getElementById("W1").innerHTML.replace(/R\d\d?/,"R" + lastRound);
 		document.getElementById("W2").innerHTML = document.getElementById("W2").innerHTML.replace(/R\d\d?/,"R" + lastRound);
-		document.getElementById("W3").innerHTML = document.getElementById("W3").innerHTML.replace(/R\d\d?/,"R" + lastRound);
-		document.getElementById("W4").innerHTML = document.getElementById("W4").innerHTML.replace(/R\d\d?/,"R" + lastRound);
+		document.getElementById("L1").innerHTML = document.getElementById("L1").innerHTML.replace(/R\d\d?/,"R" + lastRound);
+		document.getElementById("L2").innerHTML = document.getElementById("L2").innerHTML.replace(/R\d\d?/,"R" + lastRound);
 	}
 	else {
 		document.getElementById("W1").innerHTML = document.getElementById("W1").innerHTML.replace(/R\d\d?/,"R" + last2Round);
