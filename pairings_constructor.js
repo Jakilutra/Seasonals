@@ -249,8 +249,7 @@ function changeParity (parity) {
 	var lastIndex = 0, roundIndex = 0, lastRound = 0, last2Round;
 	lastIndex = document.getElementById("round").options.length-1;
 	roundIndex = document.getElementById("round").options.selectedIndex;
-	lastRound = ((roundIndex+1)*2)-1;
-	last2Round = (lastRound === 1) ? lastRound : lastRound-1;
+	round = ((roundIndex+1)*2);
 	
 	// saving parity for retrieval
 	localStorage.setItem("parity", parity);
@@ -261,7 +260,7 @@ function changeParity (parity) {
 	}
 	
 	if (parity === "odd") {
-		lastRound++;
+		updateRound(round+1);
 		updateMaximums();
 		document.getElementById("2").innerHTML = "3";
 		if (document.getElementById("4") !== null) {
@@ -296,17 +295,13 @@ function changeParity (parity) {
 		}
 		document.getElementById("W1").innerHTML = document.getElementById("W1").innerHTML.replace("<small>Winners</small>","<small>&nbsp;&nbsp;Losers&nbsp;&nbsp;</small>");
 		document.getElementById("W2").innerHTML = document.getElementById("W2").innerHTML.replace("<small>Winners</small>","<small>&nbsp;&nbsp;Losers&nbsp;&nbsp;</small>");
-		document.getElementById("W1").innerHTML = document.getElementById("W1").innerHTML.replace(/R\d\d?/,"R" + lastRound);
-		document.getElementById("W2").innerHTML = document.getElementById("W2").innerHTML.replace(/R\d\d?/,"R" + lastRound);
-		document.getElementById("L1").innerHTML = document.getElementById("L1").innerHTML.replace(/R\d\d?/,"R" + lastRound);
-		document.getElementById("L2").innerHTML = document.getElementById("L2").innerHTML.replace(/R\d\d?/,"R" + lastRound);
 		return;
 	}
 	if (document.getElementById("round").options.selectedIndex !== lastIndex){
 		document.getElementById("round").options.selectedIndex++;
-		lastRound += 2;
-		last2Round += 2;
+		round += 2;
 	}
+	updateRound();
 	updateMaximums();
 	document.getElementById("2").innerHTML = "2";
 	if (document.getElementById("4") !== null) {
@@ -341,10 +336,6 @@ function changeParity (parity) {
 	}
 	document.getElementById("W1").innerHTML = document.getElementById("W1").innerHTML.replace("<small>&nbsp;&nbsp;Losers&nbsp;&nbsp;</small>","<small>Winners</small>");
 	document.getElementById("W2").innerHTML = document.getElementById("W2").innerHTML.replace("<small>&nbsp;&nbsp;Losers&nbsp;&nbsp;</small>","<small>Winners</small>");
-	document.getElementById("W1").innerHTML = document.getElementById("W1").innerHTML.replace(/R\d\d?/,"R" + last2Round);
-	document.getElementById("W2").innerHTML = document.getElementById("W2").innerHTML.replace(/R\d\d?/,"R" + last2Round);
-	document.getElementById("L1").innerHTML = document.getElementById("L1").innerHTML.replace(/R\d\d?/,"R" + lastRound);
-	document.getElementById("L2").innerHTML = document.getElementById("L2").innerHTML.replace(/R\d\d?/,"R" + lastRound);
 }
 function updateRound (round) {
 	var lastRound = 0, last2Round = 0, parityIndex = 0;
