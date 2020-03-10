@@ -246,7 +246,7 @@ function modifySize (size, atStartUp) {
 	}
 }
 function changeParity (parity) {
-	var lastIndex = 0, roundIndex = 0, lastRound = 0, last2Round;
+	var lastIndex = 0, roundIndex = 0, round = 0;
 	lastIndex = document.getElementById("round").options.length-1;
 	roundIndex = document.getElementById("round").options.selectedIndex;
 	round = ((roundIndex+1)*2);
