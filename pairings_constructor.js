@@ -188,10 +188,10 @@ function modifySize (size, atStartUp) {
 	currentRoundIndex = document.getElementById("round").options.selectedIndex;
 	currentRoundIndex = atStartUp ? Math.floor(round/2)-1 : currentRoundIndex;
 	maxRoundIndex = (Math.log2(parseInt(size))-3);
-	parityIndex = document.getElementById("parity").options.selectedIndex;
 	currentRoundIndex = (currentRoundIndex > maxRoundIndex) ? maxRoundIndex: currentRoundIndex;
-	round = (parityIndex === 1) ? (currentRoundIndex+1)*2+1 : (currentRoundIndex+1)*2;
+	round = (currentRoundIndex+1)*2;
 	updateRound(round);
+	parityIndex = document.getElementById("parity").options.selectedIndex;
 	if (parityIndex === 0){
 		document.getElementById("round").innerHTML = '<option id="2" value="2">2</option>';
 		if (size > parseInt("12")) {
@@ -260,7 +260,7 @@ function changeParity (parity) {
 	}
 	
 	if (parity === "odd") {
-		updateRound(round+1);
+		updateRound(round);
 		updateMaximums();
 		document.getElementById("2").innerHTML = "3";
 		if (document.getElementById("4") !== null) {
