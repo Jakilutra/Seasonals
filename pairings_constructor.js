@@ -349,7 +349,7 @@ function changeParity (parity) {
 function updateRound (round) {
 	var lastRound = 0, last2Round = 0, parityIndex = 0;
 	lastRound = parseInt(round)-1;
-	last2Round = lastRound-1;
+	last2Round = (lastRound === 1) ? lastRound: lastRound-1;
 	parityIndex = document.getElementById("parity").options.selectedIndex;
 	if (parityIndex === 1) {
 		document.getElementById("W1").innerHTML = document.getElementById("W1").innerHTML.replace(/R\d\d?/,"R" + lastRound);
