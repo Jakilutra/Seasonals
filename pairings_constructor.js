@@ -194,7 +194,7 @@ function modifySize (size) {
 	if (currentRoundIndex > maxRoundIndex){
 		currentRoundIndex = maxRoundIndex;
 		round = (maxRoundIndex+1)*2;
-		saveRound(round);
+		updateRound(round);
 	}
 	if (parityIndex === 0){
 		document.getElementById("round").innerHTML = '<option id="2" value="2">2</option>';
@@ -300,8 +300,8 @@ function changeParity (parity) {
 		document.getElementById("W2").innerHTML = document.getElementById("W2").innerHTML.replace("<small>Winners</small>","<small>&nbsp;&nbsp;Losers&nbsp;&nbsp;</small>");
 		document.getElementById("W1").innerHTML = document.getElementById("W1").innerHTML.replace(/R\d\d?/,"R" + lastRound);
 		document.getElementById("W2").innerHTML = document.getElementById("W2").innerHTML.replace(/R\d\d?/,"R" + lastRound);
-		document.getElementById("W3").innerHTML = document.getElementById("W1").innerHTML.replace(/R\d\d?/,"R" + lastRound);
-		document.getElementById("W4").innerHTML = document.getElementById("W2").innerHTML.replace(/R\d\d?/,"R" + lastRound);
+		document.getElementById("W3").innerHTML = document.getElementById("W3").innerHTML.replace(/R\d\d?/,"R" + lastRound);
+		document.getElementById("W4").innerHTML = document.getElementById("W4").innerHTML.replace(/R\d\d?/,"R" + lastRound);
 		return;
 	}
 	if (document.getElementById("round").options.selectedIndex !== lastIndex){
@@ -343,10 +343,26 @@ function changeParity (parity) {
 	document.getElementById("W2").innerHTML = document.getElementById("W2").innerHTML.replace("<small>&nbsp;&nbsp;Losers&nbsp;&nbsp;</small>","<small>Winners</small>");
 	document.getElementById("W1").innerHTML = document.getElementById("W1").innerHTML.replace(/R\d\d?/,"R" + lastRound-1);
 	document.getElementById("W2").innerHTML = document.getElementById("W2").innerHTML.replace(/R\d\d?/,"R" + lastRound-1);
-	document.getElementById("W1").innerHTML = document.getElementById("W1").innerHTML.replace(/R\d\d?/,"R" + lastRound-1);
-	document.getElementById("W2").innerHTML = document.getElementById("W2").innerHTML.replace(/R\d\d?/,"R" + lastRound-1);
+	document.getElementById("W3").innerHTML = document.getElementById("W3").innerHTML.replace(/R\d\d?/,"R" + lastRound);
+	document.getElementById("W4").innerHTML = document.getElementById("W4").innerHTML.replace(/R\d\d?/,"R" + lastRound);
 }
-function saveRound (round) {
+function updateRound (round) {
+	var lastRound = 0, parityIndex = 0;
+	lastRound = parseInt(round)-1;
+	parityIndex = document.getElementById("parity").options.selectedIndex;
+	if (parity === 1) {
+		document.getElementById("W1").innerHTML = document.getElementById("W1").innerHTML.replace(/R\d\d?/,"R" + lastRound);
+		document.getElementById("W2").innerHTML = document.getElementById("W2").innerHTML.replace(/R\d\d?/,"R" + lastRound);
+		document.getElementById("W1").innerHTML = document.getElementById("W3").innerHTML.replace(/R\d\d?/,"R" + lastRound);
+		document.getElementById("W2").innerHTML = document.getElementById("W4").innerHTML.replace(/R\d\d?/,"R" + lastRound);
+	}
+	else {
+		document.getElementById("W1").innerHTML = document.getElementById("W1").innerHTML.replace(/R\d\d?/,"R" + lastRound-1);
+		document.getElementById("W2").innerHTML = document.getElementById("W2").innerHTML.replace(/R\d\d?/,"R" + lastRound-1);
+		document.getElementById("W1").innerHTML = document.getElementById("W3").innerHTML.replace(/R\d\d?/,"R" + lastRound);
+		document.getElementById("W2").innerHTML = document.getElementById("W4").innerHTML.replace(/R\d\d?/,"R" + lastRound);
+	}
+	
 	// saving round number for retrieval
 	localStorage.setItem("round", round);
 	
@@ -357,7 +373,7 @@ function saveRound (round) {
 		output();
 	}
 }
-function saveMethod (method) {
+function updateMethod (method) {
 	// saving size for retrieval
 	localStorage.setItem("method", method);
 	
