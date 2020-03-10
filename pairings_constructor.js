@@ -306,6 +306,8 @@ function changeParity (parity) {
 	}
 	if (document.getElementById("round").options.selectedIndex !== lastIndex){
 		document.getElementById("round").options.selectedIndex++;
+		lastRound += 2;
+		last2Round += 2;
 	}
 	updateMaximums();
 	document.getElementById("2").innerHTML = "2";
