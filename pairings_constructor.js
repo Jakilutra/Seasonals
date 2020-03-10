@@ -252,7 +252,7 @@ function changeParity (parity) {
 	lastIndex = document.getElementById("round").options.length-1;
 	roundIndex = document.getElementById("round").options.selectedIndex;
 	lastRound = ((roundIndex+1)*2)-1;
-	last2Round = lastRound-1;
+	last2Round = (lastRound === 1) ? lastRound: lastRound-1;
 	
 	// saving parity for retrieval
 	localStorage.setItem("parity", parity);
