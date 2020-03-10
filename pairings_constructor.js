@@ -36,7 +36,7 @@ function startUp () {
 		document.getElementById("scaler").options.selectedIndex = 1;
 		scale(multiplier);
 	}
-	if (size === "8" || size === "16" || size === "32" || size === "128" || size === "256" || size === "512"){
+	if (size === "8" || size === "16" || size === "32" || size === "64" || size === "128" || size === "256" || size === "512"){
 		document.getElementById("size").value = size;
 		modifySize(size, true);
 	}
