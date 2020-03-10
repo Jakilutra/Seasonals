@@ -192,7 +192,7 @@ function modifySize (size) {
 	maxRoundIndex = (Math.log2(parseInt(size)) - 3);
 	parityIndex = document.getElementById("parity").options.selectedIndex;
 	currentRoundIndex = (currentRoundIndex > maxRoundIndex) ? maxRoundIndex: currentRoundIndex;
-	round = (currentRoundIndex+1)*2;
+	round = (parityIndex === 1) ? (currentRoundIndex+1)*2+1 : (currentRoundIndex+1)*2;
 	updateRound(round);
 	if (parityIndex === 0){
 		document.getElementById("round").innerHTML = '<option id="2" value="2">2</option>';
