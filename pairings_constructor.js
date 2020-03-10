@@ -342,7 +342,7 @@ function updateRound (round) {
 	parityIndex = document.getElementById("parity").options.selectedIndex;
 	lastRound = parseInt(round)-1;
 	lastRound += (parityIndex === 1);
-	last2Round -= (lastRound === 1);
+	last2Round -= (lastRound !== 1);
 	if (parityIndex === 1) {
 		document.getElementById("W1").innerHTML = document.getElementById("W1").innerHTML.replace(/R\d\d?/,"R" + lastRound);
 		document.getElementById("W2").innerHTML = document.getElementById("W2").innerHTML.replace(/R\d\d?/,"R" + lastRound);
