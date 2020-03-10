@@ -250,10 +250,11 @@ function modifySize (size) {
 	}
 }
 function changeParity (parity) {
-	var lastIndex = 0, roundIndex = 0, lastRound = 0;
+	var lastIndex = 0, roundIndex = 0, lastRound = 0, last2Round;
 	lastIndex = document.getElementById("round").options.length-1;
 	roundIndex = document.getElementById("round").options.selectedIndex;
 	lastRound = ((roundIndex+1)*2)-1;
+	last2Round = lastRound-1;
 	
 	// saving parity for retrieval
 	localStorage.setItem("parity", parity);
@@ -347,8 +348,9 @@ function changeParity (parity) {
 	document.getElementById("W4").innerHTML = document.getElementById("W4").innerHTML.replace(/R\d\d?/,"R" + lastRound);
 }
 function updateRound (round) {
-	var lastRound = 0, parityIndex = 0;
+	var lastRound = 0, last2Round = 0, parityIndex = 0;
 	lastRound = parseInt(round)-1;
+	last2Round = lastRound-1;
 	parityIndex = document.getElementById("parity").options.selectedIndex;
 	if (parityIndex === 1) {
 		document.getElementById("W1").innerHTML = document.getElementById("W1").innerHTML.replace(/R\d\d?/,"R" + lastRound);
@@ -357,8 +359,8 @@ function updateRound (round) {
 		document.getElementById("W4").innerHTML = document.getElementById("W4").innerHTML.replace(/R\d\d?/,"R" + lastRound);
 	}
 	else {
-		document.getElementById("W1").innerHTML = document.getElementById("W1").innerHTML.replace(/R\d\d?/,"R" + String(lastRound-1));
-		document.getElementById("W2").innerHTML = document.getElementById("W2").innerHTML.replace(/R\d\d?/,"R" + String(lastRound-1));
+		document.getElementById("W1").innerHTML = document.getElementById("W1").innerHTML.replace(/R\d\d?/,"R" + last2Round);
+		document.getElementById("W2").innerHTML = document.getElementById("W2").innerHTML.replace(/R\d\d?/,"R" + last2Round);
 		document.getElementById("W3").innerHTML = document.getElementById("W3").innerHTML.replace(/R\d\d?/,"R" + lastRound);
 		document.getElementById("W4").innerHTML = document.getElementById("W4").innerHTML.replace(/R\d\d?/,"R" + lastRound);
 	}
