@@ -17,7 +17,6 @@ function startUp () {
 	multiplier = localStorage.getItem("multiplier");
 	size = localStorage.getItem("size");
 	parity = localStorage.getItem("parity");
-	round = localStorage.getItem("round");
 	method = localStorage.getItem("method");
 	topleft = localStorage.getItem("top-left");
 	topright = localStorage.getItem("top-right");
@@ -37,13 +36,9 @@ function startUp () {
 		document.getElementById("scaler").options.selectedIndex = 1;
 		scale(multiplier);
 	}
-	if (round === "4" || round === "6" || round === "8" || round === "10" || round === "12" || round === "14") {
-		document.getElementById("round").value = round;
-		updateMaximums();
-	}
 	if (size === "8" || size === "16" || size === "32" || size === "128" || size === "256" || size === "512"){
 		document.getElementById("size").value = size;
-		modifySize(size);
+		modifySize(size, true);
 	}
 	if (parity === "odd") {
 		document.getElementById("parity").options.selectedIndex = 1;
@@ -186,9 +181,9 @@ function scale (multiplier) {
 	document.getElementById("256").innerHTML = "256";
 	document.getElementById("512").innerHTML = "512";
 }
-function modifySize (size) {
+function modifySize (size, atStartUp) {
 	var round = 0, currentRoundIndex = 0, maxRoundIndex = 0, parityIndex = 0;
-	currentRoundIndex = document.getElementById("round").options.selectedIndex;
+	currentRoundIndex = atStartUp ? Math.Floor(parseInt(localStorage.getitem("round"))/2)-1 : document.getElementById("round").options.selectedIndex;
 	maxRoundIndex = (Math.log2(parseInt(size)) - 3);
 	parityIndex = document.getElementById("parity").options.selectedIndex;
 	currentRoundIndex = (currentRoundIndex > maxRoundIndex) ? maxRoundIndex: currentRoundIndex;
@@ -252,7 +247,7 @@ function changeParity (parity) {
 	lastIndex = document.getElementById("round").options.length-1;
 	roundIndex = document.getElementById("round").options.selectedIndex;
 	lastRound = ((roundIndex+1)*2)-1;
-	last2Round = (lastRound === 1) ? lastRound: lastRound-1;
+	last2Round = (lastRound === 1) ? lastRound : lastRound-1;
 	
 	// saving parity for retrieval
 	localStorage.setItem("parity", parity);
@@ -351,7 +346,7 @@ function changeParity (parity) {
 function updateRound (round) {
 	var lastRound = 0, last2Round = 0, parityIndex = 0;
 	lastRound = parseInt(round)-1;
-	last2Round = (lastRound === 1) ? lastRound: lastRound-1;
+	last2Round = (lastRound === 1) ? lastRound : lastRound-1;
 	parityIndex = document.getElementById("parity").options.selectedIndex;
 	if (parityIndex === 1) {
 		document.getElementById("W1").innerHTML = document.getElementById("W1").innerHTML.replace(/R\d\d?/,"R" + lastRound);
