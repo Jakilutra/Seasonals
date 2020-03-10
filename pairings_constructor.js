@@ -184,11 +184,10 @@ function scale (multiplier) {
 function modifySize (size, atStartUp) {
 	var roundString = "", round = 0, currentRoundIndex = 0, maxRoundIndex = 0, parityIndex = 0;
 	roundString = localStorage.getItem("round");
-	roundString = roundString === null ? "2" : roundString;
-	round = parseInt(roundString);
+	round = roundString !== null ? parseInt(roundString) : 2;
 	currentRoundIndex = document.getElementById("round").options.selectedIndex;
 	currentRoundIndex = atStartUp ? Math.floor(round/2)-1 : currentRoundIndex;
-	maxRoundIndex = (Math.log2(parseInt(size)) - 3);
+	maxRoundIndex = (Math.log2(parseInt(size))-3);
 	parityIndex = document.getElementById("parity").options.selectedIndex;
 	currentRoundIndex = (currentRoundIndex > maxRoundIndex) ? maxRoundIndex: currentRoundIndex;
 	round = (parityIndex === 1) ? (currentRoundIndex+1)*2+1 : (currentRoundIndex+1)*2;
