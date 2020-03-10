@@ -339,9 +339,10 @@ function changeParity (parity) {
 }
 function updateRound (round) {
 	var lastRound = 0, last2Round = 0, parityIndex = 0;
-	lastRound = parseInt(round)-1;
-	last2Round = (lastRound === 1) ? lastRound : lastRound-1;
 	parityIndex = document.getElementById("parity").options.selectedIndex;
+	lastRound = parseInt(round)-1;
+	lastRound = (parityIndex === 1) ? lastRound+1 : lastRound;
+	last2Round = (lastRound === 1) ? lastRound : lastRound-1;
 	if (parityIndex === 1) {
 		document.getElementById("W1").innerHTML = document.getElementById("W1").innerHTML.replace(/R\d\d?/,"R" + lastRound);
 		document.getElementById("W2").innerHTML = document.getElementById("W2").innerHTML.replace(/R\d\d?/,"R" + lastRound);
