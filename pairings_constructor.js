@@ -250,7 +250,10 @@ function modifySize (size) {
 	}
 }
 function changeParity (parity) {
-	var lastIndex = document.getElementById("round").options.length-1;
+	var lastIndex = 0, roundIndex = 0, lastRound = 0;
+	lastIndex = document.getElementById("round").options.length-1;
+	roundIndex = document.getElementById("round").options.selectedIndex;
+	lastRound = ((roundIndex+1)*2)-1;
 	
 	// saving parity for retrieval
 	localStorage.setItem("parity", parity);
@@ -265,36 +268,40 @@ function changeParity (parity) {
 		document.getElementById("2").innerHTML = "3";
 		if (document.getElementById("4") !== null) {
 			if (document.getElementById("4").innerHTML === "4") {
-document.getElementById("4").innerHTML = "5";
+				document.getElementById("4").innerHTML = "5";
 			}
 		}
 		if (document.getElementById("6") !== null) {
 			if (document.getElementById("6").innerHTML  === "6") {
-document.getElementById("6").innerHTML = "7";
+				document.getElementById("6").innerHTML = "7";
 			}
 		}
 		if (document.getElementById("1000") !== null) {
 			if (document.getElementById("1000").innerHTML  === "8") {
-document.getElementById("1000").innerHTML = "9";
+				document.getElementById("1000").innerHTML = "9";
 			}
 		}
 		if (document.getElementById("10") !== null) {
 			if (document.getElementById("10").innerHTML  === "10") {
-document.getElementById("10").innerHTML = "11";
+				document.getElementById("10").innerHTML = "11";
 			}
 		}
 		if (document.getElementById("12") !== null) {
 			if (document.getElementById("12").innerHTML  === "12") {
-document.getElementById("12").innerHTML = "13";
+				document.getElementById("12").innerHTML = "13";
 			}
 		}
 		if (document.getElementById("14") !== null) {
 			if (document.getElementById("14").innerHTML  === "14") {
-document.getElementById("14").innerHTML = "15";
+				document.getElementById("14").innerHTML = "15";
 			}
 		}
 		document.getElementById("W1").innerHTML = document.getElementById("W1").innerHTML.replace("<small>Winners</small>","<small>&nbsp;&nbsp;Losers&nbsp;&nbsp;</small>");
 		document.getElementById("W2").innerHTML = document.getElementById("W2").innerHTML.replace("<small>Winners</small>","<small>&nbsp;&nbsp;Losers&nbsp;&nbsp;</small>");
+		document.getElementById("W1").innerHTML = document.getElementById("W1").innerHTML.replace(/R\d\d?/,"R" + lastRound);
+		document.getElementById("W2").innerHTML = document.getElementById("W2").innerHTML.replace(/R\d\d?/,"R" + lastRound);
+		document.getElementById("W3").innerHTML = document.getElementById("W1").innerHTML.replace(/R\d\d?/,"R" + lastRound);
+		document.getElementById("W4").innerHTML = document.getElementById("W2").innerHTML.replace(/R\d\d?/,"R" + lastRound);
 		return;
 	}
 	if (document.getElementById("round").options.selectedIndex !== lastIndex){
@@ -334,6 +341,10 @@ document.getElementById("14").innerHTML = "15";
 	}
 	document.getElementById("W1").innerHTML = document.getElementById("W1").innerHTML.replace("<small>&nbsp;&nbsp;Losers&nbsp;&nbsp;</small>","<small>Winners</small>");
 	document.getElementById("W2").innerHTML = document.getElementById("W2").innerHTML.replace("<small>&nbsp;&nbsp;Losers&nbsp;&nbsp;</small>","<small>Winners</small>");
+	document.getElementById("W1").innerHTML = document.getElementById("W1").innerHTML.replace(/R\d\d?/,"R" + lastRound-1);
+	document.getElementById("W2").innerHTML = document.getElementById("W2").innerHTML.replace(/R\d\d?/,"R" + lastRound-1);
+	document.getElementById("W1").innerHTML = document.getElementById("W1").innerHTML.replace(/R\d\d?/,"R" + lastRound-1);
+	document.getElementById("W2").innerHTML = document.getElementById("W2").innerHTML.replace(/R\d\d?/,"R" + lastRound-1);
 }
 function saveRound (round) {
 	// saving round number for retrieval
