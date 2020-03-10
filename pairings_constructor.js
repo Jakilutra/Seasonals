@@ -263,6 +263,7 @@ function changeParity (parity) {
 	}
 	
 	if (parity === "odd") {
+		lastRound++;
 		updateMaximums();
 		document.getElementById("2").innerHTML = "3";
 		if (document.getElementById("4") !== null) {
