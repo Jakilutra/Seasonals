@@ -449,6 +449,92 @@ function output () {
 	w2a = w2.replace(/\n+$/,"").split(/\n|\svs\s/);
 	l1a = l1.replace(/\n+$/,"").split(/\n|\svs\s/);
 	l2a = l2.replace(/\n+$/,"").split(/\n|\svs\s/);
+	if (methodIndex === 0) {
+		if (roundIndex === 0 || roundIndex === 2 || roundIndex === 4 || roundIndex === 6) {
+			if (w2a.length === l1a.length && l1a.length > 1) {
+				i = 0;
+				while (m1a.length !== w2a.length) {
+					m1a.push(w2a[i]);
+					m1a.push(l1a[i]);
+					i++;
+				}
+				i = 0;
+				while (m1a.length !== w2a.length) {
+					m1a[i] = m1a[i] + " vs " + m1a[i+1];
+					i++;
+					m1a.splice(i, 1);
+				}
+			}
+			if (w1a.length === l2a.length && l2a.length > 1) {
+				i = 0;
+				while (m2a.length !== w1a.length) {
+					m2a.push(w1a[i]);
+					m2a.push(l2a[i]);
+					i++;
+				}
+				i = 0;
+				while (m2a.length !== w1a.length) {
+					m2a[i] = m2a[i] + " vs " + m2a[i+1];
+					i++;
+					m2a.splice(i, 1);
+				}
+			}
+			outputText = "▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂\n";
+			outputText += "Left / Top Loser Bracket\n";
+			outputText += "▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔\n";
+			outputText += m1a.join("\n") + "\n";
+			outputText += "▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂\n";
+			outputText += "Right / Bottom Loser Bracket\n";
+			outputText +="▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔\n";
+			outputText += m2a.join("\n") + "\n";
+			outputText = outputText.replace(/\n\n/g,"\n").replace(/\n$/,"");
+			document.getElementById("output").value = outputText;
+			tidy ("output", outputText);
+			updateMaximums();
+			return;
+		}
+		if (w1a.length === l1a.length && l1a.length > 1) {
+			i = 0;
+			while (m1a.length !== w1a.length) {
+				m1a.push(w1a[i]);
+				m1a.push(l1a[i]);
+				i++;
+			}
+			i = 0;
+			while (m1a.length !== w1a.length) {
+				m1a[i] = m1a[i] + " vs " + m1a[i+1];
+				i++;
+				m1a.splice(i, 1);
+			}
+		}
+		if (w2a.length === l2a.length && l2a.length > 1) {
+			i = 0;
+			while (m2a.length !== w2a.length) {
+				m2a.push(w2a[i]);
+				m2a.push(l2a[i]);
+				i++;
+			}
+			i = 0;
+			while (m2a.length !== w2a.length) {
+				m2a[i] = m2a[i] + " vs " + m2a[i+1];
+				i++;
+				m2a.splice(i, 1);
+			}
+		}
+		outputText = "▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂\n";
+		outputText += "Left / Top Loser Bracket\n";
+		outputText += "▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔\n";
+		outputText += m1a.join("\n") + "\n";
+		outputText += "▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂\n";
+		outputText += "Right / Bottom Loser Bracket\n";
+		outputText +="▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔\n";
+		outputText += m2a.join("\n") + "\n";
+		outputText = outputText.replace(/\n\n/g,"\n").replace(/\n$/,"");
+		document.getElementById("output").value = outputText;
+		tidy ("output", outputText);
+		updateMaximums();
+		return;		
+	}
 	if (roundIndex === 0 || roundIndex === 2 || roundIndex === 4 || roundIndex === 6) {
 		if (w2a.length === l1a.length && l1a.length > 1) {
 			i = 0;
