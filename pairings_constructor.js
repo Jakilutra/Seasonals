@@ -37,6 +37,10 @@ function startUp () {
 		document.getElementById("scaler").options.selectedIndex = 1;
 		scale(multiplier);
 	}
+	if (round === "4" || round === "6" || round === "8" || round === "10" || round === "12" || round === "14") {
+		document.getElementById("round").value = round;
+		updateMaximums();
+	}
 	if (size === "8" || size === "16" || size === "32" || size === "128" || size === "256" || size === "512"){
 		document.getElementById("size").value = size;
 		modifySize(size);
@@ -44,10 +48,6 @@ function startUp () {
 	if (parity === "odd") {
 		document.getElementById("parity").options.selectedIndex = 1;
 		changeParity(parity);
-	}
-	if (round === "4" || round === "6" || round === "8" || round === "10" || round === "12" || round === "14") {
-		document.getElementById("round").value = round;
-		updateMaximums();
 	}
 	if (method === "Stack") {
 		document.getElementById("method").options.selectedIndex = 0;
