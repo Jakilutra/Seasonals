@@ -444,16 +444,16 @@ function output () {
 	w2 = document.getElementById("top-right").value;
 	l1 = document.getElementById("bottom-left").value;
 	l2 = document.getElementById("bottom-right").value;
-	w1n = parseInt(document.getElementById("W1").innerHTML.match(/\[([.\d]+)\//)[0]);
-	w2n = parseInt(document.getElementById("W2").innerHTML.match(/\[([.\d]+)\//)[0]);
-	l1n = parseInt(document.getElementById("L1").innerHTML.match(/\[([.\d]+)\//)[0]);
-	l2n = parseInt(document.getElementById("L2").innerHTML.match(/\[([.\d]+)\//)[0]);
-	w1x = parseInt(document.getElementById("W1").innerHTML.match(/\/([.\d]+)\]/)[0]);
-	w2x = parseInt(document.getElementById("W2").innerHTML.match(/\/([.\d]+)\]/)[0]);
-	l1x = parseInt(document.getElementById("L1").innerHTML.match(/\/([.\d]+)\]/)[0]);
-	l2x = parseInt(document.getElementById("L2").innerHTML.match(/\/([.\d]+)\]/)[0]);
+	w1n = Number(document.getElementById("W1").innerHTML.match(/\[[.\d]+\//)[0].replace("/","").replace("[",""));
+	w2n = Number(document.getElementById("W2").innerHTML.match(/\[[.\d]+\//)[0].replace("/","").replace("[",""));
+	l1n = Number(document.getElementById("L1").innerHTML.match(/\[[.\d]+\//)[0].replace("/","").replace("[",""));
+	l2n = Number(document.getElementById("L2").innerHTML.match(/\[[.\d]+\//)[0].replace("/","").replace("[",""));
+	w1x = Number(document.getElementById("W1").innerHTML.match(/\/[.\d]+\]/)[0].replace("/","").replace("]",""));
+	w2x = Number(document.getElementById("W2").innerHTML.match(/\/[.\d]+\]/)[0].replace("/","").replace("]",""));
+	l1x = Number(document.getElementById("L1").innerHTML.match(/\/[.\d]+\]/)[0].replace("/","").replace("]",""));
+	l2x = Number(document.getElementById("L2").innerHTML.match(/\/[.\d]+\]/)[0].replace("/","").replace("]",""));
 	if (w1n !== w1x || w2n !== w2x || l1n !== l1x || l2n !== l2x) {
-		document.getElementById("output").value = String(w1n) + "|" + String(w1x);
+		document.getElementById("output").value = "One or more text areas are missing the required number of pairings."
 		return;
 	}
 	if (parityIndex === 0) {
