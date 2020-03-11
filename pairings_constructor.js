@@ -137,16 +137,16 @@ function reversal () {
 	if (isReverse){
 		document.getElementById("button").innerHTML = document.getElementById("button").innerHTML.replace("Construct", "De-Construct");
 		document.getElementById("top-left").readOnly = true;
-		document.getElementById("top-left").value = "";
+		tidy("top-left","");
 		document.getElementById("top-left").placeholder = "De-merged output will be displayed here.";
 		document.getElementById("top-right").readOnly = true;
-		document.getElementById("top-right").value = "";
+		tidy("top-right","");
 		document.getElementById("top-right").placeholder = "De-merged output will be displayed here.";
 		document.getElementById("bottom-left").readOnly = true;
-		document.getElementById("bottom-left").value = "";
+		tidy("bottom-left","");
 		document.getElementById("bottom-left").placeholder = "De-merged output will be displayed here.";
 		document.getElementById("bottom-right").readOnly = true;
-		document.getElementById("bottom-right").value = "";
+		tidy("bottom-right","");
 		document.getElementById("bottom-right").placeholder = "De-merged output will be displayed here.";
 		document.getElementById("output").readOnly = false;
 		document.getElementById("output").placeholder = "Copy and paste previously merged output here.";
