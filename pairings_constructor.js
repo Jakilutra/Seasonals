@@ -403,10 +403,10 @@ function tidy (name, text) {
 	    quad = {},
 	    h1a = [],
 	    h2a = [],
-	    h3a = [],
-	    h4a = [],
-	    h5a = [],
-	    h6a = [],
+	    omp1 = /()/,
+	    omp2 = /()/,
+	    omp3 = /()/,
+	    omp4 = /()/,
 	    emp1 = /()/,
 	    emp2 = /()/;
 	newtext = text.replace(/\n\n/g,"\n").replace(/^\n/,"");
@@ -423,15 +423,15 @@ function tidy (name, text) {
 		linecount -= (h1a !== null) ? h1a.length/2 : 0;
 		linecount -= (h2a !== null) ? h2a.length/2 : 0;
 		if (document.getElementById("parity").options.selectedIndex === 0) {
-			h3a = text.match(/Left\s\/\sTop\sWinner\sBracket\n/);
-			h4a = text.match(/Left\s\/\sTop\sWinner\sBracket\n/);
-			linecount -= (h3a !== null) ? h3a.length/2 : 0;
-			linecount -= (h4a !== null) ? h4a.length/2 : 0;
+			omp1 = /Left\s\/\sTop\sWinner\sBracket\n/;
+			omp2 = /Right\s\/\sBottom\sWinner\sBracket\n/;
+			linecount -= omp1.test(text) ? 0.5: 0;
+			linecount -= omp2.test(text) ? 0.5: 0;
 		}
-		h5a = text.match(/Left\s\/\sTop\sLoser\sBracket\n/);
-		h6a = text.match(/Right\s\/\sBottom\sLoser\sBracket\n/);
-		linecount -= (h5a !== null) ? h5a.length/2 : 0;
-		linecount -= (h5a !== null) ? h6a.length/2 : 0;
+		omp3 = /Left\s\/\sTop\sLoser\sBracket\n/;
+		omp4 = /Right\s\/\sBottom\sLoser\sBracket\n/;
+		linecount -= omp3.test(text) ? 0.5: 0;
+		linecount -= omp4.test(text) ? 0.5: 0;
 		emp1 = /One or more text areas do not contain the specified number of pairings\./;
 		emp2 = /One or more pairings have names not prefixed with @\./;
 		linecount -= emp1.test(text) ? 0.5: 0;
