@@ -523,6 +523,7 @@ function output () {
 	l2x = Number(document.getElementById("L2").innerHTML.match(/\/[.\d]+\]/)[0].replace("/","").replace("]",""));
 	if (w1n !== w1x || w2n !== w2x || l1n !== l1x || l2n !== l2x) {
 		document.getElementById("output").value = "One or more text areas do not contain the specified number of pairings.";
+		localStorage.setItem("output", "One or more text areas do not contain the specified number of pairings.");
 		return;
 	}
 	atOn = document.getElementById("@on").checked;
