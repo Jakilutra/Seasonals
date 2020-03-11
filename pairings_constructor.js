@@ -500,7 +500,11 @@ function output () {
 	    m1a = [],
 	    m2a = [],
 	    atOn = false,
-	    atPattern = /()/;
+	    atPattern = /()/,
+	    atw1,
+	    atw2,
+	    atl1,
+	    atl2;
 	buttonclicked = true;
 	parityIndex = document.getElementById("parity").options.selectedIndex;
 	roundIndex = document.getElementById("round").options.selectedIndex;
@@ -522,9 +526,17 @@ function output () {
 		return;
 	}
 	atOn = document.getElementById("@on").checked;
-	atPattern = /^@.+\s\svs\s\s@.+$/gm;
+	atPattern = /@.+\s\svs\s\s@.+/g;
+	atw1 = w1.match(atPattern);
+	atw1 = atw1 !== null ? atw1.length : 0;
+	atw2 = w2.match(atPattern);
+	atw2 = atw2 !== null ? atw2.length : 0;
+	atl1 = l1.match(atPattern);
+	atl1 = atl1 !== null ? atl1.length : 0;
+	atl2 = l2.match(atPattern);
+	atl2 = atl2 !== null ? atl2.length : 0;
 	if (atOn) {
-		if (w1.match(atPattern).length !== w1x || w2.match(atPattern).length !== w2x || l1.match(atPattern).length !== l1x || l2.match(atPattern).length !== l2x) {
+		if (atw1 !== w1x || atw2 !== w2x || atl1 !== l1x || atl2 !== l2x) {
 			document.getElementById("output").value = "One or more pairings have names not prefixed with @.";
 			localStorage.setItem("output", "One or more pairings have names not prefixed with @.");
 			return;
