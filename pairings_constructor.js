@@ -425,17 +425,17 @@ function tidy (name, text) {
 		if (document.getElementById("parity").options.selectedIndex === 0) {
 			omp1 = /Left\s\/\sTop\sWinner\sBracket\n/;
 			omp2 = /Right\s\/\sBottom\sWinner\sBracket\n/;
-			linecount -= omp1.test(text) ? 0.5: 0;
-			linecount -= omp2.test(text) ? 0.5: 0;
+			linecount -= omp1.test(text) ? 0.5 : 0;
+			linecount -= omp2.test(text) ? 0.5 : 0;
 		}
 		omp3 = /Left\s\/\sTop\sLoser\sBracket\n/;
 		omp4 = /Right\s\/\sBottom\sLoser\sBracket\n/;
-		linecount -= omp3.test(text) ? 0.5: 0;
-		linecount -= omp4.test(text) ? 0.5: 0;
+		linecount -= omp3.test(text) ? 0.5 : 0;
+		linecount -= omp4.test(text) ? 0.5 : 0;
 		emp1 = /One or more text areas do not contain the specified number of pairings\./;
 		emp2 = /One or more pairings have names not prefixed with @\./;
-		linecount -= emp1.test(text) ? 0.5: 0;
-		linecount -= emp2.test(text) ? 0.5: 0;
+		linecount -= emp1.test(text) ? 0.5 : 0;
+		linecount -= emp2.test(text) ? 0.5 : 0;
 	}
 	document.getElementById(quad[name]).innerHTML = document.getElementById(quad[name]).innerHTML.replace(/\[[.\d]+\//,"["+linecount+"/");
 	if (text === "") {
