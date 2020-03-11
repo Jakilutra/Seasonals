@@ -399,7 +399,11 @@ function tidy (name, text) {
 		linecount -= (h5a !== null) ? h5a.length/2 : 0;
 		linecount -= (h5a !== null) ? h6a.length/2 : 0;
 	}
-	document.getElementById(quad[name]).innerHTML = document.getElementById(quad[name]).innerHTML.replace(/\[[.\d]+\//,"["+linecount+"/");	
+	document.getElementById(quad[name]).innerHTML = document.getElementById(quad[name]).innerHTML.replace(/\[[.\d]+\//,"["+linecount+"/");
+	if (text === "") {
+		localStorage.removeItem(name);
+		return;
+	}
 	// saving size for inputs and outputs
 	localStorage.setItem(name, newtext);
 }
@@ -688,9 +692,4 @@ function empty () {
 	tidy("bottom-left", "");
 	tidy("bottom-right", "");
 	tidy("output", "");
-	localStorage.removeItem("top-left");
-	localStorage.removeItem("top-right");
-	localStorage.removeItem("bottom-left");
-	localStorage.removeItem("bottom-right");
-	localStorage.removeItem("output");
 }
