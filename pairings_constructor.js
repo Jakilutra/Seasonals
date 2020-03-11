@@ -430,8 +430,6 @@ function tidy (name, text) {
 		h6a = text.match(/Right\s\/\sBottom\sLoser\sBracket\n/);
 		linecount -= (h5a !== null) ? h5a.length/2 : 0;
 		linecount -= (h5a !== null) ? h6a.length/2 : 0;
-		linecount -= text.test(/One or more text areas do not contain the specified number of pairings\./) ? 0.5 : 0;
-		linecount -= text.test(/One or more pairings have names not prefixed with @\./) ? 0.5 : 0;
 	}
 	document.getElementById(quad[name]).innerHTML = document.getElementById(quad[name]).innerHTML.replace(/\[[.\d]+\//,"["+linecount+"/");
 	if (text === "") {
@@ -513,7 +511,7 @@ function output () {
 	l1x = Number(document.getElementById("L1").innerHTML.match(/\/[.\d]+\]/)[0].replace("/","").replace("]",""));
 	l2x = Number(document.getElementById("L2").innerHTML.match(/\/[.\d]+\]/)[0].replace("/","").replace("]",""));
 	if (w1n !== w1x || w2n !== w2x || l1n !== l1x || l2n !== l2x) {
-		document.getElementById("output").value = "One or more text areas do not contain the specified number of pairings."
+		document.getElementById("output").value = "One or more text areas do not contain the specified number of pairings.";
 		return;
 	}
 	atOn = document.getElementById("@on").checked;
@@ -756,7 +754,7 @@ function output () {
 }
 function empty () {
 	tidy("top-left", "");
-	tidy("top-right", "")
+	tidy("top-right", "");
 	tidy("bottom-left", "");
 	tidy("bottom-right", "");
 	tidy("output", "");
