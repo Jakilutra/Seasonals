@@ -519,7 +519,7 @@ function output () {
 		document.getElementById("output").value = "One or more pairings have names not prefixed with @.";
 		localStorage.setItem("output", "One or more pairings have names not prefixed with @.");
 		return;
-		if (!w1.test(/@.+\s\svs\s\s@.+\n/) || !w2.test(/@.+\s\svs\s\s@.+\n/) || !l1.test(/@.+\s\svs\s\s@.+\n/) || !l2.test(/@.+\s\svs\s\s@.+\n/)) {
+		if (!w1.test(/^@.+\s\svs\s\s@.+$/gm) || !w2.test(/^@.+\s\svs\s\s@.+/gm) || !l1.test(/^@.+\s\svs\s\s@.+/gm) || !l2.test(/^@.+\s\svs\s\s@.+/gm)) {
 			document.getElementById("output").value = "One or more pairings have names not prefixed with @.";
 			localStorage.setItem("output", "One or more pairings have names not prefixed with @.");
 			return;
