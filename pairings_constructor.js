@@ -431,7 +431,7 @@ function tidy (name, text) {
 		linecount -= (h5a !== null) ? h5a.length/2 : 0;
 		linecount -= (h5a !== null) ? h6a.length/2 : 0;
 		linecount -= text.test(/One or more text areas do not contain the specified number of pairings\./)/2;
-		linecount -= text.test(/One or more pairings have names not prefixed with @\./";
+		linecount -= text.test(/One or more pairings have names not prefixed with @\./)/2;
 	}
 	document.getElementById(quad[name]).innerHTML = document.getElementById(quad[name]).innerHTML.replace(/\[[.\d]+\//,"["+linecount+"/");
 	if (text === "") {
