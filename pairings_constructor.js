@@ -453,7 +453,7 @@ function output () {
 	l1x = Number(document.getElementById("L1").innerHTML.match(/\/[.\d]+\]/)[0].replace("/","").replace("]",""));
 	l2x = Number(document.getElementById("L2").innerHTML.match(/\/[.\d]+\]/)[0].replace("/","").replace("]",""));
 	if (w1n !== w1x || w2n !== w2x || l1n !== l1x || l2n !== l2x) {
-		document.getElementById("output").value = "One or more text areas are missing the required number of pairings."
+		document.getElementById("output").value = "One or more text areas do not contain the specified number of pairings."
 		return;
 	}
 	if (parityIndex === 0) {
