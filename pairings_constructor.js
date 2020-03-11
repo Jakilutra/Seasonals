@@ -524,7 +524,7 @@ function output () {
 	atOn = document.getElementById("@on").checked;
 	atPattern = /^@.+\s\svs\s\s@.+$/gm;
 	if (atOn) {
-		if (!atPattern.test(w1) || !atPattern.test(w2) || !atPattern.test(l1) || !atPattern.test(l2)) {
+		if (w1.match(atPattern).length !== w1x || w2.match(atPattern).length !== w2x || l1.match(atPattern).length !== l1x || l2.match(atPattern).length !== l2x) {
 			document.getElementById("output").value = "One or more pairings have names not prefixed with @.";
 			localStorage.setItem("output", "One or more pairings have names not prefixed with @.");
 			return;
