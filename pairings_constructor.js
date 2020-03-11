@@ -6,9 +6,18 @@ $(document).ready(function() {
 var buttonclicked = false;
 function startUp () {
 	// Declaring variables.
-	var theme = "", multiplier = "", size = "", parity = "", method = "",
-	    topleft = "", topright = "", botleft = "", botright = "",
-	    output = "", reverse = "", atOn = "";
+	var theme = "",
+	    multiplier = "",
+	    size = "",
+	    parity = "",
+	    method = "",
+	    topleft = "",
+	    topright = "",
+	    botleft = "",
+	    botright = "",
+	    output = "",
+	    reverse = "",
+	    atOn = "";
 	
 	// Assigning stored variables
 	theme = localStorage.getItem("theme");
@@ -71,7 +80,9 @@ function startUp () {
 }
 function changeTheme(selected) {
 	// Declaring variables.
-	var gradients = {}, tarea = {}, element = {};
+	var gradients = {},
+	    tarea = {},
+	    element = {};
 
 	// Assigning variables.
 	gradients = {
@@ -180,7 +191,11 @@ function scale (multiplier) {
 	document.getElementById("512").innerHTML = "512";
 }
 function modifySize (size, atStartUp) {
-	var roundString = "", round = 0, currentRoundIndex = 0, maxRoundIndex = 0, parityIndex = 0;
+	var roundString = "",
+	    round = 0,
+	    currentRoundIndex = 0,
+	    maxRoundIndex = 0,
+	    parityIndex = 0;
 	roundString = localStorage.getItem("round");
 	round = roundString !== null ? parseInt(roundString) : 2;
 	currentRoundIndex = document.getElementById("round").options.selectedIndex;
@@ -244,7 +259,9 @@ function modifySize (size, atStartUp) {
 	}
 }
 function changeParity (parity) {
-	var lastIndex = 0, roundIndex = 0, round = 0;
+	var lastIndex = 0,
+	    roundIndex = 0,
+	    round = 0;
 	lastIndex = document.getElementById("round").options.length-1;
 	roundIndex = document.getElementById("round").options.selectedIndex;
 	round = ((roundIndex+1)*2);
@@ -336,7 +353,9 @@ function changeParity (parity) {
 	document.getElementById("W2").innerHTML = document.getElementById("W2").innerHTML.replace("<small>&nbsp;&nbsp;Losers&nbsp;&nbsp;</small>","<small>Winners</small>");
 }
 function updateRound (round) {
-	var lastRound = 0, last2Round = 0, parityIndex = 0;
+	var lastRound = 0,
+	    last2Round = 0,
+	    parityIndex = 0;
 	parityIndex = document.getElementById("parity").options.selectedIndex;
 	lastRound = parseInt(round)-1;
 	lastRound += (parityIndex === 1);
@@ -374,7 +393,16 @@ function updateMethod (method) {
 	}
 }
 function tidy (name, text) {
-	var newtext = "", linecount = 0, charcount = 0, quad = {}, h1a = [], h2a = [], h3a = [], h4a = [], h5a = [], h6a = [];
+	var newtext = "",
+	    linecount = 0,
+	    charcount = 0,
+	    quad = {},
+	    h1a = [],
+	    h2a = [],
+	    h3a = [],
+	    h4a = [],
+	    h5a = [],
+	    h6a = [];
 	newtext = text.replace(/\n\n/g,"\n").replace(/^\n/,"");
 	quad = {"top-left": "W1", "top-right": "W2", "bottom-left": "L1", "bottom-right": "L2", "output": "button"};
 	document.getElementById(name).value = newtext;
@@ -408,8 +436,13 @@ function tidy (name, text) {
 	localStorage.setItem(name, newtext);
 }
 function updateMaximums () {
-	var roundIndex = 0, sizeIndex = 0, parityIndex = 0, scaleIndex = 0,
-	    roundSize = 0, pairingSize = 0, isReverse = false;
+	var roundIndex = 0,
+	    sizeIndex = 0,
+	    parityIndex = 0,
+	    scaleIndex = 0,
+	    roundSize = 0,
+	    pairingSize = 0,
+	    isReverse = false;
 	roundIndex = document.getElementById("round").options.selectedIndex;
 	sizeIndex = document.getElementById("size").options.selectedIndex;
 	parityIndex = document.getElementById("parity").options.selectedIndex;
@@ -433,9 +466,30 @@ function updateMaximums () {
 	document.getElementById("button").innerHTML = document.getElementById("button").innerHTML.replace(/\/[.\d]+\]/, "/"+pairingSize*4+"]");
 }
 function output () {
-	var outputText = "", w1 = "", w2 = "", l1 = "", l2 = "", w1x = 0, w2x = 0, l1x = 0, l2x = 0,
-	    w1n = 0, w2n = 0, l1n = 0, l2n = 0, parityIndex = 0, roundIndex = 0, methodIndex = 0, i = 0,
-	    w1a = [], w2a = [], l1a = [], l2a = [], m1a = [], m2a = [];
+	var outputText = "",
+	    w1 = "",
+	    w2 = "",
+	    l1 = "",
+	    l2 = "",
+	    w1x = 0,
+	    w2x = 0,
+	    l1x = 0,
+	    l2x = 0,
+	    w1n = 0,
+	    w2n = 0,
+	    l1n = 0,
+	    l2n = 0,
+	    parityIndex = 0,
+	    roundIndex = 0,
+	    methodIndex = 0,
+	    i = 0,
+	    w1a = [],
+	    w2a = [],
+	    l1a = [],
+	    l2a = [],
+	    m1a = [],
+	    m2a = [],
+	    atOn = false;
 	buttonclicked = true;
 	parityIndex = document.getElementById("parity").options.selectedIndex;
 	roundIndex = document.getElementById("round").options.selectedIndex;
@@ -455,6 +509,15 @@ function output () {
 	if (w1n !== w1x || w2n !== w2x || l1n !== l1x || l2n !== l2x) {
 		document.getElementById("output").value = "One or more text areas do not contain the specified number of pairings."
 		return;
+	}
+	atOn = document.getElementById("@on").checked;
+	if (atOn) {
+		document.getElementById("output").value = "One or more pairings have names not prefixed with @.";
+		return;
+		if (!w1.test(/@.+\s\svs\s\s@.+\n/) || !w2.test(/@.+\s\svs\s\s@.+\n/) || !l1.test(/@.+\s\svs\s\s@.+\n/) || !l2.test(/@.+\s\svs\s\s@.+\n/)) {
+			document.getElementById("output").value = "One or more pairings have names not prefixed with @.";
+			return;
+		}
 	}
 	if (parityIndex === 0) {
 		outputText = "▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂\n";
