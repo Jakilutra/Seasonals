@@ -429,8 +429,8 @@ function updateMaximums () {
 	document.getElementById("button").innerHTML = document.getElementById("button").innerHTML.replace(/\/[.\d]+\]/, "/"+pairingSize*4+"]");
 }
 function output () {
-	var outputText = "", w1 = "", w2 = "", l1 = "", l2 = "",
-	    parityIndex = 0, roundIndex = 0, methodIndex = 0, i = 0,
+	var outputText = "", w1 = "", w2 = "", l1 = "", l2 = "", w1x = 0, w2x = 0, l1x = 0, l2x = 0,
+	    w1n = 0, w2n = 0, l1n = 0, l2n = 0, parityIndex = 0, roundIndex = 0, methodIndex = 0, i = 0,
 	    w1a = [], w2a = [], l1a = [], l2a = [], m1a = [], m2a = [];
 	buttonclicked = true;
 	parityIndex = document.getElementById("parity").options.selectedIndex;
@@ -440,6 +440,18 @@ function output () {
 	w2 = document.getElementById("top-right").value;
 	l1 = document.getElementById("bottom-left").value;
 	l2 = document.getElementById("bottom-right").value;
+	w1n = parseInt(document.getElementById("W1").innerHTML.match(/\[[.\d]+\//)[0]);
+	w2n = parseInt(document.getElementById("W2").innerHTML.match(/\[[.\d]+\//)[0]);
+	l1n = parseInt(document.getElementById("L1").innerHTML.match(/\[[.\d]+\//)[0]);
+	l2n = parseInt(document.getElementById("L2").innerHTML.match(/\[[.\d]+\//)[0]);
+	w1x = parseInt(document.getElementById("W1").innerHTML.match(/\/[.\d]+\//)[0]);
+	w2x = parseInt(document.getElementById("W2").innerHTML.match(/\/[.\d]+\//)[0]);
+	l1x = parseInt(document.getElementById("L1").innerHTML.match(/\/[.\d]+\//)[0]);
+	l2x = parseInt(document.getElementById("L2").innerHTML.match(/\/[.\d]+\//)[0]);
+	if (w1n !== w1x || w2n !== w2x || l1n !== l1x || l2n !== l2x) {
+		document.getElementById("output").value = "One or more input areas have the incorrect number of pairings and/or players.";
+		return;
+	}
 	if (parityIndex === 0) {
 		outputText = "▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂\n";
 		outputText += "Left / Top Winner Bracket\n";
