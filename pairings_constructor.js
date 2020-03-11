@@ -406,7 +406,9 @@ function tidy (name, text) {
 	    h3a = [],
 	    h4a = [],
 	    h5a = [],
-	    h6a = [];
+	    h6a = [],
+	    emp1 = /()/,
+	    emp2 = /()/;
 	newtext = text.replace(/\n\n/g,"\n").replace(/^\n/,"");
 	quad = {"top-left": "W1", "top-right": "W2", "bottom-left": "L1", "bottom-right": "L2", "output": "button"};
 	document.getElementById(name).value = newtext;
@@ -430,8 +432,10 @@ function tidy (name, text) {
 		h6a = text.match(/Right\s\/\sBottom\sLoser\sBracket\n/);
 		linecount -= (h5a !== null) ? h5a.length/2 : 0;
 		linecount -= (h5a !== null) ? h6a.length/2 : 0;
-		linecount -= /One or more pairings have names not prefixed with @\./.test(text) ? 0.5: 0;
-		linecount -= /One or more text areas do not contain the specified number of pairings\./.test(text) ? 0.5: 0;
+		emp1 = /One or more text areas do not contain the specified number of pairings\./;
+		emp2 = /One or more pairings have names not prefixed with @\./;
+		linecount -= emp1.test(text) ? 0.5: 0;
+		linecount -= emp2.test(text) ? 0.5: 0;
 	}
 	document.getElementById(quad[name]).innerHTML = document.getElementById(quad[name]).innerHTML.replace(/\[[.\d]+\//,"["+linecount+"/");
 	if (text === "") {
@@ -495,7 +499,8 @@ function output () {
 	    l2a = [],
 	    m1a = [],
 	    m2a = [],
-	    atOn = false;
+	    atOn = false,
+	    atPattern = /()/;
 	buttonclicked = true;
 	parityIndex = document.getElementById("parity").options.selectedIndex;
 	roundIndex = document.getElementById("round").options.selectedIndex;
@@ -517,8 +522,9 @@ function output () {
 		return;
 	}
 	atOn = document.getElementById("@on").checked;
+	atPattern = /^@.+\s\svs\s\s@.+$/gm;
 	if (atOn) {
-		if (/^@.+\s\svs\s\s@.+$/gm.test(w1) || /^@.+\s\svs\s\s@.+$/gm.test(w2) || /^@.+\s\svs\s\s@.+$/gm.test(l1) || /^@.+\s\svs\s\s@.+$/gm.test(l2)) {
+		if (!atPattern.test(w1) || !atPattern.test(w2) || !atPattern.test(l1) || !atPattern.test(l2)) {
 			document.getElementById("output").value = "One or more pairings have names not prefixed with @.";
 			localStorage.setItem("output", "One or more pairings have names not prefixed with @.");
 			return;
