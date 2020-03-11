@@ -683,11 +683,11 @@ function output () {
 	return;	
 }
 function empty () {
-	document.getElementById("top-left").value = "";
-	document.getElementById("top-right").value = "";
-	document.getElementById("bottom-left").value = "";
-	document.getElementById("bottom-right").value = "";
-	document.getElementById("output").value = "";
+	tidy("top-left", "");
+	tidy("top-right", "")
+	tidy("bottom-left", "");
+	tidy("bottom-right", "");
+	tidy("output", "");
 	localStorage.removeItem("top-left");
 	localStorage.removeItem("top-right");
 	localStorage.removeItem("bottom-left");
