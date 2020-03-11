@@ -71,7 +71,7 @@ function startUp () {
 	}
 	if (atOn === "false") {
 		document.getElementById("@on").checked = false;
-		atSave();	
+		atUpdate();	
 	}
 	if (reverse === "true") {
 		document.getElementById("reverse").checked = true;
@@ -118,11 +118,15 @@ function changeTheme(selected) {
 		// saving theme for retrieval
 		localStorage.setItem("theme", selected);
 }
-function atSave () {
+function atUpdate () {
 	var atOn = document.getElementById("@on").checked;
 	
 	// saving @ on/off boolean for retrieval
 	localStorage.setItem("@on", atOn);
+	
+	if (buttonclicked) {
+		output();
+	}
 }
 function reversal () {
 	var isReverse = document.getElementById("reverse").checked;
