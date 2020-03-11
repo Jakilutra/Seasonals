@@ -430,6 +430,8 @@ function tidy (name, text) {
 		h6a = text.match(/Right\s\/\sBottom\sLoser\sBracket\n/);
 		linecount -= (h5a !== null) ? h5a.length/2 : 0;
 		linecount -= (h5a !== null) ? h6a.length/2 : 0;
+		linecount -= /One or more pairings have names not prefixed with @\./.test(text) ? 0.5: 0;
+		linecount -= /One or more text areas do not contain the specified number of pairings\./.test(text) ? 0.5: 0;
 	}
 	document.getElementById(quad[name]).innerHTML = document.getElementById(quad[name]).innerHTML.replace(/\[[.\d]+\//,"["+linecount+"/");
 	if (text === "") {
@@ -516,7 +518,7 @@ function output () {
 	}
 	atOn = document.getElementById("@on").checked;
 	if (atOn) {
-		if (!w1.test(/^@.+\s\svs\s\s@.+$/gm) || !w2.test(/^@.+\s\svs\s\s@.+$/gm) || !l1.test(/^@.+\s\svs\s\s@.+$/gm) || !l2.test(/^@.+\s\svs\s\s@.+$/gm)) {
+		if (/^@.+\s\svs\s\s@.+$/gm.test(w1) || /^@.+\s\svs\s\s@.+$/gm.test(w2) || /^@.+\s\svs\s\s@.+$/gm.test(l1) || /^@.+\s\svs\s\s@.+$/gm.test(l2)) {
 			document.getElementById("output").value = "One or more pairings have names not prefixed with @.";
 			localStorage.setItem("output", "One or more pairings have names not prefixed with @.");
 			return;
