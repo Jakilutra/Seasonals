@@ -6,11 +6,9 @@ $(document).ready(function() {
 var buttonclicked = false;
 function startUp () {
 	// Declaring variables.
-	var theme = "", multiplier = "", size = "", 
-		round = "", parity = "", method = "", 
-		topleft = "", topright = "", 
-		botleft = "", botright = "",
-		output = "", reverse = "", atOn = "";
+	var theme = "", multiplier = "", size = "", parity = "", method = "",
+	    topleft = "", topright = "", botleft = "", botright = "",
+	    output = "", reverse = "", atOn = "";
 	
 	// Assigning stored variables
 	theme = localStorage.getItem("theme");
