@@ -444,10 +444,10 @@ function output () {
 	w2n = parseInt(document.getElementById("W2").innerHTML.match(/\[[.\d]+\//)[0]);
 	l1n = parseInt(document.getElementById("L1").innerHTML.match(/\[[.\d]+\//)[0]);
 	l2n = parseInt(document.getElementById("L2").innerHTML.match(/\[[.\d]+\//)[0]);
-	w1x = parseInt(document.getElementById("W1").innerHTML.match(/\/[.\d]+\//)[0]);
-	w2x = parseInt(document.getElementById("W2").innerHTML.match(/\/[.\d]+\//)[0]);
-	l1x = parseInt(document.getElementById("L1").innerHTML.match(/\/[.\d]+\//)[0]);
-	l2x = parseInt(document.getElementById("L2").innerHTML.match(/\/[.\d]+\//)[0]);
+	w1x = parseInt(document.getElementById("W1").innerHTML.match(/\/[.\d]+\]/)[0]);
+	w2x = parseInt(document.getElementById("W2").innerHTML.match(/\/[.\d]+\]/)[0]);
+	l1x = parseInt(document.getElementById("L1").innerHTML.match(/\/[.\d]+\]/)[0]);
+	l2x = parseInt(document.getElementById("L2").innerHTML.match(/\/[.\d]+\]/)[0]);
 	if (w1n !== w1x || w2n !== w2x || l1n !== l1x || l2n !== l2x) {
 		document.getElementById("output").value = "One or more input areas have the incorrect number of pairings and/or players.";
 		return;
