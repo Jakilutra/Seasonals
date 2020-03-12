@@ -522,9 +522,7 @@ function output () {
 	l1x = Number(document.getElementById("L1").innerHTML.match(/\/[.\d]+\]/)[0].replace("/","").replace("]",""));
 	l2x = Number(document.getElementById("L2").innerHTML.match(/\/[.\d]+\]/)[0].replace("/","").replace("]",""));
 	if (w1n !== w1x || w2n !== w2x || l1n !== l1x || l2n !== l2x) {
-		document.getElementById("output").value = "One or more text areas do not contain the specified number of pairings.";
-		document.getElementById("button").innerHTML = document.getElementById("button").innerHTML.replace(/\/[.\d]+\]/, "/0]");
-		localStorage.setItem("output", "One or more text areas do not contain the specified number of pairings.");
+		tidy("output", "One or more text areas do not contain the specified number of pairings.");
 		return;
 	}
 	atOn = document.getElementById("@on").checked;
@@ -539,9 +537,7 @@ function output () {
 	atl2 = atl2 !== null ? atl2.length : 0;
 	if (atOn) {
 		if (atw1 !== w1x || atw2 !== w2x || atl1 !== l1x || atl2 !== l2x) {
-			document.getElementById("output").value = "One or more pairings have names not prefixed with @.";
-			document.getElementById("button").innerHTML = document.getElementById("button").innerHTML.replace(/\/[.\d]+\]/, "/0]");
-			localStorage.setItem("output", "One or more pairings have names not prefixed with @.");
+			tidy("output", "One or more pairings have names not prefixed with @.");
 			return;
 		}
 	}
