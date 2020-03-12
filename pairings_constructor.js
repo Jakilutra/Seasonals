@@ -523,6 +523,7 @@ function output () {
 	l2x = Number(document.getElementById("L2").innerHTML.match(/\/[.\d]+\]/)[0].replace("/","").replace("]",""));
 	if (w1n !== w1x || w2n !== w2x || l1n !== l1x || l2n !== l2x) {
 		document.getElementById("output").value = "One or more text areas do not contain the specified number of pairings.";
+		document.getElementById("button").innerHTML = document.getElementById("button").innerHTML.replace(/\/[.\d]+\]/, "/0]");
 		localStorage.setItem("output", "One or more text areas do not contain the specified number of pairings.");
 		return;
 	}
@@ -539,6 +540,7 @@ function output () {
 	if (atOn) {
 		if (atw1 !== w1x || atw2 !== w2x || atl1 !== l1x || atl2 !== l2x) {
 			document.getElementById("output").value = "One or more pairings have names not prefixed with @.";
+			document.getElementById("button").innerHTML = document.getElementById("button").innerHTML.replace(/\/[.\d]+\]/, "/0]");
 			localStorage.setItem("output", "One or more pairings have names not prefixed with @.");
 			return;
 		}
