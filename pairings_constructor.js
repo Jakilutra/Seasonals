@@ -481,14 +481,14 @@ function output () {
 	    w2 = "",
 	    l1 = "",
 	    l2 = "",
-	    w1x = 0,
-	    w2x = 0,
-	    l1x = 0,
-	    l2x = 0,
-	    w1n = 0,
-	    w2n = 0,
-	    l1n = 0,
-	    l2n = 0,
+	    w1max = 0,
+	    w2max = 0,
+	    l1max = 0,
+	    l2max = 0,
+	    w1min = 0,
+	    w2min = 0,
+	    l1min = 0,
+	    l2min = 0,
 	    parityIndex = 0,
 	    roundIndex = 0,
 	    methodIndex = 0,
@@ -513,15 +513,15 @@ function output () {
 	w2 = document.getElementById("top-right").value;
 	l1 = document.getElementById("bottom-left").value;
 	l2 = document.getElementById("bottom-right").value;
-	w1n = Number(document.getElementById("W1").innerHTML.match(/\[[.\d]+\//)[0].replace("/","").replace("[",""));
-	w2n = Number(document.getElementById("W2").innerHTML.match(/\[[.\d]+\//)[0].replace("/","").replace("[",""));
-	l1n = Number(document.getElementById("L1").innerHTML.match(/\[[.\d]+\//)[0].replace("/","").replace("[",""));
-	l2n = Number(document.getElementById("L2").innerHTML.match(/\[[.\d]+\//)[0].replace("/","").replace("[",""));
-	w1x = Number(document.getElementById("W1").innerHTML.match(/\/[.\d]+\]/)[0].replace("/","").replace("]",""));
-	w2x = Number(document.getElementById("W2").innerHTML.match(/\/[.\d]+\]/)[0].replace("/","").replace("]",""));
-	l1x = Number(document.getElementById("L1").innerHTML.match(/\/[.\d]+\]/)[0].replace("/","").replace("]",""));
-	l2x = Number(document.getElementById("L2").innerHTML.match(/\/[.\d]+\]/)[0].replace("/","").replace("]",""));
-	if (w1n !== w1x || w2n !== w2x || l1n !== l1x || l2n !== l2x) {
+	w1min = Number(document.getElementById("W1").innerHTML.match(/\[[.\d]+\//)[0].replace("/","").replace("[",""));
+	w2min = Number(document.getElementById("W2").innerHTML.match(/\[[.\d]+\//)[0].replace("/","").replace("[",""));
+	l1min = Number(document.getElementById("L1").innerHTML.match(/\[[.\d]+\//)[0].replace("/","").replace("[",""));
+	l2min = Number(document.getElementById("L2").innerHTML.match(/\[[.\d]+\//)[0].replace("/","").replace("[",""));
+	w1max = Number(document.getElementById("W1").innerHTML.match(/\/[.\d]+\]/)[0].replace("/","").replace("]",""));
+	w2max = Number(document.getElementById("W2").innerHTML.match(/\/[.\d]+\]/)[0].replace("/","").replace("]",""));
+	l1max = Number(document.getElementById("L1").innerHTML.match(/\/[.\d]+\]/)[0].replace("/","").replace("]",""));
+	l2max = Number(document.getElementById("L2").innerHTML.match(/\/[.\d]+\]/)[0].replace("/","").replace("]",""));
+	if (w1min !== w1max || w2min !== w2max || l1min !== l1max || l2min !== l2max) {
 		tidy("output", "One or more text areas do not contain the specified number of pairings.");
 		return;
 	}
@@ -536,7 +536,7 @@ function output () {
 	atl2 = l2.match(atPattern);
 	atl2 = atl2 !== null ? atl2.length : 0;
 	if (atOn) {
-		if (atw1 !== w1x || atw2 !== w2x || atl1 !== l1x || atl2 !== l2x) {
+		if (atw1 !== w1max || atw2 !== w2max || atl1 !== l1max || atl2 !== l2max) {
 			tidy("output", "One or more pairings have names not prefixed with @.");
 			return;
 		}
