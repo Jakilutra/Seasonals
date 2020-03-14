@@ -476,22 +476,29 @@ function updateMaximums () {
 	document.getElementById("button").innerHTML = document.getElementById("button").innerHTML.replace(/\/[.\d]+\]/, "/"+pairingSize*4+"]");
 }
 function output () {
-	var outputText = "",
+	var parityIndex = 0,
+	    roundIndex = 0,
+	    methodIndex = 0,
 	    w1 = "",
 	    w2 = "",
 	    l1 = "",
 	    l2 = "",
-	    w1max = 0,
-	    w2max = 0,
-	    l1max = 0,
-	    l2max = 0,
+	    findMaxorMin = function () {},
 	    w1min = 0,
 	    w2min = 0,
 	    l1min = 0,
 	    l2min = 0,
-	    parityIndex = 0,
-	    roundIndex = 0,
-	    methodIndex = 0,
+	    w1max = 0,
+	    w2max = 0,
+	    l1max = 0,
+	    l2max = 0,
+	    atOn = false,
+	    pairPattern = /()/,
+	    countPairings = function () {},
+	    w1count,
+	    w2count,
+	    l1count,
+	    l2count,
 	    i = 0,
 	    w1a = [],
 	    w2a = [],
@@ -499,12 +506,7 @@ function output () {
 	    l2a = [],
 	    m1a = [],
 	    m2a = [],
-	    atOn = false,
-	    atPattern = /()/,
-	    atw1,
-	    atw2,
-	    atl1,
-	    atl2;
+	    outputText = "";
 	buttonclicked = true;
 	parityIndex = document.getElementById("parity").options.selectedIndex;
 	roundIndex = document.getElementById("round").options.selectedIndex;
@@ -513,33 +515,41 @@ function output () {
 	w2 = document.getElementById("top-right").value;
 	l1 = document.getElementById("bottom-left").value;
 	l2 = document.getElementById("bottom-right").value;
-	w1min = Number(document.getElementById("W1").innerHTML.match(/\[[.\d]+\//)[0].replace("/","").replace("[",""));
-	w2min = Number(document.getElementById("W2").innerHTML.match(/\[[.\d]+\//)[0].replace("/","").replace("[",""));
-	l1min = Number(document.getElementById("L1").innerHTML.match(/\[[.\d]+\//)[0].replace("/","").replace("[",""));
-	l2min = Number(document.getElementById("L2").innerHTML.match(/\[[.\d]+\//)[0].replace("/","").replace("[",""));
-	w1max = Number(document.getElementById("W1").innerHTML.match(/\/[.\d]+\]/)[0].replace("/","").replace("]",""));
-	w2max = Number(document.getElementById("W2").innerHTML.match(/\/[.\d]+\]/)[0].replace("/","").replace("]",""));
-	l1max = Number(document.getElementById("L1").innerHTML.match(/\/[.\d]+\]/)[0].replace("/","").replace("]",""));
-	l2max = Number(document.getElementById("L2").innerHTML.match(/\/[.\d]+\]/)[0].replace("/","").replace("]",""));
+	findMaxorMin = function (area, isMax) {
+		if (isMax) {
+			return Number(document.getElementById(area).innerHTML.match(/\/[.\d]+\]/)[0].replace("/","").replace("]",""));
+		}
+		return Number(document.getElementById(area).innerHTML.match(/\[[.\d]+\//)[0].replace("/","").replace("[",""));
+	};
+	w1min = findMaxorMin("W1", false);
+	w2min = findMaxorMin("W2", false);
+	l1min = findMaxorMin("L1", false);
+	l2min = findMaxorMin("L2", false);
+	w1max = findMaxorMin("W1", true);
+	w2max = findMaxorMin("W2", true);
+	l1max = findMaxorMin("L1", true);
+	l2max = findMaxorMin("L2", true);
 	if (w1min !== w1max || w2min !== w2max || l1min !== l1max || l2min !== l2max) {
 		tidy("output", "One or more text areas do not contain the specified number of pairings.");
 		return;
 	}
 	atOn = document.getElementById("@on").checked;
-	atPattern = /@.+\s\svs\s\s@.+/g;
-	atw1 = w1.match(atPattern);
-	atw1 = atw1 !== null ? atw1.length : 0;
-	atw2 = w2.match(atPattern);
-	atw2 = atw2 !== null ? atw2.length : 0;
-	atl1 = l1.match(atPattern);
-	atl1 = atl1 !== null ? atl1.length : 0;
-	atl2 = l2.match(atPattern);
-	atl2 = atl2 !== null ? atl2.length : 0;
-	if (atOn) {
-		if (atw1 !== w1max || atw2 !== w2max || atl1 !== l1max || atl2 !== l2max) {
+	pairPattern = atOn ? /@.+\s\svs\s\s@.+/g : /.+\s\svs\s\s.+/g;
+	countPairings = function (text, regex) {
+		var pairings = text.match(regex);
+		return (pairings !== null) ? pairings.length : 0;
+	};
+	w1count = countPairings(w1, pairPattern);
+	w2count = countPairings(w2, pairPattern);
+	l1count = countPairings(l1, pairPattern);
+	l2count = countPairings(l2, pairPattern);
+	if (w1count !== w1max || w2count !== w2max || l1count !== l1max || l2count !== l2max) {
+		if (atOn) {
 			tidy("output", "One or more pairings have names not prefixed with @.");
 			return;
 		}
+		tidy("output", "One or more lines do not contain vs surrounded by 2 spaces.");
+		return;
 	}
 	if (parityIndex === 0) {
 		outputText = "▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂\n";
