@@ -577,7 +577,7 @@ function output () {
 				}
 				for (i = 0; i < w2a.length; i++) {
 					m1a[i] = m1a[i] + " ‹vs› " + m1a[i+1];
-					m1a.splice(i+1, 1);
+					m1a.splice((i+1), 1);
 				}
 			}
 			if (w1a.length === l2a.length && l2a.length > 1) {
@@ -587,7 +587,7 @@ function output () {
 				}
 				for (i = 0; i < w1a.length; i++) {
 					m2a[i] = m2a[i] + " ‹vs› " + m2a[i+1];
-					m2a.splice(i+1, 1);
+					m2a.splice((i+1), 1);
 				}
 			}
 			outputText = "▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂\n";
