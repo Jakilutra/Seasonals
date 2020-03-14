@@ -537,7 +537,7 @@ function output () {
 		return;
 	}
 	atOn = document.getElementById("@on").checked;
-	pairPattern = atOn ? /@.+\s\svs\s\s@.+/g : /.+\s\svs\s\s.+/g;
+	pairPattern = atOn ? /(@.+|bye\s?\d?\d?)\s\svs\s\s(@.+|bye\s?\d?\d?)/gi : /.+\s\svs\s\s.+/gi;
 	countPairings = function (text, regex) {
 		var pairings = text.match(regex);
 		return (pairings !== null) ? pairings.length : 0;
