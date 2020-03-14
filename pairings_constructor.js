@@ -625,7 +625,7 @@ function output () {
 					m1a.push(w2a[i] + " ‹vs› " + l1a[i+1]);
 				}
 				for (i = 0; i < w2a.length; i += 2) {
-					m1a.push(w2a[i+1] + " ‹vs› " + l1a[i]);
+					m1a.push(l1a[i] + " ‹vs› " + w2a[i+1]);
 				}
 			}
 			if (w1a.length === l2a.length && l2a.length > 1) {
@@ -633,7 +633,7 @@ function output () {
 					m2a.push(w1a[i] + " ‹vs› " + l2a[i+1]);
 				}
 				for (i = 0; i < w1a.length; i += 2) {
-					m2a.push(w1a[i+1] + " ‹vs› " + l2a[i]);
+					m2a.push(l2a[i] + " ‹vs› " + w1a[i+1]);
 				}
 			}
 		}
