@@ -581,7 +581,7 @@ function output () {
 				}
 			}
 			if (w1a.length === l2a.length && l2a.length > 1) {
-				for (i = 0; i < (w1a.length+l2a.length)); i++) {
+				for (i = 0; i < (w1a.length+l2a.length); i++) {
 					m2a.push(w1a[i]);
 					m2a.push(l2a[i]);
 				}
