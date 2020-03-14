@@ -408,7 +408,8 @@ function tidy (name, text) {
 	    omp3 = /()/,
 	    omp4 = /()/,
 	    emp1 = /()/,
-	    emp2 = /()/;
+	    emp2 = /()/,
+	    emp3 = /()/;
 	newtext = text.replace(/\n\n/g,"\n").replace(/^\n/,"");
 	quad = {"top-left": "W1", "top-right": "W2", "bottom-left": "L1", "bottom-right": "L2", "output": "button"};
 	document.getElementById(name).value = newtext;
@@ -434,8 +435,10 @@ function tidy (name, text) {
 		linecount -= omp4.test(text) ? 0.5 : 0;
 		emp1 = /One or more text areas do not contain the specified number of pairings\./;
 		emp2 = /One or more pairings have names not prefixed with @\./;
+		emp3 = /One or more lines do not contain vs surrounded by 2 spaces\./;
 		linecount -= emp1.test(text) ? 0.5 : 0;
 		linecount -= emp2.test(text) ? 0.5 : 0;
+		linecount -= emp3.test(text) ? 0.5 : 0;
 	}
 	document.getElementById(quad[name]).innerHTML = document.getElementById(quad[name]).innerHTML.replace(/\[[.\d]+\//,"["+linecount+"/");
 	if (text === "") {
