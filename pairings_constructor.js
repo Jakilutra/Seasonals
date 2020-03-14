@@ -571,31 +571,23 @@ function output () {
 	if (methodIndex === 0) {
 		if (roundIndex === 0 || roundIndex === 2 || roundIndex === 4 || roundIndex === 6) {
 			if (w2a.length === l1a.length && l1a.length > 1) {
-				i = 0;
-				while (m1a.length !== (w2a.length+l1a.length)) {
+				for (i = 0; i < (w2a.length+l1a.length); i++) {
 					m1a.push(w2a[i]);
 					m1a.push(l1a[i]);
-					i++;
 				}
-				i = 0;
-				while (m1a.length !== w2a.length) {
+				for (i = 0; i < w2a.length; i++) {
 					m1a[i] = m1a[i] + " ‹vs› " + m1a[i+1];
-					i++;
-					m1a.splice(i, 1);
+					m1a.splice(i+1, 1);
 				}
 			}
 			if (w1a.length === l2a.length && l2a.length > 1) {
-				i = 0;
-				while (m2a.length !== (w1a.length+l2a.length)) {
+				for (i = 0; i < (w1a.length+l2a.length)); i++) {
 					m2a.push(w1a[i]);
 					m2a.push(l2a[i]);
-					i++;
 				}
-				i = 0;
-				while (m2a.length !== w1a.length) {
+				for (i = 0; i < w1a.length; i++) {
 					m2a[i] = m2a[i] + " ‹vs› " + m2a[i+1];
-					i++;
-					m2a.splice(i, 1);
+					m2a.splice(i+1, 1);
 				}
 			}
 			outputText = "▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂\n";
