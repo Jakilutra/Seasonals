@@ -497,6 +497,7 @@ function output () {
 	    l2max = 0,
 	    atOn = false,
 	    pairPattern = /()/,
+	    singlePattern = /()/,
 	    countPairings = function () {},
 	    w1count = 0,
 	    w2count = 0,
@@ -538,6 +539,7 @@ function output () {
 	}
 	atOn = document.getElementById("@on").checked;
 	pairPattern = atOn ? /(?:@.+|bye\s?\d?\d?(?!\S))\s\svs\s\s(?:@.+|bye\s?\d?\d?(?!.+))/gi : /.+\s\svs\s\s.+/gi;
+	singlePattern = atOn ? /@.+$/g : /.+$/g
 	countPairings = function (text, regex) {
 		var pairings = text.match(regex);
 		return (pairings !== null) ? pairings.length : 0;
