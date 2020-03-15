@@ -553,6 +553,7 @@ function output () {
 	l2count = countPairings(l2, pairPattern);
 	l2count += l2count !== l2max ? countPairings(l2, singlePattern)*0.5 : 0;
 	tidy("output", w1count);
+	return;
 	if (w1count !== w1max || w2count !== w2max || l1count !== l1max || l2count !== l2max) {
 		if (atOn) {
 			tidy("output", "One or more pairings have names not prefixed with @.");
