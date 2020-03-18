@@ -589,6 +589,10 @@ function output () {
 	l2a = l2.replace(/\n+$/,"").split(/\n|\s\svs\s\s/);
 	if (methodIndex === 0) {
 		if (roundIndex === 0 || roundIndex === 2 || roundIndex === 4 || roundIndex === 6) {
+			if (w1count === 0.5 && w2count === 0.5) {
+				m1a.push(w2a[0] + " ‹vs› " + l1a[0]);
+				m2a.push(w1a[0] + " ‹vs› " + l2a[0]);
+			}
 			if (w2a.length === l1a.length && l1a.length > 1) {
 				for (i = 0; i < w2a.length; i++) {
 					m1a.push(w2a[i] + " ‹vs› " + l1a[i]);
@@ -612,6 +616,10 @@ function output () {
 			tidy ("output", outputText);
 			updateMaximums();
 			return;
+		}
+		if (w1count === 0.5 && w2count === 0.5) {
+			m1a.push(w1a[0] + " ‹vs› " + l1a[0]);
+			m2a.push(w2a[0] + " ‹vs› " + l2a[0]);
 		}
 		if (w1a.length === l1a.length && l1a.length > 1) {
 			for (i = 0; i < w1a.length; i++) {
@@ -638,6 +646,10 @@ function output () {
 		return;		
 	}
 	if (roundIndex === 0 || roundIndex === 2 || roundIndex === 4 || roundIndex === 6) {
+		if (w1count === 0.5 && w2count === 0.5) {
+			m1a.push(w2a[0] + " ‹vs› " + l1a[0]);
+			m2a.push(w1a[0] + " ‹vs› " + l2a[0]);
+		}
 		if (w2a.length === l1a.length && l1a.length > 1) {
 			if (w2a.length === l1a.length && l1a.length > 1) {
 				for (i = 0; i < w2a.length; i += 2) {
@@ -670,22 +682,24 @@ function output () {
 		updateMaximums();
 		return;
 	}
+	if (w1count === 0.5 && w2count === 0.5) {
+		m1a.push(w1a[0] + " ‹vs› " + l1a[0]);
+		m2a.push(w2a[0] + " ‹vs› " + l2a[0]);
+	}
 	if (w1a.length === l1a.length && l1a.length > 1) {
-		if (w1a.length === l1a.length && l1a.length > 1) {
-			for (i = 0; i < w1a.length; i += 2) {
-				m1a.push(w1a[i] + " ‹vs› " + l1a[i+1]);
-			}
-			for (i = 0; i < w1a.length; i += 2) {
-				m1a.push(l1a[i] + " ‹vs› " + w1a[i+1]);
-			}
+		for (i = 0; i < w1a.length; i += 2) {
+			m1a.push(w1a[i] + " ‹vs› " + l1a[i+1]);
 		}
-		if (w2a.length === l2a.length && l2a.length > 1) {
-			for (i = 0; i < w2a.length; i += 2) {
-				m2a.push(w2a[i] + " ‹vs› " + l2a[i+1]);
-			}
-			for (i = 0; i < w2a.length; i += 2) {
-				m2a.push(l2a[i] + " ‹vs› " + w2a[i+1]);
-			}
+		for (i = 0; i < w1a.length; i += 2) {
+			m1a.push(l1a[i] + " ‹vs› " + w1a[i+1]);
+		}
+	}
+	if (w2a.length === l2a.length && l2a.length > 1) {
+		for (i = 0; i < w2a.length; i += 2) {
+			m2a.push(w2a[i] + " ‹vs› " + l2a[i+1]);
+		}
+		for (i = 0; i < w2a.length; i += 2) {
+			m2a.push(l2a[i] + " ‹vs› " + w2a[i+1]);
 		}
 	}
 	outputText = "▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂\n";
