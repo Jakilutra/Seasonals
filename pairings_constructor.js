@@ -561,6 +561,21 @@ function output () {
 		return;
 	}
 	if (parityIndex === 0) {
+		if (w1count === 1.5 && w2count === 1.5) {
+			outputText = "▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂\n";
+			outputText += "Winner Bracket\n";
+			outputText += "▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔\n";
+			outputText += w1.concat(w2).replace(/\s\svs\s\s/g," ‹vs› ") + "\n";
+			outputText += "▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂\n";
+			outputText += "Loser Bracket\n";
+			outputText += "▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔\n";
+			outputText += l1.concat(l2).replace(/\s\svs\s\s/g," ‹vs› ") + "\n";
+			outputText = outputText.replace(/\n\n/g,"\n").replace(/\n$/,"");
+			document.getElementById("output").value = outputText;
+			tidy ("output", outputText);
+			updateMaximums();
+			return;
+		}
 		outputText = "▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂\n";
 		outputText += "Left / Top Winner Bracket\n";
 		outputText += "▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔\n";
