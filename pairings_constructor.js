@@ -426,15 +426,15 @@ function tidy (name, text) {
 		linecount -= (h1a !== null) ? h1a.length/2 : 0;
 		linecount -= (h2a !== null) ? h2a.length/2 : 0;
 		if (document.getElementById("parity").options.selectedIndex === 0) {
-			omp1 = /Left\s\/\sTop\sWinner\sBracket\n/;
-			omp2 = /Right\s\/\sBottom\sWinner\sBracket\n/;
+			omp1 = /^Left\s\/\sTop\sWinner\sBracket\n$/;
+			omp2 = /^Right\s\/\sBottom\sWinner\sBracket\n$/;
 			linecount -= omp1.test(text) ? 0.5 : 0;
 			linecount -= omp2.test(text) ? 0.5 : 0;
 		}
-		omp3 = /Left\s\/\sTop\sLoser\sBracket\n/;
-		omp4 = /Right\s\/\sBottom\sLoser\sBracket\n/;
-		omp5 = /Winner\sBracket\n/;
-		omp6 = /Loser\sBracket\n/;
+		omp3 = /^Left\s\/\sTop\sLoser\sBracket\n$/;
+		omp4 = /^Right\s\/\sBottom\sLoser\sBracket\n$/;
+		omp5 = /^Winner\sBracket\n$/;
+		omp6 = /^Loser\sBracket\n$/;
 		linecount -= omp3.test(text) ? 0.5 : 0;
 		linecount -= omp4.test(text) ? 0.5 : 0;
 		linecount -= omp5.test(text) ? 0.5 : 0;
