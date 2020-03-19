@@ -407,6 +407,8 @@ function tidy (name, text) {
 	    omp2 = /()/,
 	    omp3 = /()/,
 	    omp4 = /()/,
+	    omp5 = /()/,
+	    omp6 = /()/,
 	    emp1 = /()/,
 	    emp2 = /()/,
 	    emp3 = /()/;
@@ -431,8 +433,12 @@ function tidy (name, text) {
 		}
 		omp3 = /Left\s\/\sTop\sLoser\sBracket\n/;
 		omp4 = /Right\s\/\sBottom\sLoser\sBracket\n/;
+		omp5 = /Winner\sBracket\n/;
+		omp6 = /Loser\sBracket\n/;
 		linecount -= omp3.test(text) ? 0.5 : 0;
 		linecount -= omp4.test(text) ? 0.5 : 0;
+		linecount -= omp5.test(text) ? 0.5 : 0;
+		linecount -= omp6.test(text) ? 0.5 : 0;
 		emp1 = /One or more text areas do not contain the specified number of pairings\./;
 		emp2 = /One or more pairings have names not prefixed with @\./;
 		emp3 = /One or more lines do not contain vs surrounded by 2 spaces\./;
@@ -573,6 +579,21 @@ function output () {
 		return;
 	}
 	if (parityIndex === 0) {
+		if (w1count = 3 && w2count === 0) {
+			outputText = "▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂\n";
+			outputText += "Winner Bracket\n";
+			outputText += "▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔\n";
+			outputText += w1.replace(/\s\svs\s\s/g," ‹vs› ") + "\n";
+			outputText += "▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂\n";
+			outputText += "Loser Bracket\n";
+			outputText += "▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔\n";
+			outputText += l1.replace(/\s\svs\s\s/g," ‹vs› ") + "\n";
+			outputText = outputText.replace(/\n\n/g,"\n").replace(/\n$/,"");
+			document.getElementById("output").value = outputText;
+			tidy ("output", outputText);
+			updateMaximums();
+			return;
+		}
 		outputText = "▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂\n";
 		outputText += "Left / Top Winner Bracket\n";
 		outputText += "▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔\n";
