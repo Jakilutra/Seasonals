@@ -626,6 +626,11 @@ function output () {
 				m1a.push(w2a[0] + " ‹vs› " + l1a[0]);
 				m2a.push(w1a[0] + " ‹vs› " + l2a[0]);
 			}
+			if (w1count === 1.5 && w2count === 0) {
+				m1a.push(w1a[0] + " ‹vs› " + l1a[0]);
+				m1a.push(w1a[1] + " ‹vs› " + l1a[1]);
+				m1a.push(w1a[2] + " ‹vs› " + l1a[2]);
+			}
 			if (w1count === 1.5 && w2count === 1.5) {
 				m1a.push(w2a[0] + " ‹vs› " + l1a[0]);
 				m1a.push(w2a[1] + " ‹vs› " + l1a[1]);
@@ -661,6 +666,11 @@ function output () {
 		if (w1count === 0.5 && w2count === 0.5) {
 			m1a.push(w1a[0] + " ‹vs› " + l1a[0]);
 			m2a.push(w2a[0] + " ‹vs› " + l2a[0]);
+		}
+		if (w1count === 1.5 && w2count === 0) {
+			m1a.push(w1a[0] + " ‹vs› " + l1a[0]);
+			m1a.push(w1a[1] + " ‹vs› " + l1a[1]);
+			m1a.push(w1a[2] + " ‹vs› " + l1a[2]);
 		}
 		if (w1count === 1.5 && w2count === 1.5) {
 			m1a.push(w1a[0] + " ‹vs› " + l1a[0]);
@@ -698,6 +708,11 @@ function output () {
 		if (w1count === 0.5 && w2count === 0.5) {
 			m1a.push(w2a[0] + " ‹vs› " + l1a[0]);
 			m2a.push(w1a[0] + " ‹vs› " + l2a[0]);
+		}
+		if (w1count === 1.5 && w2count === 0) {
+			m1a.push(w1a[0] + " ‹vs› " + l1a[1]);
+			m1a.push(l1a[0] + " ‹vs› " + w1a[1]);
+			m1a.push(w1a[2] + " ‹vs› " + l1a[2]);
 		}
 		if (w1count === 1.5 && w2count === 1.5) {
 			m1a.push(w2a[0] + " ‹vs› " + l1a[1]);
