@@ -470,6 +470,12 @@ function updateMaximums () {
 		document.getElementById("L1").innerHTML = document.getElementById("L1").innerHTML.replace(/\/[.\d]+\]/, "/1.5]");
 		document.getElementById("L2").innerHTML = document.getElementById("L2").innerHTML.replace(/\/[.\d]+\]/, "/0]");
 	}
+	else if (pairingSize === 1.5 && parityIndex === 0) {
+		document.getElementById("W1").innerHTML = document.getElementById("W1").innerHTML.replace(/\/[.\d]+\]/, "/3]");
+		document.getElementById("W2").innerHTML = document.getElementById("W2").innerHTML.replace(/\/[.\d]+\]/, "/0]");
+		document.getElementById("L1").innerHTML = document.getElementById("L1").innerHTML.replace(/\/[.\d]+\]/, "/3]");
+		document.getElementById("L2").innerHTML = document.getElementById("L2").innerHTML.replace(/\/[.\d]+\]/, "/0]");
+	}
 	else {
 		document.getElementById("W1").innerHTML = document.getElementById("W1").innerHTML.replace(/\/[.\d]+\]/, "/"+pairingSize+"]");
 		document.getElementById("W2").innerHTML = document.getElementById("W2").innerHTML.replace(/\/[.\d]+\]/, "/"+pairingSize+"]");
