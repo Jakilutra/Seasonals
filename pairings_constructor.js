@@ -498,6 +498,7 @@ function output () {
 	    atOn = false,
 	    pairPattern = /()/,
 	    singlePattern = /()/,
+	    threePattern = /()/,
 	    countPairings = function () {},
 	    w1count = 0,
 	    w2count = 0,
@@ -539,19 +540,24 @@ function output () {
 	}
 	atOn = document.getElementById("@on").checked;
 	pairPattern = atOn ? /(?:@.+|bye\s?\d?\d?(?!\S))\s\svs\s\s(?:@.+|bye\s?\d?\d?(?!.+))/gi : /.+\s\svs\s\s.+/gi;
-	singlePattern = atOn ? /@.+$/g : /.+$/g;
+	singlePattern = atOn ? /^@.+$/g : /^.+$/g;
+	threePattern = atOn ? /^@.+\n@.+\n@.+$/g;
 	countPairings = function (text, regex) {
 		var pairings = text.match(regex);
 		return (pairings !== null) ? pairings.length : 0;
 	};
 	w1count = countPairings(w1, pairPattern);
 	w1count += w1count !== w1max ? countPairings(w1, singlePattern)*0.5 : 0;
+	w1count += w1count !== w1max ? countPairings(w1, threePattern)*1.5 : 0;
 	w2count = countPairings(w2, pairPattern);
 	w2count += w2count !== w2max ? countPairings(w2, singlePattern)*0.5 : 0;
+	w2count += w2count !== w2max ? countPairings(w2, threePattern)*1.5 : 0;
 	l1count = countPairings(l1, pairPattern);
 	l1count += l1count !== l1max ? countPairings(l1, singlePattern)*0.5 : 0;
+	l1count += l1count !== l1max ? countPairings(l1, threePattern)*1.5 : 0;
 	l2count = countPairings(l2, pairPattern);
 	l2count += l2count !== l2max ? countPairings(l2, singlePattern)*0.5 : 0;
+	l2count += l2count !== l2max ? countPairings(l2, threePattern)*1.5 : 0;
 	if (w1count !== w1max || w2count !== w2max || l1count !== l1max || l2count !== l2max) {
 		if (atOn) {
 			tidy("output", "One or more pairings have names not prefixed with @.");
@@ -561,21 +567,6 @@ function output () {
 		return;
 	}
 	if (parityIndex === 0) {
-		if (w1count === 1.5 && w2count === 1.5) {
-			outputText = "▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂\n";
-			outputText += "Winner Bracket\n";
-			outputText += "▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔\n";
-			outputText += (w1+"\n"+w2).replace(/\s\svs\s\s/g," ‹vs› ") + "\n";
-			outputText += "▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂\n";
-			outputText += "Loser Bracket\n";
-			outputText += "▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔\n";
-			outputText += (l1+"\n"+l2).replace(/\s\svs\s\s/g," ‹vs› ") + "\n";
-			outputText = outputText.replace(/\n\n/g,"\n").replace(/\n$/,"");
-			document.getElementById("output").value = outputText;
-			tidy ("output", outputText);
-			updateMaximums();
-			return;
-		}
 		outputText = "▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂\n";
 		outputText += "Left / Top Winner Bracket\n";
 		outputText += "▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔\n";
