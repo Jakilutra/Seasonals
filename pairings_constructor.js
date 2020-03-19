@@ -630,6 +630,15 @@ function output () {
 				m1a.push(w1a[0] + " ‹vs› " + l1a[0]);
 				m1a.push(w1a[1] + " ‹vs› " + l1a[1]);
 				m1a.push(w1a[2] + " ‹vs› " + l1a[2]);
+				outputText = "▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂\n";
+				outputText += "Loser Bracket\n";
+				outputText += "▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔\n";
+				outputText += m1a.join("\n") + "\n";
+				outputText = outputText.replace(/\n\n/g,"\n").replace(/\n$/,"");
+				document.getElementById("output").value = outputText;
+				tidy ("output", outputText);
+				updateMaximums();
+				return;
 			}
 			if (w1count === 1.5 && w2count === 1.5) {
 				m1a.push(w2a[0] + " ‹vs› " + l1a[0]);
@@ -671,6 +680,15 @@ function output () {
 			m1a.push(w1a[0] + " ‹vs› " + l1a[0]);
 			m1a.push(w1a[1] + " ‹vs› " + l1a[1]);
 			m1a.push(w1a[2] + " ‹vs› " + l1a[2]);
+			outputText = "▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂\n";
+			outputText += "Loser Bracket\n";
+			outputText += "▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔\n";
+			outputText += m1a.join("\n") + "\n";
+			outputText = outputText.replace(/\n\n/g,"\n").replace(/\n$/,"");
+			document.getElementById("output").value = outputText;
+			tidy ("output", outputText);
+			updateMaximums();
+			return;
 		}
 		if (w1count === 1.5 && w2count === 1.5) {
 			m1a.push(w1a[0] + " ‹vs› " + l1a[0]);
@@ -713,6 +731,15 @@ function output () {
 			m1a.push(w1a[0] + " ‹vs› " + l1a[1]);
 			m1a.push(l1a[0] + " ‹vs› " + w1a[1]);
 			m1a.push(w1a[2] + " ‹vs› " + l1a[2]);
+			outputText = "▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂\n";
+			outputText += "Loser Bracket\n";
+			outputText += "▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔\n";
+			outputText += m1a.join("\n") + "\n";
+			outputText = outputText.replace(/\n\n/g,"\n").replace(/\n$/,"");
+			document.getElementById("output").value = outputText;
+			tidy ("output", outputText);
+			updateMaximums();
+			return;
 		}
 		if (w1count === 1.5 && w2count === 1.5) {
 			m1a.push(w2a[0] + " ‹vs› " + l1a[1]);
@@ -755,6 +782,20 @@ function output () {
 	if (w1count === 0.5 && w2count === 0.5) {
 		m1a.push(w1a[0] + " ‹vs› " + l1a[0]);
 		m2a.push(w2a[0] + " ‹vs› " + l2a[0]);
+	}
+	if (w1count === 1.5 && w2count === 0) {
+		m1a.push(w1a[0] + " ‹vs› " + l1a[1]);
+		m1a.push(l1a[0] + " ‹vs› " + w1a[1]);
+		m1a.push(w1a[2] + " ‹vs› " + l1a[2]);
+		outputText = "▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂\n";
+		outputText += "Loser Bracket\n";
+		outputText += "▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔\n";
+		outputText += m1a.join("\n") + "\n";
+		outputText = outputText.replace(/\n\n/g,"\n").replace(/\n$/,"");
+		document.getElementById("output").value = outputText;
+		tidy ("output", outputText);
+		updateMaximums();
+		return;
 	}
 	if (w1count === 1.5 && w2count === 1.5) {
 		m1a.push(w1a[0] + " ‹vs› " + l1a[1]);
