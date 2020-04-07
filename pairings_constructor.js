@@ -413,7 +413,7 @@ function tidy (name, text) {
 	    emp2 = /()/,
 	    emp3 = /()/;
 	newtext = (/\s\svs\s\s/).test(text) ? text : text.replace(/(\S)\svs\s(\S)/g,"$1  vs  $2");
-	newtext = text.replace(/\n+/g,"\n").replace(/^\n/,"");
+	newtext = newtext.replace(/\n+/g,"\n").replace(/^\n/,"");
 	quad = {"top-left": "W1", "top-right": "W2", "bottom-left": "L1", "bottom-right": "L2", "output": "button"};
 	document.getElementById(name).value = newtext;
 	charcount = newtext.length;
