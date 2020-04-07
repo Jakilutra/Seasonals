@@ -154,13 +154,13 @@ function reversal () {
 	}
 	document.getElementById("button").innerHTML = document.getElementById("button").innerHTML.replace("De-Construct", "Construct");
 	document.getElementById("top-left").readOnly = false;
-	document.getElementById("top-left").placeholder = "Copy and paste text from the bracketmaker directly. 'vs' needs 2 spaces on each side.";
+	document.getElementById("top-left").placeholder = "Copy and paste text from the bracketmaker directly. 'vs' uses 2 spaces on each side in order to disambiguate names.";
 	document.getElementById("top-right").readOnly = false;
-	document.getElementById("top-right").placeholder = "Copy and paste text from the bracketmaker directly. 'vs' needs 2 spaces on each side.";
+	document.getElementById("top-right").placeholder = "Copy and paste text from the bracketmaker directly. 'vs' uses 2 spaces on each side in order to disambiguate names.";
 	document.getElementById("bottom-left").readOnly = false;
-	document.getElementById("bottom-left").placeholder = "Copy and paste text from the bracketmaker directly. 'vs' needs 2 spaces on each side.";
+	document.getElementById("bottom-left").placeholder = "Copy and paste text from the bracketmaker directly. 'vs' uses 2 spaces on each side in order to disambiguate names.";
 	document.getElementById("bottom-right").readOnly = false;
-	document.getElementById("bottom-right").placeholder = "Copy and paste text from the bracketmaker directly. 'vs' needs 2 spaces on each side.";
+	document.getElementById("bottom-right").placeholder = "Copy and paste text from the bracketmaker directly. 'vs' uses 2 spaces on each side in order to disambiguate names.";
 	document.getElementById("output").readOnly = true;
 	document.getElementById("output").value = "";
 	document.getElementById("output").placeholder = "Merged output will be displayed here.";
