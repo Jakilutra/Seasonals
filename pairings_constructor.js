@@ -412,9 +412,9 @@ function tidy (name, text) {
 	    emp1 = /()/,
 	    emp2 = /()/,
 	    emp3 = /()/;
-	// Single to Double Space Conversion 
+	// Single to Double Space Conversion (also change text to newtext in the line below).
 	// newtext = (/\s\svs\s\s/).test(text) ? text : text.replace(/(\S)\svs\s(\S)/g,"$1  vs  $2");
-	newtext = newtext.replace(/\n+/g,"\n").replace(/^\n/,"");
+	newtext = text.replace(/\n+/g,"\n").replace(/^\n/,"");
 	quad = {"top-left": "W1", "top-right": "W2", "bottom-left": "L1", "bottom-right": "L2", "output": "button"};
 	document.getElementById(name).value = newtext;
 	charcount = newtext.length;
