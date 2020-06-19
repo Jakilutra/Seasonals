@@ -409,6 +409,7 @@ function tidy (name, text) {
 	    omp4 = /()/,
 	    omp5 = /()/,
 	    omp6 = /()/,
+	    omp7 = /()/,
 	    emp1 = /()/,
 	    emp2 = /()/,
 	    emp3 = /()/;
@@ -437,10 +438,12 @@ function tidy (name, text) {
 		omp4 = /Right\s\/\sBottom\sLoser\sBracket\n/;
 		omp5 = /\nWinner\sBracket\n/;
 		omp6 = /\nLoser\sBracket\n/;
+		omp7 = /Config:\s\d\d?\d?\|R\d\d?\|\w+/;
 		linecount -= omp3.test(text) ? 0.5 : 0;
 		linecount -= omp4.test(text) ? 0.5 : 0;
 		linecount -= omp5.test(text) ? 0.5 : 0;
 		linecount -= omp6.test(text) ? 0.5 : 0;
+		linecount -= omp7.test(text) ? 0.5 : 0;
 		emp1 = /One or more text areas do not contain the specified number of pairings\./;
 		emp2 = /One or more pairings have names not prefixed with @\./;
 		emp3 = /One or more lines do not contain vs surrounded by 2 spaces\./;
