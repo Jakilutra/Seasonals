@@ -493,7 +493,9 @@ function updateMaximums () {
 	document.getElementById("button").innerHTML = document.getElementById("button").innerHTML.replace(/\/[.\d]+\]/, "/"+pairingSize*4+"]");
 }
 function output () {
-	var parityIndex = 0,
+	var sizeIndex = 0,
+	    scaleIndex = 0,
+	    parityIndex = 0,
 	    roundIndex = 0,
 	    methodIndex = 0,
 	    w1 = "",
@@ -530,6 +532,8 @@ function output () {
 	    method = "",
 	    outputText = "";
 	buttonclicked = true;
+	sizeIndex = document.getElementById("size").options.selectedIndex;
+	scaleIndex = document.getElementById("scaler").options.selectedIndex;
 	parityIndex = document.getElementById("parity").options.selectedIndex;
 	roundIndex = document.getElementById("round").options.selectedIndex;
 	methodIndex = document.getElementById("method").options.selectedIndex;
@@ -575,7 +579,8 @@ function output () {
 	l2count = countPairings(l2, pairPattern);
 	l2count += l2count !== l2max ? countPairings(l2, singlePattern)*0.5 : 0;
 	l2count += l2count !== l2max ? countPairings(l2, threePattern)*1.5 : 0;
-	size = localStorage.getItem("size");
+	size = Math.pow(2,sizeIndex+3);
+	size = scaleIndex === 1 ? size*1.5: size;
 	round = ((roundIndex+1)*2);
 	method = methodIndex === 0 ? "Stack": "Odd-even";
 	if (w1count !== w1max || w2count !== w2max || l1count !== l1max || l2count !== l2max) {
@@ -597,7 +602,7 @@ function output () {
 			outputText += "▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔\n";
 			outputText += l1.replace(/\s\svs\s\s/g," ‹vs› ") + "\n";
 			outputText += "▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂\n";
-			outputText += "Pairing Settings: #P = "+size*1.5+" | "+"R"+round+" | "+method+"\n";
+			outputText += "Config: "+size+"|"+"R"+round+"|"+method+"\n";
 			outputText += "▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔\n";
 			outputText = outputText.replace(/\n\n/g,"\n").replace(/\n$/,"");
 			document.getElementById("output").value = outputText;
@@ -621,6 +626,9 @@ function output () {
 		outputText += "Right / Bottom Loser Bracket\n";
 		outputText +="▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔\n";
 		outputText += l2.replace(/\s\svs\s\s/g," ‹vs› ") + "\n";
+		outputText += "▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂\n";
+		outputText += "Config: "+size+"|"+"R"+round+"|"+method+"\n";
+		outputText += "▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔\n";
 		outputText = outputText.replace(/\n\n/g,"\n").replace(/\n$/,"");
 		document.getElementById("output").value = outputText;
 		tidy ("output", outputText);
@@ -645,6 +653,9 @@ function output () {
 				outputText += "Loser Bracket\n";
 				outputText += "▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔\n";
 				outputText += m1a.join("\n") + "\n";
+				outputText += "▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂\n";
+			        outputText += "Config: "+size+"|"+"R"+round+"|"+method+"\n";
+			        outputText += "▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔\n";
 				outputText = outputText.replace(/\n\n/g,"\n").replace(/\n$/,"");
 				document.getElementById("output").value = outputText;
 				tidy ("output", outputText);
@@ -677,6 +688,9 @@ function output () {
 			outputText += "Right / Bottom Loser Bracket\n";
 			outputText +="▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔\n";
 			outputText += m2a.join("\n") + "\n";
+			outputText += "▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂\n";
+			outputText += "Config: "+size+"|"+"R"+round+"|"+method+"\n";
+			outputText += "▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔\n";
 			outputText = outputText.replace(/\n\n/g,"\n").replace(/\n$/,"");
 			document.getElementById("output").value = outputText;
 			tidy ("output", outputText);
@@ -695,6 +709,9 @@ function output () {
 			outputText += "Loser Bracket\n";
 			outputText += "▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔\n";
 			outputText += m1a.join("\n") + "\n";
+			outputText += "▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂\n";
+			outputText += "Config: "+size+"|"+"R"+round+"|"+method+"\n";
+			outputText += "▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔\n";
 			outputText = outputText.replace(/\n\n/g,"\n").replace(/\n$/,"");
 			document.getElementById("output").value = outputText;
 			tidy ("output", outputText);
@@ -727,6 +744,9 @@ function output () {
 		outputText += "Right / Bottom Loser Bracket\n";
 		outputText +="▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔\n";
 		outputText += m2a.join("\n") + "\n";
+		outputText += "▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂\n";
+		outputText += "Config: "+size+"|"+"R"+round+"|"+method+"\n";
+		outputText += "▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔\n";
 		outputText = outputText.replace(/\n\n/g,"\n").replace(/\n$/,"");
 		document.getElementById("output").value = outputText;
 		tidy ("output", outputText);
@@ -746,6 +766,9 @@ function output () {
 			outputText += "Loser Bracket\n";
 			outputText += "▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔\n";
 			outputText += m1a.join("\n") + "\n";
+			outputText += "▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂\n";
+			outputText += "Config: "+size+"|"+"R"+round+"|"+method+"\n";
+			outputText += "▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔\n";
 			outputText = outputText.replace(/\n\n/g,"\n").replace(/\n$/,"");
 			document.getElementById("output").value = outputText;
 			tidy ("output", outputText);
@@ -784,6 +807,9 @@ function output () {
 		outputText += "Right / Bottom Loser Bracket\n";
 		outputText +="▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔\n";
 		outputText += m2a.join("\n") + "\n";
+		outputText += "▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂\n";
+		outputText += "Config: "+size+"|"+"R"+round+"|"+method+"\n";
+		outputText += "▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔\n";
 		outputText = outputText.replace(/\n\n/g,"\n").replace(/\n$/,"");
 		document.getElementById("output").value = outputText;
 		tidy ("output", outputText);
@@ -802,6 +828,9 @@ function output () {
 		outputText += "Loser Bracket\n";
 		outputText += "▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔\n";
 		outputText += m1a.join("\n") + "\n";
+		outputText += "▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂\n";
+		outputText += "Config: "+size+"|"+"R"+round+"|"+method+"\n";
+		outputText += "▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔\n";
 		outputText = outputText.replace(/\n\n/g,"\n").replace(/\n$/,"");
 		document.getElementById("output").value = outputText;
 		tidy ("output", outputText);
@@ -840,6 +869,9 @@ function output () {
 	outputText += "Right / Bottom Loser Bracket\n";
 	outputText +="▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔\n";
 	outputText += m2a.join("\n") + "\n";
+	outputText += "▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂\n";
+	outputText += "Config: "+size+"|"+"R"+round+"|"+method+"\n";
+	outputText += "▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔\n";
 	outputText = outputText.replace(/\n\n/g,"\n").replace(/\n$/,"");
 	document.getElementById("output").value = outputText;
 	tidy ("output", outputText);
