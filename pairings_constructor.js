@@ -526,6 +526,8 @@ function output () {
 	    m1a = [],
 	    m2a = [],
 	    size = "",
+	    round = "",
+	    method = "",
 	    outputText = "";
 	buttonclicked = true;
 	parityIndex = document.getElementById("parity").options.selectedIndex;
@@ -574,6 +576,8 @@ function output () {
 	l2count += l2count !== l2max ? countPairings(l2, singlePattern)*0.5 : 0;
 	l2count += l2count !== l2max ? countPairings(l2, threePattern)*1.5 : 0;
 	size = localStorage.getItem("size");
+	round = localStorage.getItem("round");
+	method = localStorage.getItem("method");
 	if (w1count !== w1max || w2count !== w2max || l1count !== l1max || l2count !== l2max) {
 		if (atOn) {
 			tidy("output", "One or more pairings have names not prefixed with @.");
@@ -593,7 +597,7 @@ function output () {
 			outputText += "▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔\n";
 			outputText += l1.replace(/\s\svs\s\s/g," ‹vs› ") + "\n";
 			outputText += "▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂\n";
-			outputText += "Pairing Settings: #P = "+size*1.5+" | "+"R12"+" | "+"even-odd"+"\n";
+			outputText += "Pairing Settings: #P = "+size*1.5+" | "+"R"+round+" | "+method+"\n";
 			outputText += "▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔\n";
 			outputText = outputText.replace(/\n\n/g,"\n").replace(/\n$/,"");
 			document.getElementById("output").value = outputText;
