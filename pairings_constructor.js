@@ -585,6 +585,7 @@ function output () {
 	size = Math.pow(2,sizeIndex+3);
 	size = scaleIndex === 1 ? size*1.5: size;
 	round = ((roundIndex+1)*2);
+	round = parityIndex === 1 ? round+1:round;
 	method = methodIndex === 0 ? "Stack": "Odd-even";
 	if (w1count !== w1max || w2count !== w2max || l1count !== l1max || l2count !== l2max) {
 		if (atOn) {
