@@ -577,7 +577,7 @@ function output () {
 	l2count += l2count !== l2max ? countPairings(l2, threePattern)*1.5 : 0;
 	size = localStorage.getItem("size");
 	round = localStorage.getItem("round");
-	method = localStorage.getItem("method");
+	method = methodIndex === 0 ? "Stack": "Odd-even";
 	if (w1count !== w1max || w2count !== w2max || l1count !== l1max || l2count !== l2max) {
 		if (atOn) {
 			tidy("output", "One or more pairings have names not prefixed with @.");
